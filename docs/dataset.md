@@ -1,11 +1,11 @@
 Dataset
-==================
+=======
 
-User can use LPOT builtin datasets as well as register their own datasets.
+Users can use LPOT built-in dataset objects as well as register their own datasets.
 
-## Builtin dataset support list
+## Built-in dataset support list
 
-LPOT supports builtin dataloader on popular industry dataset. Please refer to 'examples/helloworld/tf_example1' about how to config a builtin dataloader.
+LPOT supports built-in dataloaders on popular industry datasets. Refer to 'examples/helloworld/tf_example1' to learn how to configure a built-in dataloader.
 
 #### TensorFlow
 
@@ -66,9 +66,9 @@ LPOT supports builtin dataloader on popular industry dataset. Please refer to 'e
 | dummy(shape, low, high, dtype, label, transform, filter) | **shape** (list or tuple):support create multi shape tensors, use list of tuples for each tuple in the list, will create a such size tensor. <br> **low** (list or float, default=-128.):low out the tensor value range from[0, 1] to [0, low] or [low, 0] if low < 0, if float, will implement all tensors with same low value. <br> **high** (list or float, default=127.):high the tensor value by add all tensor element value high. If list, length of list should be same with shape list <br> **dtype** (list or str, default='float32'):support multi tensor dtype setting. If list, length of list should be same with shape list, if str, all tensors will use same dtype. dtype support 'float32', 'float16', 'uint8', 'int8', 'int32', 'int64', 'bool' <br> **label** (bool, default=False):whether to return 0 as label <br> **transform** (transform object, default=None): dummy dataset does not need transform. If transform is not None, it will ignore it. <br> **filter** (Filter objects, default=None): filter out examples according to specific conditions | This dataset is to construct a dataset from a specific shape, the value range is calculated from: low * stand_normal(0, 1) + high. | **In yaml file:** <br> dataset: <br> &ensp;&ensp; dummy: <br> &ensp;&ensp;&ensp;&ensp; shape: [3, 224, 224, 3] <br> &ensp;&ensp;&ensp;&ensp; low: 0.0 <br> &ensp;&ensp;&ensp;&ensp; high: 127.0 <br> &ensp;&ensp;&ensp;&ensp; dtype: float32 <br> &ensp;&ensp;&ensp;&ensp; label: False <br> **In user code:** <br> from lpot.experimental.data import DATASETS <br> datasets = DATASETS(framework) <br> dataset = datasets['dummy'] (shape, low, high, dtype, label, transform=None, filter=None) |
 
 
-## User specific dataset
+## User-specific dataset
 
-User can register their own dataset as follows:
+Users can register their own datasets as follows:
 
 ```python
 class Dataset(object):
@@ -84,7 +84,7 @@ class Dataset(object):
 
 ```
 
-After defining the dataset class, user can pass it to quantizer.
+After defining the dataset class, pass it to the quantizer:
 
 ```python
 from lpot import Quantization, common

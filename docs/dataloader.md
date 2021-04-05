@@ -1,7 +1,7 @@
 DataLoader
-=========================================
+==========
 
-Deep Learning has been encountering larger and larger datasets which are so memory consuming. Before, working with large datasets requires loading them into memory all at once. It is impossible due to the lack of memory, we must figure out an efficient data generation scheme. This is not only about handle the lack of memory in large datasets, also about make the process of loading data faster enough using multi processing/thread. We call the data generation object as 'DataLoader'.
+Deep Learning often encounters large datasets that are memory-consuming. Previously, working with large datasets required loading them into memory all at once. The constant lack of memory resulted in the need for an efficient data generation scheme. This is not only about handle the lack of memory in large datasets, also about make the process of loading data faster enough using multi processing/thread. We call the data generation object as 'DataLoader'.
 
 With the importance of DataLoader, different framework have their own DataLoadermodule, as for Intel® Low Precision Optimization Tool, it needs to calibrate the inputs/outputs of each layer of the model, framework specific DataLoader has different features and API that will make it hard to use them same way in the tool. Another request is, the tool also treat batch size as a tuning parameter, that means the tool can dynamically change the batch size to get accuracy target. The third reason is for easy of use, an unified DataLoader API can make it easy to config dataloader in yaml file without any code modification. Considering about all these advantages the tool has implemented an internal DataLoader.
 
