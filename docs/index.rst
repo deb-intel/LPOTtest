@@ -1,5 +1,5 @@
-Developer Guides
-################
+Developer Docs
+##############
 
 Read the following material as you learn how to use LPOT.
 
