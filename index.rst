@@ -15,7 +15,7 @@ Sections
    docs/introduction.md
    examples/readme.rst
    docs/index.rst
-   release
+   release.md
    CONTRIBUTING.md
    CODE_OF_CONDUCT.md
    legal_information.md
