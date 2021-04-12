@@ -1,14 +1,11 @@
-name: Publish
+name: Check
 
-on:
-  push:
-    branches:
-        - docs-headers-updates
+on: [push]
 
 jobs:
-  build:
+  build:
 
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted]
 
     steps:
     - uses: actions/checkout@v1
@@ -16,10 +13,11 @@ jobs:
       run: |
         export PATH="$HOME/.local/bin:$PATH"
         sudo apt-get install -y python3-setuptools
-        pip3 install --user -r sphinx-requirements.txt
+        pip3 install --user -r docs/requirements.txt
     - name: Build the docs
       run: |
-        export PATH="$HOME/.local/bin:$PATH"    
+        export PATH="$HOME/.local/bin:$PATH"
+        cd docs
         make html
     - name: Push the docs
       uses: peaceiris/actions-gh-pages@v3
