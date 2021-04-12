@@ -1,4 +1,4 @@
-# Contributing guidelines
+# Contributing Guidelines
 If you have improvements to Intel® Low Precision Optimization Tool, send us your pull requests for
 [review](https://github.com/intel/lpot/pulls)! For those
 just getting started, Github has a
