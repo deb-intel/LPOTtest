@@ -22,8 +22,6 @@ html:
 	cp docs/imgs/infrastructure.jpg "$(BUILDDIR)/html/docs/imgs/infrastructure.jpg"
 	cp docs/imgs/workflow.jpg "$(BUILDDIR)/html/docs/imgs/workflow.jpg"	
 	cp docs/imgs/tutorial.png "$(BUILDDIR)/html/docs/imgs/tutorial.png"
-	cp docs/imgs/ymal.png "$(BUILDDIR)/html/docs/imgs/ymal.png"
-	cp docs/imgs/launcher.png "$(BUILDDIR)/html/docs/imgs/launcher.png"
 	cp docs/imgs/template.png "$(BUILDDIR)/html/docs/imgs/template.png"
 
 
