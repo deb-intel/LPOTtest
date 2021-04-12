@@ -1,0 +1,307 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>🤗 Transformers Notebooks &mdash; Intel® Low Precision Optimization Tool  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Intel® Low Precision Optimization Tool
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../welcome.html">Introduction to Intel LPOT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/introduction.html">APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../readme.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/index.html">Developer Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../CONTRIBUTING.html">Contributing guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../CODE_OF_CONDUCT.html">Contributor Covenant Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../legal_information.html">Legal Information {#legal_information}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../legal_information.html#trademark-information">Trademark Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../SECURITY.html">Security Policy</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Intel® Low Precision Optimization Tool</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>🤗 Transformers Notebooks</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../_sources/examples/pytorch/huggingface_models/notebooks/README.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <!---
+Copyright 2020 The HuggingFace Team. All rights reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+--><div class="section" id="transformers-notebooks">
+<h1>🤗 Transformers Notebooks<a class="headerlink" href="#transformers-notebooks" title="Permalink to this headline">¶</a></h1>
+<p>You can find here a list of the official notebooks provided by Hugging Face.</p>
+<p>Also, we would like to list here interesting content created by the community.
+If you wrote some notebook(s) leveraging 🤗 Transformers and would like be listed here, please open a
+Pull Request so it can be included under the Community notebooks.</p>
+<div class="section" id="hugging-face-s-notebooks">
+<h2>Hugging Face’s notebooks 🤗<a class="headerlink" href="#hugging-face-s-notebooks" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th align="left">Notebook</th>
+<th align="left">Description</th>
+<th align="right"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><a href="https://github.com/huggingface/transformers/blob/master/notebooks/01-training-tokenizers.ipynb">Getting Started Tokenizers</a></td>
+<td align="left">How to train and use your very own tokenizer</td>
+<td align="right"><a href="https://colab.research.google.com/github/huggingface/transformers/blob/master/notebooks/01-training-tokenizers.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/huggingface/transformers/blob/master/notebooks/02-transformers.ipynb">Getting Started Transformers</a></td>
+<td align="left">How to easily start using transformers</td>
+<td align="right"><a href="https://colab.research.google.com/github/huggingface/transformers/blob/master/notebooks/02-transformers.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/huggingface/transformers/blob/master/notebooks/03-pipelines.ipynb">How to use Pipelines</a></td>
+<td align="left">Simple and efficient way to use State-of-the-Art models on downstream tasks through transformers</td>
+<td align="right"><a href="https://colab.research.google.com/github/huggingface/transformers/blob/master/notebooks/03-pipelines.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/huggingface/notebooks/blob/master/examples/text_classification.ipynb">How to fine-tune a model on text classification</a></td>
+<td align="left">Show how to preprocess the data and fine-tune a pretrained model on any GLUE task.</td>
+<td align="right"><a href="https://colab.research.google.com/github/huggingface/notebooks/blob/master/examples/text_classification.ipynb"><img alt="Open in Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/huggingface/notebooks/blob/master/examples/language_modeling.ipynb">How to fine-tune a model on language modeling</a></td>
+<td align="left">Show how to preprocess the data and fine-tune a pretrained model on a causal or masked LM task.</td>
+<td align="right"><a href="https://colab.research.google.com/github/huggingface/notebooks/blob/master/examples/language_modeling.ipynb"><img alt="Open in Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/huggingface/notebooks/blob/master/examples/token_classification.ipynb">How to fine-tune a model on token classification</a></td>
+<td align="left">Show how to preprocess the data and fine-tune a pretrained model on a token classification task (NER, PoS).</td>
+<td align="right"><a href="https://colab.research.google.com/github/huggingface/notebooks/blob/master/examples/token_classification.ipynb"><img alt="Open in Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/huggingface/notebooks/blob/master/examples/question_answering.ipynb">How to fine-tune a model on question answering</a></td>
+<td align="left">Show how to preprocess the data and fine-tune a pretrained model on SQUAD.</td>
+<td align="right"><a href="https://colab.research.google.com/github/huggingface/notebooks/blob/master/examples/question_answering.ipynb"><img alt="Open in Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/huggingface/blog/blob/master/notebooks/01_how_to_train.ipynb">How to train a language model from scratch</a></td>
+<td align="left">Highlight all the steps to effectively train Transformer model on custom data</td>
+<td align="right"><a href="https://colab.research.google.com/github/huggingface/blog/blob/master/notebooks/01_how_to_train.ipynb"><img alt="Open in Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/huggingface/blog/blob/master/notebooks/02_how_to_generate.ipynb">How to generate text</a></td>
+<td align="left">How to use different decoding methods for language generation with transformers</td>
+<td align="right"><a href="https://colab.research.google.com/github/huggingface/blog/blob/master/notebooks/02_how_to_generate.ipynb"><img alt="Open in Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/huggingface/transformers/blob/master/notebooks/04-onnx-export.ipynb">How to export model to ONNX</a></td>
+<td align="left">Highlight how to export and run inference workloads through ONNX</td>
+<td align="right"></td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/huggingface/transformers/blob/master/notebooks/05-benchmark.ipynb">How to use Benchmarks</a></td>
+<td align="left">How to benchmark models with transformers</td>
+<td align="right"><a href="https://colab.research.google.com/github/huggingface/transformers/blob/master/notebooks/05-benchmark.ipynb"><img alt="Open in Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/huggingface/blog/blob/master/notebooks/03_reformer.ipynb">Reformer</a></td>
+<td align="left">How Reformer pushes the limits of language modeling</td>
+<td align="right"><a href="https://colab.research.google.com/github/patrickvonplaten/blog/blob/master/notebooks/03_reformer.ipynb"><img alt="Open in Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="community-notebooks">
+<h2>Community notebooks:<a class="headerlink" href="#community-notebooks" title="Permalink to this headline">¶</a></h2>
+<p>More notebooks developed by the community are available <a class="reference external" href="https://huggingface.co/transformers/master/community.html#community-notebooks">here</a>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Intel® LPOT.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,265 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Installation &mdash; Intel® Low Precision Optimization Tool  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../../" src="../../../../../_static/documentation_options.js"></script>
+        <script src="../../../../../_static/jquery.js"></script>
+        <script src="../../../../../_static/underscore.js"></script>
+        <script src="../../../../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> Intel® Low Precision Optimization Tool
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../welcome.html">Introduction to Intel LPOT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../docs/introduction.html">APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../readme.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../docs/index.html">Developer Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../CONTRIBUTING.html">Contributing guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../CODE_OF_CONDUCT.html">Contributor Covenant Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../legal_information.html">Legal Information {#legal_information}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../legal_information.html#trademark-information">Trademark Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../SECURITY.html">Security Policy</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">Intel® Low Precision Optimization Tool</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Installation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../../_sources/examples/pytorch/language_translation/docs/source/installation.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<p>Transformers is tested on Python 2.7 and 3.5+ (examples are tested only on python 3.5+) and PyTorch 1.1.0</p>
+<div class="section" id="with-pip">
+<h2>With pip<a class="headerlink" href="#with-pip" title="Permalink to this headline">¶</a></h2>
+<p>PyTorch Transformers can be installed using pip as follows:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install transformers
+</pre></div>
+</div>
+</div>
+<div class="section" id="from-source">
+<h2>From source<a class="headerlink" href="#from-source" title="Permalink to this headline">¶</a></h2>
+<p>To install from source, clone the repository and install with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/huggingface/transformers.git
+<span class="nb">cd</span> transformers
+pip install <span class="o">[</span>--editable<span class="o">]</span> .
+</pre></div>
+</div>
+</div>
+<div class="section" id="tests">
+<h2>Tests<a class="headerlink" href="#tests" title="Permalink to this headline">¶</a></h2>
+<p>An extensive test suite is included to test the library behavior and several examples. Library tests can be found in the <a class="reference external" href="https://github.com/huggingface/transformers/tree/master/transformers/tests">tests folder</a> and examples tests in the <a class="reference external" href="https://github.com/huggingface/transformers/tree/master/examples">examples folder</a>.</p>
+<p>Tests can be run using <code class="docutils literal notranslate"><span class="pre">unittest</span></code> or <code class="docutils literal notranslate"><span class="pre">pytest</span></code> (install pytest if needed with <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">pytest</span></code>).</p>
+<p>Run all the tests from the root of the cloned repository with the commands:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python -m unittest discover -s transformers/tests -p <span class="s2">&quot;*test.py&quot;</span> -t .
+python -m unittest discover -s examples -p <span class="s2">&quot;*test.py&quot;</span> -t examples
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python -m pytest -sv ./transformers/tests/
+python -m pytest -sv ./examples/
+</pre></div>
+</div>
+<p>By default, slow tests are skipped. Set the <code class="docutils literal notranslate"><span class="pre">RUN_SLOW</span></code> environment variable to <code class="docutils literal notranslate"><span class="pre">yes</span></code> to run them.</p>
+</div>
+<div class="section" id="openai-gpt-original-tokenization-workflow">
+<h2>OpenAI GPT original tokenization workflow<a class="headerlink" href="#openai-gpt-original-tokenization-workflow" title="Permalink to this headline">¶</a></h2>
+<p>If you want to reproduce the original tokenization process of the <code class="docutils literal notranslate"><span class="pre">OpenAI</span> <span class="pre">GPT</span></code> paper, you will need to install <code class="docutils literal notranslate"><span class="pre">ftfy</span></code> (use version 4.4.3 if you are using Python 2) and <code class="docutils literal notranslate"><span class="pre">SpaCy</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install spacy <span class="nv">ftfy</span><span class="o">==</span><span class="m">4</span>.4.3
+python -m spacy download en
+</pre></div>
+</div>
+<p>If you don’t install <code class="docutils literal notranslate"><span class="pre">ftfy</span></code> and <code class="docutils literal notranslate"><span class="pre">SpaCy</span></code>, the <code class="docutils literal notranslate"><span class="pre">OpenAI</span> <span class="pre">GPT</span></code> tokenizer will default to tokenize using BERT’s <code class="docutils literal notranslate"><span class="pre">BasicTokenizer</span></code> followed by Byte-Pair Encoding (which should be fine for most usage, don’t worry).</p>
+</div>
+<div class="section" id="note-on-model-downloads-continuous-integration-or-large-scale-deployments">
+<h2>Note on model downloads (Continuous Integration or large-scale deployments)<a class="headerlink" href="#note-on-model-downloads-continuous-integration-or-large-scale-deployments" title="Permalink to this headline">¶</a></h2>
+<p>If you expect to be downloading large volumes of models (more than 1,000) from our hosted bucket (for instance through your CI setup, or a large-scale production deployment), please cache the model files on your end. It will be way faster, and cheaper. Feel free to contact us privately if you need any help.</p>
+</div>
+<div class="section" id="do-you-want-to-run-a-transformer-model-on-a-mobile-device">
+<h2>Do you want to run a Transformer model on a mobile device?<a class="headerlink" href="#do-you-want-to-run-a-transformer-model-on-a-mobile-device" title="Permalink to this headline">¶</a></h2>
+<p>You should check out our <a class="reference external" href="https://github.com/huggingface/swift-coreml-transformers">swift-coreml-transformers</a> repo.</p>
+<p>It contains a set of tools to convert PyTorch or TensorFlow 2.0 trained Transformer models (currently contains <code class="docutils literal notranslate"><span class="pre">GPT-2</span></code>, <code class="docutils literal notranslate"><span class="pre">DistilGPT-2</span></code>, <code class="docutils literal notranslate"><span class="pre">BERT</span></code>, and <code class="docutils literal notranslate"><span class="pre">DistilBERT</span></code>) to CoreML models that run on iOS devices.</p>
+<p>At some point in the future, you’ll be able to seamlessly move from pre-training or fine-tuning models in PyTorch to productizing them in CoreML,
+or prototype a model or an app in CoreML then research its hyperparameters or architecture from PyTorch. Super exciting!</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Intel® LPOT.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

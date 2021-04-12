@@ -1,0 +1,262 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Generating the documentation &mdash; Intel® Low Precision Optimization Tool  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Intel® Low Precision Optimization Tool
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../welcome.html">Introduction to Intel LPOT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/introduction.html">APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../readme.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/index.html">Developer Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../CONTRIBUTING.html">Contributing guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../CODE_OF_CONDUCT.html">Contributor Covenant Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../legal_information.html">Legal Information {#legal_information}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../legal_information.html#trademark-information">Trademark Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../SECURITY.html">Security Policy</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Intel® Low Precision Optimization Tool</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Generating the documentation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../_sources/examples/pytorch/language_translation/docs/README.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="generating-the-documentation">
+<h1>Generating the documentation<a class="headerlink" href="#generating-the-documentation" title="Permalink to this headline">¶</a></h1>
+<p>To generate the documentation, you first have to build it. Several packages are necessary to build the doc,
+you can install them using:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install -r requirements.txt
+</pre></div>
+</div>
+<div class="section" id="packages-installed">
+<h2>Packages installed<a class="headerlink" href="#packages-installed" title="Permalink to this headline">¶</a></h2>
+<p>Here’s an overview of all the packages installed. If you ran the previous command installing all packages from
+<code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code>, you do not need to run the following commands.</p>
+<p>Building it requires the package <code class="docutils literal notranslate"><span class="pre">sphinx</span></code> that you can
+install using:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install -U sphinx
+</pre></div>
+</div>
+<p>You would also need the custom installed <a class="reference external" href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> by
+<a class="reference external" href="https://readthedocs.org/">Read The Docs</a>. You can install it using the following command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install sphinx_rtd_theme
+</pre></div>
+</div>
+<p>The third necessary package is the <code class="docutils literal notranslate"><span class="pre">recommonmark</span></code> package to accept Markdown as well as Restructured text:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install recommonmark
+</pre></div>
+</div>
+</div>
+<div class="section" id="building-the-documentation">
+<h2>Building the documentation<a class="headerlink" href="#building-the-documentation" title="Permalink to this headline">¶</a></h2>
+<p>Make sure that there is a symlink from the <code class="docutils literal notranslate"><span class="pre">example</span></code> file (in /examples) inside the source folder. Run the following
+command to generate it:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ln -s ../../examples/README.md examples.md
+</pre></div>
+</div>
+<p>Once you have setup <code class="docutils literal notranslate"><span class="pre">sphinx</span></code>, you can build the documentation by running the following command in the <code class="docutils literal notranslate"><span class="pre">/docs</span></code> folder:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make html
+</pre></div>
+</div>
+<hr class="docutils" />
+<p><strong>NOTE</strong></p>
+<p>If you are adding/removing elements from the toc-tree or from any structural item, it is recommended to clean the build
+directory before rebuilding. Run the following command to clean and build:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make clean <span class="o">&amp;&amp;</span> make html
+</pre></div>
+</div>
+<hr class="docutils" />
+<p>It should build the static app that will be available under <code class="docutils literal notranslate"><span class="pre">/docs/_build/html</span></code></p>
+</div>
+<div class="section" id="adding-a-new-element-to-the-tree-toc-tree">
+<h2>Adding a new element to the tree (toc-tree)<a class="headerlink" href="#adding-a-new-element-to-the-tree-toc-tree" title="Permalink to this headline">¶</a></h2>
+<p>Accepted files are reStructuredText (.rst) and Markdown (.md). Create a file with its extension and put it
+in the source directory. You can then link it to the toc-tree by putting the filename without the extension.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Intel® LPOT.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

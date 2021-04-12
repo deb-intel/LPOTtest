@@ -1,0 +1,468 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Token classification &mdash; Intel® Low Precision Optimization Tool  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../../_static/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../../../" src="../../../../../../_static/documentation_options.js"></script>
+        <script src="../../../../../../_static/jquery.js"></script>
+        <script src="../../../../../../_static/underscore.js"></script>
+        <script src="../../../../../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../../../index.html" class="icon icon-home"> Intel® Low Precision Optimization Tool
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../welcome.html">Introduction to Intel LPOT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../docs/introduction.html">APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../readme.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../docs/index.html">Developer Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../CONTRIBUTING.html">Contributing guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../CODE_OF_CONDUCT.html">Contributor Covenant Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../legal_information.html">Legal Information {#legal_information}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../legal_information.html#trademark-information">Trademark Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../SECURITY.html">Security Policy</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../../index.html">Intel® Low Precision Optimization Tool</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Token classification</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../../../_sources/examples/pytorch/huggingface_models/examples/legacy/token-classification/README.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="token-classification">
+<h1>Token classification<a class="headerlink" href="#token-classification" title="Permalink to this headline">¶</a></h1>
+<p>Based on the scripts <a class="reference external" href="https://github.com/huggingface/transformers/blob/master/examples/contrib/legacy/token-classification/run_ner.py"><code class="docutils literal notranslate"><span class="pre">run_ner.py</span></code></a>.</p>
+<p>The following examples are covered in this section:</p>
+<ul class="simple">
+<li><p>NER on the GermEval 2014 (German NER) dataset</p></li>
+<li><p>Emerging and Rare Entities task: WNUT’17 (English NER) dataset</p></li>
+</ul>
+<p>Details and results for the fine-tuning provided by &#64;stefan-it.</p>
+<div class="section" id="germeval-2014-german-ner-dataset">
+<h2>GermEval 2014 (German NER) dataset<a class="headerlink" href="#germeval-2014-german-ner-dataset" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="data-download-and-pre-processing-steps">
+<h3>Data (Download and pre-processing steps)<a class="headerlink" href="#data-download-and-pre-processing-steps" title="Permalink to this headline">¶</a></h3>
+<p>Data can be obtained from the <a class="reference external" href="https://sites.google.com/site/germeval2014ner/data">GermEval 2014</a> shared task page.</p>
+<p>Here are the commands for downloading and pre-processing train, dev and test datasets. The original data format has four (tab-separated) columns, in a pre-processing step only the two relevant columns (token and outer span NER annotation) are extracted:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl -L <span class="s1">&#39;https://drive.google.com/uc?export=download&amp;id=1Jjhbal535VVz2ap4v4r_rN1UEHTdLK5P&#39;</span> <span class="se">\</span>
+<span class="p">|</span> grep -v <span class="s2">&quot;^#&quot;</span> <span class="p">|</span> cut -f <span class="m">2</span>,3 <span class="p">|</span> tr <span class="s1">&#39;\t&#39;</span> <span class="s1">&#39; &#39;</span> &gt; train.txt.tmp
+curl -L <span class="s1">&#39;https://drive.google.com/uc?export=download&amp;id=1ZfRcQThdtAR5PPRjIDtrVP7BtXSCUBbm&#39;</span> <span class="se">\</span>
+<span class="p">|</span> grep -v <span class="s2">&quot;^#&quot;</span> <span class="p">|</span> cut -f <span class="m">2</span>,3 <span class="p">|</span> tr <span class="s1">&#39;\t&#39;</span> <span class="s1">&#39; &#39;</span> &gt; dev.txt.tmp
+curl -L <span class="s1">&#39;https://drive.google.com/uc?export=download&amp;id=1u9mb7kNJHWQCWyweMDRMuTFoOHOfeBTH&#39;</span> <span class="se">\</span>
+<span class="p">|</span> grep -v <span class="s2">&quot;^#&quot;</span> <span class="p">|</span> cut -f <span class="m">2</span>,3 <span class="p">|</span> tr <span class="s1">&#39;\t&#39;</span> <span class="s1">&#39; &#39;</span> &gt; test.txt.tmp
+</pre></div>
+</div>
+<p>The GermEval 2014 dataset contains some strange “control character” tokens like <code class="docutils literal notranslate"><span class="pre">'\x96',</span> <span class="pre">'\u200e',</span> <span class="pre">'\x95',</span> <span class="pre">'\xad'</span> <span class="pre">or</span> <span class="pre">'\x80'</span></code>.
+One problem with these tokens is, that <code class="docutils literal notranslate"><span class="pre">BertTokenizer</span></code> returns an empty token for them, resulting in misaligned <code class="docutils literal notranslate"><span class="pre">InputExample</span></code>s.
+The <code class="docutils literal notranslate"><span class="pre">preprocess.py</span></code> script located in the <code class="docutils literal notranslate"><span class="pre">scripts</span></code> folder a) filters these tokens and b) splits longer sentences into smaller ones (once the max. subtoken length is reached).</p>
+<p>Let’s define some variables that we need for further pre-processing steps and training the model:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">MAX_LENGTH</span><span class="o">=</span><span class="m">128</span>
+<span class="nb">export</span> <span class="nv">BERT_MODEL</span><span class="o">=</span>bert-base-multilingual-cased
+</pre></div>
+</div>
+<p>Run the pre-processing script on training, dev and test datasets:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 scripts/preprocess.py train.txt.tmp <span class="nv">$BERT_MODEL</span> <span class="nv">$MAX_LENGTH</span> &gt; train.txt
+python3 scripts/preprocess.py dev.txt.tmp <span class="nv">$BERT_MODEL</span> <span class="nv">$MAX_LENGTH</span> &gt; dev.txt
+python3 scripts/preprocess.py test.txt.tmp <span class="nv">$BERT_MODEL</span> <span class="nv">$MAX_LENGTH</span> &gt; test.txt
+</pre></div>
+</div>
+<p>The GermEval 2014 dataset has much more labels than CoNLL-2002/2003 datasets, so an own set of labels must be used:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat train.txt dev.txt test.txt <span class="p">|</span> cut -d <span class="s2">&quot; &quot;</span> -f <span class="m">2</span> <span class="p">|</span> grep -v <span class="s2">&quot;^</span>$<span class="s2">&quot;</span><span class="p">|</span> sort <span class="p">|</span> uniq &gt; labels.txt
+</pre></div>
+</div>
+</div>
+<div class="section" id="prepare-the-run">
+<h3>Prepare the run<a class="headerlink" href="#prepare-the-run" title="Permalink to this headline">¶</a></h3>
+<p>Additional environment variables must be set:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">OUTPUT_DIR</span><span class="o">=</span>germeval-model
+<span class="nb">export</span> <span class="nv">BATCH_SIZE</span><span class="o">=</span><span class="m">32</span>
+<span class="nb">export</span> <span class="nv">NUM_EPOCHS</span><span class="o">=</span><span class="m">3</span>
+<span class="nb">export</span> <span class="nv">SAVE_STEPS</span><span class="o">=</span><span class="m">750</span>
+<span class="nb">export</span> <span class="nv">SEED</span><span class="o">=</span><span class="m">1</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="run-the-pytorch-version">
+<h3>Run the Pytorch version<a class="headerlink" href="#run-the-pytorch-version" title="Permalink to this headline">¶</a></h3>
+<p>To start training, just run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 run_ner.py --data_dir ./ <span class="se">\</span>
+--labels ./labels.txt <span class="se">\</span>
+--model_name_or_path <span class="nv">$BERT_MODEL</span> <span class="se">\</span>
+--output_dir <span class="nv">$OUTPUT_DIR</span> <span class="se">\</span>
+--max_seq_length  <span class="nv">$MAX_LENGTH</span> <span class="se">\</span>
+--num_train_epochs <span class="nv">$NUM_EPOCHS</span> <span class="se">\</span>
+--per_device_train_batch_size <span class="nv">$BATCH_SIZE</span> <span class="se">\</span>
+--save_steps <span class="nv">$SAVE_STEPS</span> <span class="se">\</span>
+--seed <span class="nv">$SEED</span> <span class="se">\</span>
+--do_train <span class="se">\</span>
+--do_eval <span class="se">\</span>
+--do_predict
+</pre></div>
+</div>
+<p>If your GPU supports half-precision training, just add the <code class="docutils literal notranslate"><span class="pre">--fp16</span></code> flag. After training, the model will be both evaluated on development and test datasets.</p>
+</div>
+<div class="section" id="json-based-configuration-file">
+<h3>JSON-based configuration file<a class="headerlink" href="#json-based-configuration-file" title="Permalink to this headline">¶</a></h3>
+<p>Instead of passing all parameters via commandline arguments, the <code class="docutils literal notranslate"><span class="pre">run_ner.py</span></code> script also supports reading parameters from a json-based configuration file:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;data_dir&quot;</span><span class="p">:</span> <span class="s2">&quot;.&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;labels&quot;</span><span class="p">:</span> <span class="s2">&quot;./labels.txt&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;model_name_or_path&quot;</span><span class="p">:</span> <span class="s2">&quot;bert-base-multilingual-cased&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;output_dir&quot;</span><span class="p">:</span> <span class="s2">&quot;germeval-model&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;max_seq_length&quot;</span><span class="p">:</span> <span class="mi">128</span><span class="p">,</span>
+    <span class="nt">&quot;num_train_epochs&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+    <span class="nt">&quot;per_device_train_batch_size&quot;</span><span class="p">:</span> <span class="mi">32</span><span class="p">,</span>
+    <span class="nt">&quot;save_steps&quot;</span><span class="p">:</span> <span class="mi">750</span><span class="p">,</span>
+    <span class="nt">&quot;seed&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;do_train&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nt">&quot;do_eval&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nt">&quot;do_predict&quot;</span><span class="p">:</span> <span class="kc">true</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>It must be saved with a <code class="docutils literal notranslate"><span class="pre">.json</span></code> extension and can be used by running <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">run_ner.py</span> <span class="pre">config.json</span></code>.</p>
+</div>
+<div class="section" id="evaluation">
+<h3>Evaluation<a class="headerlink" href="#evaluation" title="Permalink to this headline">¶</a></h3>
+<p>Evaluation on development dataset outputs the following for our example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">10</span>/04/2019 <span class="m">00</span>:42:06 - INFO - __main__ -   ***** Eval results  *****
+<span class="m">10</span>/04/2019 <span class="m">00</span>:42:06 - INFO - __main__ -     <span class="nv">f1</span> <span class="o">=</span> <span class="m">0</span>.8623348017621146
+<span class="m">10</span>/04/2019 <span class="m">00</span>:42:06 - INFO - __main__ -     <span class="nv">loss</span> <span class="o">=</span> <span class="m">0</span>.07183869666975543
+<span class="m">10</span>/04/2019 <span class="m">00</span>:42:06 - INFO - __main__ -     <span class="nv">precision</span> <span class="o">=</span> <span class="m">0</span>.8467916366258111
+<span class="m">10</span>/04/2019 <span class="m">00</span>:42:06 - INFO - __main__ -     <span class="nv">recall</span> <span class="o">=</span> <span class="m">0</span>.8784592370979806
+</pre></div>
+</div>
+<p>On the test dataset the following results could be achieved:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">10</span>/04/2019 <span class="m">00</span>:42:42 - INFO - __main__ -   ***** Eval results  *****
+<span class="m">10</span>/04/2019 <span class="m">00</span>:42:42 - INFO - __main__ -     <span class="nv">f1</span> <span class="o">=</span> <span class="m">0</span>.8614389652384803
+<span class="m">10</span>/04/2019 <span class="m">00</span>:42:42 - INFO - __main__ -     <span class="nv">loss</span> <span class="o">=</span> <span class="m">0</span>.07064602487454782
+<span class="m">10</span>/04/2019 <span class="m">00</span>:42:42 - INFO - __main__ -     <span class="nv">precision</span> <span class="o">=</span> <span class="m">0</span>.8604651162790697
+<span class="m">10</span>/04/2019 <span class="m">00</span>:42:42 - INFO - __main__ -     <span class="nv">recall</span> <span class="o">=</span> <span class="m">0</span>.8624150210424085
+</pre></div>
+</div>
+</div>
+<div class="section" id="run-the-tensorflow-2-version">
+<h3>Run the Tensorflow 2 version<a class="headerlink" href="#run-the-tensorflow-2-version" title="Permalink to this headline">¶</a></h3>
+<p>To start training, just run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 run_tf_ner.py --data_dir ./ <span class="se">\</span>
+--labels ./labels.txt <span class="se">\</span>
+--model_name_or_path <span class="nv">$BERT_MODEL</span> <span class="se">\</span>
+--output_dir <span class="nv">$OUTPUT_DIR</span> <span class="se">\</span>
+--max_seq_length  <span class="nv">$MAX_LENGTH</span> <span class="se">\</span>
+--num_train_epochs <span class="nv">$NUM_EPOCHS</span> <span class="se">\</span>
+--per_device_train_batch_size <span class="nv">$BATCH_SIZE</span> <span class="se">\</span>
+--save_steps <span class="nv">$SAVE_STEPS</span> <span class="se">\</span>
+--seed <span class="nv">$SEED</span> <span class="se">\</span>
+--do_train <span class="se">\</span>
+--do_eval <span class="se">\</span>
+--do_predict
+</pre></div>
+</div>
+<p>Such as the Pytorch version, if your GPU supports half-precision training, just add the <code class="docutils literal notranslate"><span class="pre">--fp16</span></code> flag. After training, the model will be both evaluated on development and test datasets.</p>
+</div>
+<div class="section" id="id1">
+<h3>Evaluation<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Evaluation on development dataset outputs the following for our example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>           precision    recall  f1-score   support
+
+ LOCderiv     <span class="m">0</span>.7619    <span class="m">0</span>.6154    <span class="m">0</span>.6809        <span class="m">52</span>
+  PERpart     <span class="m">0</span>.8724    <span class="m">0</span>.8997    <span class="m">0</span>.8858      <span class="m">4057</span>
+  OTHpart     <span class="m">0</span>.9360    <span class="m">0</span>.9466    <span class="m">0</span>.9413       <span class="m">711</span>
+  ORGpart     <span class="m">0</span>.7015    <span class="m">0</span>.6989    <span class="m">0</span>.7002       <span class="m">269</span>
+  LOCpart     <span class="m">0</span>.7668    <span class="m">0</span>.8488    <span class="m">0</span>.8057       <span class="m">496</span>
+      LOC     <span class="m">0</span>.8745    <span class="m">0</span>.9191    <span class="m">0</span>.8963       <span class="m">235</span>
+ ORGderiv     <span class="m">0</span>.7723    <span class="m">0</span>.8571    <span class="m">0</span>.8125        <span class="m">91</span>
+ OTHderiv     <span class="m">0</span>.4800    <span class="m">0</span>.6667    <span class="m">0</span>.5581        <span class="m">18</span>
+      OTH     <span class="m">0</span>.5789    <span class="m">0</span>.6875    <span class="m">0</span>.6286        <span class="m">16</span>
+ PERderiv     <span class="m">0</span>.5385    <span class="m">0</span>.3889    <span class="m">0</span>.4516        <span class="m">18</span>
+      PER     <span class="m">0</span>.5000    <span class="m">0</span>.5000    <span class="m">0</span>.5000         <span class="m">2</span>
+      ORG     <span class="m">0</span>.0000    <span class="m">0</span>.0000    <span class="m">0</span>.0000         <span class="m">3</span>
+
+micro avg     <span class="m">0</span>.8574    <span class="m">0</span>.8862    <span class="m">0</span>.8715      <span class="m">5968</span>
+macro avg     <span class="m">0</span>.8575    <span class="m">0</span>.8862    <span class="m">0</span>.8713      <span class="m">5968</span>
+</pre></div>
+</div>
+<p>On the test dataset the following results could be achieved:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>           precision    recall  f1-score   support
+
+  PERpart     <span class="m">0</span>.8847    <span class="m">0</span>.8944    <span class="m">0</span>.8896      <span class="m">9397</span>
+  OTHpart     <span class="m">0</span>.9376    <span class="m">0</span>.9353    <span class="m">0</span>.9365      <span class="m">1639</span>
+  ORGpart     <span class="m">0</span>.7307    <span class="m">0</span>.7044    <span class="m">0</span>.7173       <span class="m">697</span>
+      LOC     <span class="m">0</span>.9133    <span class="m">0</span>.9394    <span class="m">0</span>.9262       <span class="m">561</span>
+  LOCpart     <span class="m">0</span>.8058    <span class="m">0</span>.8157    <span class="m">0</span>.8107      <span class="m">1150</span>
+      ORG     <span class="m">0</span>.0000    <span class="m">0</span>.0000    <span class="m">0</span>.0000         <span class="m">8</span>
+ OTHderiv     <span class="m">0</span>.5882    <span class="m">0</span>.4762    <span class="m">0</span>.5263        <span class="m">42</span>
+ PERderiv     <span class="m">0</span>.6571    <span class="m">0</span>.5227    <span class="m">0</span>.5823        <span class="m">44</span>
+      OTH     <span class="m">0</span>.4906    <span class="m">0</span>.6667    <span class="m">0</span>.5652        <span class="m">39</span>
+ ORGderiv     <span class="m">0</span>.7016    <span class="m">0</span>.7791    <span class="m">0</span>.7383       <span class="m">172</span>
+ LOCderiv     <span class="m">0</span>.8256    <span class="m">0</span>.6514    <span class="m">0</span>.7282       <span class="m">109</span>
+      PER     <span class="m">0</span>.0000    <span class="m">0</span>.0000    <span class="m">0</span>.0000        <span class="m">11</span>
+
+micro avg     <span class="m">0</span>.8722    <span class="m">0</span>.8774    <span class="m">0</span>.8748     <span class="m">13869</span>
+macro avg     <span class="m">0</span>.8712    <span class="m">0</span>.8774    <span class="m">0</span>.8740     <span class="m">13869</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="emerging-and-rare-entities-task-wnut17-english-ner-dataset">
+<h2>Emerging and Rare Entities task: WNUT’17 (English NER) dataset<a class="headerlink" href="#emerging-and-rare-entities-task-wnut17-english-ner-dataset" title="Permalink to this headline">¶</a></h2>
+<p>Description of the WNUT’17 task from the <a class="reference external" href="http://noisy-text.github.io/2017/index.html">shared task website</a>:</p>
+<blockquote>
+<div><p>The WNUT’17 shared task focuses on identifying unusual, previously-unseen entities in the context of emerging discussions.
+Named entities form the basis of many modern approaches to other tasks (like event clustering and summarization), but recall on
+them is a real problem in noisy text - even among annotators. This drop tends to be due to novel entities and surface forms.</p>
+</div></blockquote>
+<p>Six labels are available in the dataset. An overview can be found on this <a class="reference external" href="http://noisy-text.github.io/2017/files/">page</a>.</p>
+<div class="section" id="id2">
+<h3>Data (Download and pre-processing steps)<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>The dataset can be downloaded from the <a class="reference external" href="https://github.com/leondz/emerging_entities_17">official GitHub</a> repository.</p>
+<p>The following commands show how to prepare the dataset for fine-tuning:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir -p data_wnut_17
+
+curl -L <span class="s1">&#39;https://github.com/leondz/emerging_entities_17/raw/master/wnut17train.conll&#39;</span>  <span class="p">|</span> tr <span class="s1">&#39;\t&#39;</span> <span class="s1">&#39; &#39;</span> &gt; data_wnut_17/train.txt.tmp
+curl -L <span class="s1">&#39;https://github.com/leondz/emerging_entities_17/raw/master/emerging.dev.conll&#39;</span> <span class="p">|</span> tr <span class="s1">&#39;\t&#39;</span> <span class="s1">&#39; &#39;</span> &gt; data_wnut_17/dev.txt.tmp
+curl -L <span class="s1">&#39;https://raw.githubusercontent.com/leondz/emerging_entities_17/master/emerging.test.annotated&#39;</span> <span class="p">|</span> tr <span class="s1">&#39;\t&#39;</span> <span class="s1">&#39; &#39;</span> &gt; data_wnut_17/test.txt.tmp
+</pre></div>
+</div>
+<p>Let’s define some variables that we need for further pre-processing steps:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">MAX_LENGTH</span><span class="o">=</span><span class="m">128</span>
+<span class="nb">export</span> <span class="nv">BERT_MODEL</span><span class="o">=</span>bert-large-cased
+</pre></div>
+</div>
+<p>Here we use the English BERT large model for fine-tuning.
+The <code class="docutils literal notranslate"><span class="pre">preprocess.py</span></code> scripts splits longer sentences into smaller ones (once the max. subtoken length is reached):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 scripts/preprocess.py data_wnut_17/train.txt.tmp <span class="nv">$BERT_MODEL</span> <span class="nv">$MAX_LENGTH</span> &gt; data_wnut_17/train.txt
+python3 scripts/preprocess.py data_wnut_17/dev.txt.tmp <span class="nv">$BERT_MODEL</span> <span class="nv">$MAX_LENGTH</span> &gt; data_wnut_17/dev.txt
+python3 scripts/preprocess.py data_wnut_17/test.txt.tmp <span class="nv">$BERT_MODEL</span> <span class="nv">$MAX_LENGTH</span> &gt; data_wnut_17/test.txt
+</pre></div>
+</div>
+<p>In the last pre-processing step, the <code class="docutils literal notranslate"><span class="pre">labels.txt</span></code> file needs to be generated. This file contains all available labels:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat data_wnut_17/train.txt data_wnut_17/dev.txt data_wnut_17/test.txt <span class="p">|</span> cut -d <span class="s2">&quot; &quot;</span> -f <span class="m">2</span> <span class="p">|</span> grep -v <span class="s2">&quot;^</span>$<span class="s2">&quot;</span><span class="p">|</span> sort <span class="p">|</span> uniq &gt; data_wnut_17/labels.txt
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h3>Run the Pytorch version<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>Fine-tuning with the PyTorch version can be started using the <code class="docutils literal notranslate"><span class="pre">run_ner.py</span></code> script. In this example we use a JSON-based configuration file.</p>
+<p>This configuration file looks like:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;data_dir&quot;</span><span class="p">:</span> <span class="s2">&quot;./data_wnut_17&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;labels&quot;</span><span class="p">:</span> <span class="s2">&quot;./data_wnut_17/labels.txt&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;model_name_or_path&quot;</span><span class="p">:</span> <span class="s2">&quot;bert-large-cased&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;output_dir&quot;</span><span class="p">:</span> <span class="s2">&quot;wnut-17-model-1&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;max_seq_length&quot;</span><span class="p">:</span> <span class="mi">128</span><span class="p">,</span>
+    <span class="nt">&quot;num_train_epochs&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+    <span class="nt">&quot;per_device_train_batch_size&quot;</span><span class="p">:</span> <span class="mi">32</span><span class="p">,</span>
+    <span class="nt">&quot;save_steps&quot;</span><span class="p">:</span> <span class="mi">425</span><span class="p">,</span>
+    <span class="nt">&quot;seed&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;do_train&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nt">&quot;do_eval&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nt">&quot;do_predict&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nt">&quot;fp16&quot;</span><span class="p">:</span> <span class="kc">false</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>If your GPU supports half-precision training, please set <code class="docutils literal notranslate"><span class="pre">fp16</span></code> to <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
+<p>Save this JSON-based configuration under <code class="docutils literal notranslate"><span class="pre">wnut_17.json</span></code>. The fine-tuning can be started with <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">run_ner_old.py</span> <span class="pre">wnut_17.json</span></code>.</p>
+</div>
+<div class="section" id="id4">
+<h3>Evaluation<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>Evaluation on development dataset outputs the following:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">05</span>/29/2020 <span class="m">23</span>:33:44 - INFO - __main__ -   ***** Eval results *****
+<span class="m">05</span>/29/2020 <span class="m">23</span>:33:44 - INFO - __main__ -     <span class="nv">eval_loss</span> <span class="o">=</span> <span class="m">0</span>.26505235286212275
+<span class="m">05</span>/29/2020 <span class="m">23</span>:33:44 - INFO - __main__ -     <span class="nv">eval_precision</span> <span class="o">=</span> <span class="m">0</span>.7008264462809918
+<span class="m">05</span>/29/2020 <span class="m">23</span>:33:44 - INFO - __main__ -     <span class="nv">eval_recall</span> <span class="o">=</span> <span class="m">0</span>.507177033492823
+<span class="m">05</span>/29/2020 <span class="m">23</span>:33:44 - INFO - __main__ -     <span class="nv">eval_f1</span> <span class="o">=</span> <span class="m">0</span>.5884802220680084
+<span class="m">05</span>/29/2020 <span class="m">23</span>:33:44 - INFO - __main__ -     <span class="nv">epoch</span> <span class="o">=</span> <span class="m">3</span>.0
+</pre></div>
+</div>
+<p>On the test dataset the following results could be achieved:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">05</span>/29/2020 <span class="m">23</span>:33:44 - INFO - transformers.trainer -   ***** Running Prediction *****
+<span class="m">05</span>/29/2020 <span class="m">23</span>:34:02 - INFO - __main__ -     <span class="nv">eval_loss</span> <span class="o">=</span> <span class="m">0</span>.30948806500973547
+<span class="m">05</span>/29/2020 <span class="m">23</span>:34:02 - INFO - __main__ -     <span class="nv">eval_precision</span> <span class="o">=</span> <span class="m">0</span>.5840108401084011
+<span class="m">05</span>/29/2020 <span class="m">23</span>:34:02 - INFO - __main__ -     <span class="nv">eval_recall</span> <span class="o">=</span> <span class="m">0</span>.3994439295644115
+<span class="m">05</span>/29/2020 <span class="m">23</span>:34:02 - INFO - __main__ -     <span class="nv">eval_f1</span> <span class="o">=</span> <span class="m">0</span>.47440836543753434
+</pre></div>
+</div>
+<p>WNUT’17 is a very difficult task. Current state-of-the-art results on this dataset can be found <a class="reference external" href="http://nlpprogress.com/english/named_entity_recognition.html">here</a>.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Intel® LPOT.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

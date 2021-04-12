@@ -1,0 +1,404 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Model &mdash; Intel® Low Precision Optimization Tool  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Intel® Low Precision Optimization Tool
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../welcome.html">Introduction to Intel LPOT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/readme.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Developer Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CONTRIBUTING.html">Contributing guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CODE_OF_CONDUCT.html">Contributor Covenant Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../legal_information.html">Legal Information {#legal_information}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../legal_information.html#trademark-information">Trademark Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../SECURITY.html">Security Policy</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Intel® Low Precision Optimization Tool</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Model</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/docs/model.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="model">
+<h1>Model<a class="headerlink" href="#model" title="Permalink to this headline">¶</a></h1>
+<p>Model feature of LPOT is used to encapsulate the behavior of model building and saving. By just give information of different model format and framework_specific_info, LPOT will do optimizations and quantization on this model object and return a LPOT Model object for further model persisting or benchmark. LPOT Model make it possible to keep neccessary information of a model which is needed during optimization and quantization like the input/output names, workspace path and other model format knowledges. This helps unify the features gap bring by different model format and frameworks.</p>
+<p>User can create, use and save a model in this way:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lpot</span> <span class="kn">import</span> <span class="n">Quantization</span><span class="p">,</span> <span class="n">common</span>
+<span class="n">quantizer</span> <span class="o">=</span> <span class="n">Quantization</span><span class="p">(</span><span class="s1">&#39;./conf.yaml&#39;</span><span class="p">)</span>
+<span class="n">quantizer</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">common</span><span class="o">.</span><span class="n">Model</span><span class="p">(</span><span class="s1">&#39;/path/to/model&#39;</span><span class="p">)</span>
+<span class="n">q_model</span> <span class="o">=</span> <span class="n">quantizer</span><span class="p">()</span>
+<span class="n">q_model</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">save_path</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="framework-model-support-list">
+<h1>Framework model support list<a class="headerlink" href="#framework-model-support-list" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="tensorflow">
+<h2>TensorFlow<a class="headerlink" href="#tensorflow" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Model format</th>
+<th>Supported?</th>
+<th>Example</th>
+<th>Comments</th>
+<th>Save format</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>frozen pb</td>
+<td>Yes</td>
+<td><a href="../examples/tensorflow/image_recognition">../examples/tensorflow/image_recognition</a>, <a href="../examples/tensorflow/oob_models">../examples/tensorflow/oob_models</a></td>
+<td></td>
+<td>frozen pb</td>
+</tr>
+<tr>
+<td>Graph object</td>
+<td>Yes</td>
+<td><a href="../examples/tensorflow/style_transfer">../examples/tensorflow/style_transfer</a>, <a href="../examples/tensorflow/recommendation/wide_deep_large_ds">../examples/tensorflow/recommendation/wide_deep_large_ds</a></td>
+<td></td>
+<td>frozen pb</td>
+</tr>
+<tr>
+<td>GraphDef object</td>
+<td>Yes</td>
+<td></td>
+<td></td>
+<td>frozen pb</td>
+</tr>
+<tr>
+<td>tf1.x checkpoint</td>
+<td>Yes</td>
+<td><a href="../examples/helloworld/tf_example4">../examples/helloworld/tf_example4</a>, <a href="../examples/tensorflow/object_detection">../examples/tensorflow/object_detection</a></td>
+<td></td>
+<td>frozen pb</td>
+</tr>
+<tr>
+<td>keras.Model object</td>
+<td>Yes</td>
+<td></td>
+<td></td>
+<td>frozen pb</td>
+</tr>
+<tr>
+<td>keras saved model</td>
+<td>Yes</td>
+<td><a href="../examples/helloworld/tf_example2">../examples/helloworld/tf_example2</a></td>
+<td></td>
+<td>frozen pb</td>
+</tr>
+<tr>
+<td>tf2.x saved model</td>
+<td>Yes</td>
+<td></td>
+<td></td>
+<td>saved model</td>
+</tr>
+<tr>
+<td>tf2.x h5 format model</td>
+<td>TBD</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>slim checkpoint</td>
+<td>Yes</td>
+<td><a href="../examples/helloworld/tf_example3">../examples/helloworld/tf_example3</a></td>
+<td></td>
+<td>frozen pb</td>
+</tr>
+<tr>
+<td>tf1.x saved model</td>
+<td>Yes</td>
+<td></td>
+<td></td>
+<td>saved model</td>
+</tr>
+<tr>
+<td>tf2.x checkpoint</td>
+<td>No</td>
+<td></td>
+<td>As tf2.x checkpoint only has weight and does not contain any description of the computation, please use different tf2.x model for quantization</td>
+<td></td>
+</tr>
+</tbody>
+</table><p>The following methods can be used in tensorflow model</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">graph_def</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">graph_def</span>
+<span class="n">input_tensor_names</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">input_tensor_names</span>
+<span class="n">model</span><span class="o">.</span><span class="n">input_tensor_names</span> <span class="o">=</span> <span class="n">input_tensor_names</span>
+<span class="n">output_tensor_names</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">output_tensor_names</span>
+<span class="n">model</span><span class="o">.</span><span class="n">output_tensor_names</span> <span class="o">=</span> <span class="n">output_tensor_names</span>
+<span class="n">input_node_names</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">input_node_names</span>
+<span class="n">output_node_names</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">output_node_names</span>
+<span class="n">input_tensor</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">input_tensor</span>
+<span class="n">output_tensor</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">output_tensor</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="mxnet">
+<h2>MXNet<a class="headerlink" href="#mxnet" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Model format</th>
+<th>Supported?</th>
+<th>Example</th>
+<th>Comments</th>
+<th>Save format</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>mxnet.gluon.HybridBlock</td>
+<td>Yes</td>
+<td></td>
+<td></td>
+<td>export HybridBlock as save_path.json</td>
+</tr>
+<tr>
+<td>mxnet.symbol.Symbol</td>
+<td>Yes</td>
+<td></td>
+<td></td>
+<td>save a save_path-symbol.json file and a save_path-0000.params file</td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="pytorch">
+<h2>PyTorch<a class="headerlink" href="#pytorch" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Model format</th>
+<th>Supported?</th>
+<th>Example</th>
+<th>Comments</th>
+<th>Save format</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>torch.nn.model</td>
+<td>Yes</td>
+<td></td>
+<td></td>
+<td>Without Intel PyTorch Extension(IPEX): save the configure and weights files as "best_configure.yaml" and "best_model_weights.pt" to the given path <br> With IPEX: save the configure as "best_configure.json" to the given path</td>
+</tr>
+</tbody>
+</table><ul class="simple">
+<li><p>Loading model:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Without IPEX</span>
+<span class="n">model</span>                 <span class="c1"># fp32 model</span>
+<span class="kn">from</span> <span class="nn">lpot.utils.pytorch</span> <span class="kn">import</span> <span class="n">load</span>
+<span class="n">quantized_model</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="n">Path</span><span class="p">)),</span> <span class="n">model</span><span class="p">)</span>
+
+<span class="c1"># With IPEX</span>
+<span class="kn">import</span> <span class="nn">intel_pytorch_extension</span> <span class="kn">as</span> <span class="nn">ipex</span>
+<span class="n">model</span>                 <span class="c1"># fp32 model</span>
+<span class="n">model</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">ipex</span><span class="o">.</span><span class="n">DEVICE</span><span class="p">)</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">new_model</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">jit</span><span class="o">.</span><span class="n">script</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="n">new_model</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">jit</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">224</span><span class="p">,</span> <span class="mi">224</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">ipex</span><span class="o">.</span><span class="n">DEVICE</span><span class="p">))</span>
+<span class="n">ipex_config_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">tuned_checkpoint</span><span class="p">),</span>
+                                <span class="s2">&quot;best_configure.json&quot;</span><span class="p">)</span>
+<span class="n">conf</span> <span class="o">=</span> <span class="n">ipex</span><span class="o">.</span><span class="n">AmpConf</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">int8</span><span class="p">,</span> <span class="n">configure_file</span><span class="o">=</span><span class="n">ipex_config_path</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+    <span class="k">with</span> <span class="n">ipex</span><span class="o">.</span><span class="n">AutoMixPrecision</span><span class="p">(</span><span class="n">conf</span><span class="p">,</span> <span class="n">running_mode</span><span class="o">=</span><span class="s1">&#39;inference&#39;</span><span class="p">):</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="n">new_model</span><span class="p">(</span><span class="nb">input</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">ipex</span><span class="o">.</span><span class="n">DEVICE</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Intel® LPOT.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

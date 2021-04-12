@@ -1,0 +1,348 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Step-by-Step &mdash; Intel® Low Precision Optimization Tool  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Developer Docs" href="../../../docs/index.html" />
+    <link rel="prev" title="Evaluate performance of ONNX Runtime(SSD Mobilenet v2)" href="../../onnxrt/object_detection/ssd_mobilenet_v2/readme.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Intel® Low Precision Optimization Tool
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../welcome.html">Introduction to Intel LPOT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/introduction.html">APIs</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../readme.html">Examples</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../readme.html#hello-world">Hello World</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../readme.html#mxnet">MXNet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../readme.html#onnx">ONNX</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../readme.html#pytorch">PyTorch</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Step-by-Step</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prerequisite">Prerequisite</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#installation">1. Installation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#prepare-model-and-dataset">2. Prepare model and Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#run">Run</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#examples-of-enabling-intel-low-precision-optimization-tool-auto-tuning-on-pytorch-resnest">Examples of enabling Intel® Low Precision Optimization Tool auto tuning on PyTorch ResNest</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#user-code-analysis">User Code Analysis</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/index.html">Developer Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../CONTRIBUTING.html">Contributing guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../CODE_OF_CONDUCT.html">Contributor Covenant Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../legal_information.html">Legal Information {#legal_information}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../legal_information.html#trademark-information">Trademark Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../SECURITY.html">Security Policy</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Intel® Low Precision Optimization Tool</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../readme.html">Examples</a> &raquo;</li>
+        
+      <li>Step-by-Step</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/examples/pytorch/blendcnn/README.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="step-by-step">
+<h1>Step-by-Step<a class="headerlink" href="#step-by-step" title="Permalink to this headline">¶</a></h1>
+<p>This document describes the step-by-step instructions for reproducing PyTorch BlendCNN tuning(with MRPC dataset) results with Intel® Low Precision Optimization Tool.</p>
+<blockquote>
+<div><p><strong>Note</strong></p>
+<p>PyTorch quantization implementation in imperative path has limitation on automatically execution.
+It requires to manually add QuantStub and DequantStub for quantizable ops, it also requires to manually do fusion operation.
+Intel® Low Precision Optimization Tool has no capability to solve this framework limitation. Intel® Low Precision Optimization Tool supposes user have done these two steps before invoking Intel® Low Precision Optimization Tool interface.
+For details, please refer to https://pytorch.org/docs/stable/quantization.html</p>
+</div></blockquote>
+</div>
+<div class="section" id="prerequisite">
+<h1>Prerequisite<a class="headerlink" href="#prerequisite" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="installation">
+<h2>1. Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-Shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> examples/pytorch/blendcnn
+pip install -r requirements.txt
+pip install <span class="nv">torch</span><span class="o">==</span><span class="m">1</span>.6.0+cpu -f https://download.pytorch.org/whl/torch_stable.html
+</pre></div>
+</div>
+</div>
+<div class="section" id="prepare-model-and-dataset">
+<h2>2. Prepare model and Dataset<a class="headerlink" href="#prepare-model-and-dataset" title="Permalink to this headline">¶</a></h2>
+<p>Download <a class="reference external" href="https://storage.googleapis.com/bert_models/2018_10_18/uncased_L-12_H-768_A-12.zip">BERT-Base, Uncased</a> and
+<a class="reference external" href="https://github.com/nyu-mll/GLUE-baselines">GLUE MRPC Benchmark Datasets</a></p>
+<div class="section" id="model">
+<h3>model<a class="headerlink" href="#model" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-Shell notranslate"><div class="highlight"><pre><span></span>mkdir models/ <span class="o">&amp;&amp;</span> mv uncased_L-12_H-768_A-12.zip models/
+<span class="nb">cd</span> models/ <span class="o">&amp;&amp;</span> unzip uncased_L-12_H-768_A-12.zip
+
+<span class="c1"># train blend CNN from scratch</span>
+python classify.py --model_config config/blendcnn/mrpc/train.json
+</pre></div>
+</div>
+<p>After below steps, you can find the pre-trained model weights <em><strong>model_final.pt</strong></em> at <code class="docutils literal notranslate"><span class="pre">./models/</span></code></p>
+</div>
+<div class="section" id="dataset">
+<h3>dataset<a class="headerlink" href="#dataset" title="Permalink to this headline">¶</a></h3>
+<p>After downloads dataset, you need to put dataset at <code class="docutils literal notranslate"><span class="pre">./MRPC/</span></code>, list this:</p>
+<div class="highlight-Shell notranslate"><div class="highlight"><pre><span></span>ls MRPC/
+dev_ids.tsv  dev.tsv  test.tsv  train.tsv
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="run">
+<h2>Run<a class="headerlink" href="#run" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="blendcnn">
+<h3>blendcnn<a class="headerlink" href="#blendcnn" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-Shell notranslate"><div class="highlight"><pre><span></span>./run_tuning.sh --input_model<span class="o">=</span>/PATH/TO/models/ --dataset_location<span class="o">=</span>/PATH/TO/MRPC/ --output_model<span class="o">=</span>/DIR/TO/INT8_MODEL/
+
+./run_benchmark.sh --int8<span class="o">=</span><span class="nb">true</span> --mode<span class="o">=</span>benchmark --batch_size<span class="o">=</span><span class="m">32</span>
+./run_benchmark.sh --int8<span class="o">=</span>False --mode<span class="o">=</span>benchmark --batch_size<span class="o">=</span><span class="m">32</span> --input_model<span class="o">=</span>/PATH/TO/FP32_MODEL
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="examples-of-enabling-intel-low-precision-optimization-tool-auto-tuning-on-pytorch-resnest">
+<h1>Examples of enabling Intel® Low Precision Optimization Tool auto tuning on PyTorch ResNest<a class="headerlink" href="#examples-of-enabling-intel-low-precision-optimization-tool-auto-tuning-on-pytorch-resnest" title="Permalink to this headline">¶</a></h1>
+<p>This is a tutorial of how to enable a PyTorch classification model with Intel® Low Precision Optimization Tool.</p>
+<div class="section" id="user-code-analysis">
+<h2>User Code Analysis<a class="headerlink" href="#user-code-analysis" title="Permalink to this headline">¶</a></h2>
+<p>Intel® Low Precision Optimization Tool supports three usages:</p>
+<ol class="simple">
+<li><p>User only provide fp32 “model”, and configure calibration dataset, evaluation dataset and metric in model-specific yaml config file.</p></li>
+<li><p>User provide fp32 “model”, calibration dataset “q_dataloader” and evaluation dataset “eval_dataloader”, and configure metric in tuning.metric field of model-specific yaml config file.</p></li>
+<li><p>User specifies fp32 “model”, calibration dataset “q_dataloader” and a custom “eval_func” which encapsulates the evaluation dataset and metric by itself.</p></li>
+</ol>
+<p>As ResNest series are typical classification models, use Top-K as metric which is built-in supported by Intel® Low Precision Optimization Tool. So here we integrate PyTorch ResNest with Intel® Low Precision Optimization Tool by the first use case for simplicity.</p>
+<div class="section" id="write-yaml-config-file">
+<h3>Write Yaml config file<a class="headerlink" href="#write-yaml-config-file" title="Permalink to this headline">¶</a></h3>
+<p>In examples directory, there is a template.yaml. We could remove most of items and only keep mandotory item for tuning.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="p">:</span>                                               <span class="c1"># mandatory. lpot uses this model name and framework name to decide where to save tuning history and deploy yaml.</span>
+  <span class="n">name</span><span class="p">:</span> <span class="n">blendcnn</span>
+  <span class="n">framework</span><span class="p">:</span> <span class="n">pytorch</span>     
+
+<span class="n">tuning</span><span class="p">:</span>
+  <span class="n">accuracy_criterion</span><span class="p">:</span>
+    <span class="n">relative</span><span class="p">:</span>  <span class="mf">0.01</span>                                  <span class="c1"># optional. default value is relative, other value is absolute. this example allows relative accuracy loss: 1%.</span>
+  <span class="n">exit_policy</span><span class="p">:</span>
+    <span class="n">timeout</span><span class="p">:</span> <span class="mi">0</span>                                       <span class="c1"># optional. tuning timeout (seconds). default value is 0 which means early stop. combine with max_trials field to decide when to exit.</span>
+  <span class="n">random_seed</span><span class="p">:</span> <span class="mi">9527</span>                                  <span class="c1"># optional. random seed for deterministic tuning.</span>
+</pre></div>
+</div>
+<p>Here we use specifies fp32 “model”, calibration dataset “q_dataloader” and a custom “eval_func” which encapsulates the evaluation dataset and metric.</p>
+</div>
+<div class="section" id="prepare">
+<h3>prepare<a class="headerlink" href="#prepare" title="Permalink to this headline">¶</a></h3>
+<p>PyTorch quantization requires two manual steps:</p>
+<ol class="simple">
+<li><p>Add QuantStub and DeQuantStub for all quantizable ops.</p></li>
+<li><p>Fuse possible patterns, such as Conv + Relu and Conv + BN + Relu.</p></li>
+</ol>
+<p>It’s intrinsic limitation of PyTorch quantizaiton imperative path. No way to develop a code to automatically do that.(Please refer <a class="reference external" href="./models.py">sample code</a>)</p>
+</div>
+<div class="section" id="code-update">
+<h3>code update<a class="headerlink" href="#code-update" title="Permalink to this headline">¶</a></h3>
+<p>After prepare step is done, we just need update classify.py like below.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lpot.experimental</span> <span class="k">import</span> <span class="n">Quantization</span>
+<span class="n">dataloader</span> <span class="o">=</span> <span class="n">Bert_DataLoader</span><span class="p">(</span><span class="n">loader</span><span class="o">=</span><span class="n">data_iter</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">batch_size</span><span class="p">)</span>
+<span class="n">quantizer</span> <span class="o">=</span> <span class="n">Quantization</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">lpot_yaml</span><span class="p">)</span>
+<span class="n">quantizer</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">model</span>
+<span class="n">quantizer</span><span class="o">.</span><span class="n">calib_dataloader</span> <span class="o">=</span> <span class="n">dataloader</span>
+<span class="n">quantizer</span><span class="o">.</span><span class="n">eval_func</span> <span class="o">=</span> <span class="n">eval_func</span>
+<span class="n">q_model</span> <span class="o">=</span> <span class="n">quantizer</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>The quantizer() function will return a best quantized model during timeout constrain.(Please refer <a class="reference external" href="./classify.py">sample code</a>)</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../../../docs/index.html" class="btn btn-neutral float-right" title="Developer Docs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../../onnxrt/object_detection/ssd_mobilenet_v2/readme.html" class="btn btn-neutral float-left" title="Evaluate performance of ONNX Runtime(SSD Mobilenet v2)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Intel® LPOT.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,256 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Benchmarks &mdash; Intel® Low Precision Optimization Tool  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../../" src="../../../../../_static/documentation_options.js"></script>
+        <script src="../../../../../_static/jquery.js"></script>
+        <script src="../../../../../_static/underscore.js"></script>
+        <script src="../../../../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> Intel® Low Precision Optimization Tool
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../welcome.html">Introduction to Intel LPOT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../docs/introduction.html">APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../readme.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../docs/index.html">Developer Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../CONTRIBUTING.html">Contributing guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../CODE_OF_CONDUCT.html">Contributor Covenant Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../legal_information.html">Legal Information {#legal_information}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../legal_information.html#trademark-information">Trademark Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../SECURITY.html">Security Policy</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">Intel® Low Precision Optimization Tool</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Benchmarks</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../../_sources/examples/pytorch/language_translation/docs/source/benchmarks.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="benchmarks">
+<h1>Benchmarks<a class="headerlink" href="#benchmarks" title="Permalink to this headline">¶</a></h1>
+<p>This section is dedicated to the Benchmarks done by the library, both by maintainers, contributors and users. These
+benchmark will help keep track of the preformance improvements that are brought to our models across versions.</p>
+<div class="section" id="benchmarking-all-models-for-inference">
+<h2>Benchmarking all models for inference<a class="headerlink" href="#benchmarking-all-models-for-inference" title="Permalink to this headline">¶</a></h2>
+<p>As of version 2.1 we have benchmarked all models for inference, across many different settings: using PyTorch, with
+and without TorchScript, using TensorFlow, with and without XLA. All of those tests were done across CPUs (except for
+TensorFlow XLA) and GPUs.</p>
+<p>The approach is detailed in the <a class="reference external" href="https://medium.com/huggingface/benchmarking-transformers-pytorch-and-tensorflow-e2917fb891c2">following blogpost</a></p>
+<p>The results are available <a class="reference external" href="https://docs.google.com/spreadsheets/d/1sryqufw2D0XlUH4sq3e9Wnxu5EAQkaohzrJbd5HdQ_w/edit?usp=sharing">here</a>.</p>
+</div>
+<div class="section" id="tf2-with-mixed-precision-xla-distribution-tlkh">
+<h2>TF2 with mixed precision, XLA, Distribution (&#64;tlkh)<a class="headerlink" href="#tf2-with-mixed-precision-xla-distribution-tlkh" title="Permalink to this headline">¶</a></h2>
+<p>This work was done by <a class="reference external" href="https://github.com/tlkh">Timothy Liu</a>.</p>
+<p>There are very positive results to be gained from the various TensorFlow 2.0 features:</p>
+<ul class="simple">
+<li><p>Automatic Mixed Precision (AMP)</p></li>
+<li><p>XLA compiler</p></li>
+<li><p>Distribution strategies (multi-GPU)</p></li>
+</ul>
+<p>The benefits are listed here (tested on CoLA, MRPC, SST-2):</p>
+<ul class="simple">
+<li><p>AMP: Between 1.4x to 1.6x decrease in overall time without change in batch size</p></li>
+<li><p>AMP+XLA: Up to 2.5x decrease in overall time on SST-2 (larger dataset)</p></li>
+<li><p>Distribution: Between 1.4x to 3.4x decrease in overall time on 4xV100</p></li>
+<li><p>Combined: Up to 5.7x decrease in overall training time, or 9.1x training throughput</p></li>
+</ul>
+<p>The model quality (measured by the validation accuracy) fluctuates slightly. Taking an average of 4 training runs
+on a single GPU gives the following results:</p>
+<ul class="simple">
+<li><p>CoLA: AMP results in slighter lower acc (0.820 vs 0.824)</p></li>
+<li><p>MRPC: AMP results in lower acc (0.823 vs 0.835)</p></li>
+<li><p>SST-2: AMP results in slighter lower acc (0.918 vs 0.922)</p></li>
+</ul>
+<p>However, in a distributed setting with 4xV100 (4x batch size), AMP can yield in better results:</p>
+<p>CoLA: AMP results in higher acc (0.828 vs 0.812)
+MRPC: AMP results in lower acc (0.817 vs 0.827)
+SST-2: AMP results in slightly lower acc (0.926 vs 0.929)</p>
+<p>The benchmark script is available <a class="reference external" href="https://github.com/NVAITC/benchmarking/blob/master/tf2/bert_dist.py">here</a>.</p>
+<p>Note: on some tasks (e.g. MRPC), the dataset is too small. The overhead due to the model compilation with XLA as well
+as the distribution strategy setup does not speed things up. The XLA compile time is also the reason why although throughput
+can increase a lot (e.g. 2.7x for single GPU), overall (end-to-end) training speed-up is not as fast (as low as 1.4x)</p>
+<p>The benefits as seen on SST-2 (larger dataset) is much clear.</p>
+<p>All results can be seen on this <a class="reference external" href="https://docs.google.com/spreadsheets/d/1538MN224EzjbRL239sqSiUy6YY-rAjHyXhTzz_Zptls/edit#gid=960868445">Google Sheet</a>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Intel® LPOT.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

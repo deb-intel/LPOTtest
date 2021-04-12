@@ -1,0 +1,308 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Migrating from pytorch-pretrained-bert &mdash; Intel® Low Precision Optimization Tool  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../../" src="../../../../../_static/documentation_options.js"></script>
+        <script src="../../../../../_static/jquery.js"></script>
+        <script src="../../../../../_static/underscore.js"></script>
+        <script src="../../../../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> Intel® Low Precision Optimization Tool
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../welcome.html">Introduction to Intel LPOT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../docs/introduction.html">APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../readme.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../docs/index.html">Developer Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../CONTRIBUTING.html">Contributing guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../CODE_OF_CONDUCT.html">Contributor Covenant Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../legal_information.html">Legal Information {#legal_information}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../legal_information.html#trademark-information">Trademark Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../SECURITY.html">Security Policy</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">Intel® Low Precision Optimization Tool</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Migrating from pytorch-pretrained-bert</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../../_sources/examples/pytorch/language_translation/docs/source/migration.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="migrating-from-pytorch-pretrained-bert">
+<h1>Migrating from pytorch-pretrained-bert<a class="headerlink" href="#migrating-from-pytorch-pretrained-bert" title="Permalink to this headline">¶</a></h1>
+<p>Here is a quick summary of what you should take care of when migrating from <code class="docutils literal notranslate"><span class="pre">pytorch-pretrained-bert</span></code> to <code class="docutils literal notranslate"><span class="pre">transformers</span></code></p>
+<div class="section" id="models-always-output-tuples">
+<h2>Models always output <code class="docutils literal notranslate"><span class="pre">tuples</span></code><a class="headerlink" href="#models-always-output-tuples" title="Permalink to this headline">¶</a></h2>
+<p>The main breaking change when migrating from <code class="docutils literal notranslate"><span class="pre">pytorch-pretrained-bert</span></code> to <code class="docutils literal notranslate"><span class="pre">transformers</span></code> is that the models forward method always outputs a <code class="docutils literal notranslate"><span class="pre">tuple</span></code> with various elements depending on the model and the configuration parameters.</p>
+<p>The exact content of the tuples for each model are detailled in the models’ docstrings and the <a class="reference external" href="https://huggingface.co/transformers/">documentation</a>.</p>
+<p>In pretty much every case, you will be fine by taking the first element of the output as the output you previously used in <code class="docutils literal notranslate"><span class="pre">pytorch-pretrained-bert</span></code>.</p>
+<p>Here is a <code class="docutils literal notranslate"><span class="pre">pytorch-pretrained-bert</span></code> to <code class="docutils literal notranslate"><span class="pre">transformers</span></code> conversion example for a <code class="docutils literal notranslate"><span class="pre">BertForSequenceClassification</span></code> classification model:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s load our model</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">BertForSequenceClassification</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="s1">&#39;bert-base-uncased&#39;</span><span class="p">)</span>
+
+<span class="c1"># If you used to have this line in pytorch-pretrained-bert:</span>
+<span class="n">loss</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">input_ids</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">)</span>
+
+<span class="c1"># Now just use this line in transformers to extract the loss from the output tuple:</span>
+<span class="n">outputs</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">input_ids</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">)</span>
+<span class="n">loss</span> <span class="o">=</span> <span class="n">outputs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># In transformers you can also have access to the logits:</span>
+<span class="n">loss</span><span class="p">,</span> <span class="n">logits</span> <span class="o">=</span> <span class="n">outputs</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
+
+<span class="c1"># And even the attention weigths if you configure the model to output them (and other outputs too, see the docstrings and documentation)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">BertForSequenceClassification</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="s1">&#39;bert-base-uncased&#39;</span><span class="p">,</span> <span class="n">output_attentions</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">outputs</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">input_ids</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">)</span>
+<span class="n">loss</span><span class="p">,</span> <span class="n">logits</span><span class="p">,</span> <span class="n">attentions</span> <span class="o">=</span> <span class="n">outputs</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="serialization">
+<h2>Serialization<a class="headerlink" href="#serialization" title="Permalink to this headline">¶</a></h2>
+<p>Breaking change in the <code class="docutils literal notranslate"><span class="pre">from_pretrained()</span></code>method:</p>
+<ol class="simple">
+<li><p>Models are now set in evaluation mode by default when instantiated with the <code class="docutils literal notranslate"><span class="pre">from_pretrained()</span></code> method. To train them don’t forget to set them back in training mode (<code class="docutils literal notranslate"><span class="pre">model.train()</span></code>) to activate the dropout modules.</p></li>
+<li><p>The additional <code class="docutils literal notranslate"><span class="pre">*inputs</span></code> and <code class="docutils literal notranslate"><span class="pre">**kwargs</span></code> arguments supplied to the <code class="docutils literal notranslate"><span class="pre">from_pretrained()</span></code> method used to be directly passed to the underlying model’s class <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> method. They are now used to update the model configuration attribute first which can break derived model classes build based on the previous <code class="docutils literal notranslate"><span class="pre">BertForSequenceClassification</span></code> examples. More precisely, the positional arguments <code class="docutils literal notranslate"><span class="pre">*inputs</span></code> provided to <code class="docutils literal notranslate"><span class="pre">from_pretrained()</span></code> are directly forwarded the model <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> method while the keyword arguments <code class="docutils literal notranslate"><span class="pre">**kwargs</span></code> (i) which match configuration class attributes are used to update said attributes (ii) which don’t match any configuration class attributes are forwarded to the model <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> method.</p></li>
+</ol>
+<p>Also, while not a breaking change, the serialization methods have been standardized and you probably should switch to the new method <code class="docutils literal notranslate"><span class="pre">save_pretrained(save_directory)</span></code> if you were using any other serialization method before.</p>
+<p>Here is an example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">### Let&#39;s load a model and tokenizer</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">BertForSequenceClassification</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="s1">&#39;bert-base-uncased&#39;</span><span class="p">)</span>
+<span class="n">tokenizer</span> <span class="o">=</span> <span class="n">BertTokenizer</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="s1">&#39;bert-base-uncased&#39;</span><span class="p">)</span>
+
+<span class="c1">### Do some stuff to our model and tokenizer</span>
+<span class="c1"># Ex: add new tokens to the vocabulary and embeddings of our model</span>
+<span class="n">tokenizer</span><span class="o">.</span><span class="n">add_tokens</span><span class="p">([</span><span class="s1">&#39;[SPECIAL_TOKEN_1]&#39;</span><span class="p">,</span> <span class="s1">&#39;[SPECIAL_TOKEN_2]&#39;</span><span class="p">])</span>
+<span class="n">model</span><span class="o">.</span><span class="n">resize_token_embeddings</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">tokenizer</span><span class="p">))</span>
+<span class="c1"># Train our model</span>
+<span class="n">train</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+
+<span class="c1">### Now let&#39;s save our model and tokenizer to a directory</span>
+<span class="n">model</span><span class="o">.</span><span class="n">save_pretrained</span><span class="p">(</span><span class="s1">&#39;./my_saved_model_directory/&#39;</span><span class="p">)</span>
+<span class="n">tokenizer</span><span class="o">.</span><span class="n">save_pretrained</span><span class="p">(</span><span class="s1">&#39;./my_saved_model_directory/&#39;</span><span class="p">)</span>
+
+<span class="c1">### Reload the model and the tokenizer</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">BertForSequenceClassification</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="s1">&#39;./my_saved_model_directory/&#39;</span><span class="p">)</span>
+<span class="n">tokenizer</span> <span class="o">=</span> <span class="n">BertTokenizer</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="s1">&#39;./my_saved_model_directory/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="optimizers-bertadam-openaiadam-are-now-adamw-schedules-are-standard-pytorch-schedules">
+<h2>Optimizers: BertAdam &amp; OpenAIAdam are now AdamW, schedules are standard PyTorch schedules<a class="headerlink" href="#optimizers-bertadam-openaiadam-are-now-adamw-schedules-are-standard-pytorch-schedules" title="Permalink to this headline">¶</a></h2>
+<p>The two optimizers previously included, <code class="docutils literal notranslate"><span class="pre">BertAdam</span></code> and <code class="docutils literal notranslate"><span class="pre">OpenAIAdam</span></code>, have been replaced by a single <code class="docutils literal notranslate"><span class="pre">AdamW</span></code> optimizer which has a few differences:</p>
+<ul class="simple">
+<li><p>it only implements weights decay correction,</p></li>
+<li><p>schedules are now externals (see below),</p></li>
+<li><p>gradient clipping is now also external (see below).</p></li>
+</ul>
+<p>The new optimizer <code class="docutils literal notranslate"><span class="pre">AdamW</span></code> matches PyTorch <code class="docutils literal notranslate"><span class="pre">Adam</span></code> optimizer API and let you use standard PyTorch or apex methods for the schedule and clipping.</p>
+<p>The schedules are now standard <a class="reference external" href="https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate">PyTorch learning rate schedulers</a> and not part of the optimizer anymore.</p>
+<p>Here is a conversion examples from <code class="docutils literal notranslate"><span class="pre">BertAdam</span></code> with a linear warmup and decay schedule to <code class="docutils literal notranslate"><span class="pre">AdamW</span></code> and the same schedule:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Parameters:</span>
+<span class="n">lr</span> <span class="o">=</span> <span class="mf">1e-3</span>
+<span class="n">max_grad_norm</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">num_training_steps</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">num_warmup_steps</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">warmup_proportion</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">num_warmup_steps</span><span class="p">)</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">num_training_steps</span><span class="p">)</span>  <span class="c1"># 0.1</span>
+
+<span class="c1">### Previously BertAdam optimizer was instantiated like this:</span>
+<span class="n">optimizer</span> <span class="o">=</span> <span class="n">BertAdam</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="n">lr</span><span class="p">,</span> <span class="n">schedule</span><span class="o">=</span><span class="s1">&#39;warmup_linear&#39;</span><span class="p">,</span> <span class="n">warmup</span><span class="o">=</span><span class="n">warmup_proportion</span><span class="p">,</span> <span class="n">num_training_steps</span><span class="o">=</span><span class="n">num_training_steps</span><span class="p">)</span>
+<span class="c1">### and used like this:</span>
+<span class="k">for</span> <span class="n">batch</span> <span class="ow">in</span> <span class="n">train_data</span><span class="p">:</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">batch</span><span class="p">)</span>
+    <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+    <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+
+<span class="c1">### In Transformers, optimizer and schedules are splitted and instantiated like this:</span>
+<span class="n">optimizer</span> <span class="o">=</span> <span class="n">AdamW</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="n">lr</span><span class="p">,</span> <span class="n">correct_bias</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>  <span class="c1"># To reproduce BertAdam specific behavior set correct_bias=False</span>
+<span class="n">scheduler</span> <span class="o">=</span> <span class="n">get_linear_schedule_with_warmup</span><span class="p">(</span><span class="n">optimizer</span><span class="p">,</span> <span class="n">num_warmup_steps</span><span class="o">=</span><span class="n">num_warmup_steps</span><span class="p">,</span> <span class="n">num_training_steps</span><span class="o">=</span><span class="n">num_training_steps</span><span class="p">)</span>  <span class="c1"># PyTorch scheduler</span>
+<span class="c1">### and used like this:</span>
+<span class="k">for</span> <span class="n">batch</span> <span class="ow">in</span> <span class="n">train_data</span><span class="p">:</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">batch</span><span class="p">)</span>
+    <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+    <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">clip_grad_norm_</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">max_grad_norm</span><span class="p">)</span>  <span class="c1"># Gradient clipping is not in AdamW anymore (so you can use amp without issue)</span>
+    <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+    <span class="n">scheduler</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Intel® LPOT.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

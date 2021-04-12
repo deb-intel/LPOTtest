@@ -1,0 +1,306 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Evaluate performance of ONNX Runtime(RoBERTa) &mdash; Intel® Low Precision Optimization Tool  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="Evaluate performance of ONNX Runtime(SSD Mobilenet v1)" href="../../object_detection/ssd_mobilenet_v1/readme.html" />
+    <link rel="prev" title="Evaluate performance of ONNX Runtime(MobileBERT)" href="../mobilebert/readme.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Intel® Low Precision Optimization Tool
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../welcome.html">Introduction to Intel LPOT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/introduction.html">APIs</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../readme.html">Examples</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../readme.html#hello-world">Hello World</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../readme.html#mxnet">MXNet</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../../readme.html#onnx">ONNX</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../image_recognition/mobilenet_v2/readme.html">Evaluate performance of ONNX Runtime(Mobilenet v2)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../image_recognition/resnet50/readme.html">Evaluate performance of ONNX Runtime(ResNet 50)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../image_recognition/vgg16/readme.html">Evaluate performance of ONNX Runtime(VGG16)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bert/readme.html">Evaluate performance of ONNX Runtime(BERT)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../distilbert/readme.html">Evaluate performance of ONNX Runtime(DistilBERT)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mobilebert/readme.html">Evaluate performance of ONNX Runtime(MobileBERT)</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Evaluate performance of ONNX Runtime(RoBERTa)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#environment">Environment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#prepare-dataset">Prepare dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#prepare-model">Prepare model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#evaluating">Evaluating</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../object_detection/ssd_mobilenet_v1/readme.html">Evaluate performance of ONNX Runtime(SSD Mobilenet v1)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../object_detection/ssd_mobilenet_v2/readme.html">Evaluate performance of ONNX Runtime(SSD Mobilenet v2)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../readme.html#onnx-image-recognition">ONNX Image Recognition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../readme.html#onnx-language-translation">ONNX Language Translation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../readme.html#onnx-object-detection">ONNX Object Detection</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../readme.html#pytorch">PyTorch</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/index.html">Developer Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../CONTRIBUTING.html">Contributing guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../CODE_OF_CONDUCT.html">Contributor Covenant Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../legal_information.html">Legal Information {#legal_information}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../legal_information.html#trademark-information">Trademark Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../SECURITY.html">Security Policy</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Intel® Low Precision Optimization Tool</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../../readme.html">Examples</a> &raquo;</li>
+        
+      <li>Evaluate performance of ONNX Runtime(RoBERTa)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../_sources/examples/onnxrt/language_translation/roberta/readme.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="evaluate-performance-of-onnx-runtime-roberta">
+<h1>Evaluate performance of ONNX Runtime(RoBERTa)<a class="headerlink" href="#evaluate-performance-of-onnx-runtime-roberta" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p>ONNX runtime quantization is under active development. please use 1.6.0+ to get more quantization support.</p>
+</div></blockquote>
+<p>This example load a language translation model and confirm its accuracy and speed based on <a class="reference external" href="https://gluebenchmark.com/">GLUE data</a>.</p>
+<div class="section" id="environment">
+<h2>Environment<a class="headerlink" href="#environment" title="Permalink to this headline">¶</a></h2>
+<p>onnx: 1.7.0
+onnxruntime: 1.6.0+</p>
+</div>
+<div class="section" id="prepare-dataset">
+<h2>Prepare dataset<a class="headerlink" href="#prepare-dataset" title="Permalink to this headline">¶</a></h2>
+<p>download the GLUE data with <code class="docutils literal notranslate"><span class="pre">prepare_data.sh</span></code> script.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>bash prepare_data.sh --data_dir<span class="o">=</span><span class="s1">&#39;/path/to/glue_data&#39;</span> --task_name<span class="o">=</span><span class="s1">&#39;MRPC&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="prepare-model">
+<h2>Prepare model<a class="headerlink" href="#prepare-model" title="Permalink to this headline">¶</a></h2>
+<p>Please refer to <a class="reference external" href="https://github.com/microsoft/onnxruntime/blob/master/onnxruntime/python/tools/quantization/notebooks/Bert-GLUE_OnnxRuntime_quantization.ipynb">Bert-GLUE_OnnxRuntime_quantization guide</a> for detailed model export. The following is a simple example.</p>
+<p>Use <a class="reference external" href="https://github.com/huggingface/transformers">Huggingface Transfomers</a> to fine-tune the model based on the <a class="reference external" href="https://github.com/huggingface/transformers/tree/master/examples/text-classification#mrpc">MRPC</a> example with command like:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">GLUE_DIR</span><span class="o">=</span>/path/to/glue_data
+<span class="nb">export</span> <span class="nv">TASK_NAME</span><span class="o">=</span>mrpc
+<span class="nb">export</span> <span class="nv">OUT_DIR</span><span class="o">=</span>./<span class="nv">$TASK_NAME</span>/
+python ./run_glue.py <span class="se">\</span>
+    --model_type roberta <span class="se">\</span>
+    --model_name_or_path roberta-base <span class="se">\</span>
+    --task_name <span class="nv">$TASK_NAME</span> <span class="se">\</span>
+    --do_train <span class="se">\</span>
+    --do_eval <span class="se">\</span>
+    --do_lower_case <span class="se">\</span>
+    --data_dir <span class="nv">$GLUE_DIR</span>/<span class="nv">$TASK_NAME</span> <span class="se">\</span>
+    --max_seq_length <span class="m">128</span> <span class="se">\</span>
+    --per_gpu_eval_batch_size<span class="o">=</span><span class="m">8</span>   <span class="se">\</span>
+    --per_gpu_train_batch_size<span class="o">=</span><span class="m">8</span>   <span class="se">\</span>
+    --learning_rate 2e-5 <span class="se">\</span>
+    --num_train_epochs <span class="m">3</span>.0 <span class="se">\</span>
+    --save_steps <span class="m">100000</span> <span class="se">\</span>
+    --output_dir <span class="nv">$OUT_DIR</span>
+</pre></div>
+</div>
+<p>Run the <code class="docutils literal notranslate"><span class="pre">prepare_model.sh</span></code> script</p>
+<p>Usage:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">TASK_NAME</span><span class="o">=</span>mrpc
+
+bash prepare_model.sh --input_dir<span class="o">=</span><span class="nv">$OUT_DIR</span> <span class="se">\</span>
+                      --task_name<span class="o">=</span><span class="nv">$TASK_NAME</span> <span class="se">\</span>
+                      --output_model<span class="o">=</span>path/to/model <span class="c1"># model path as *.onnx</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="evaluating">
+<h2>Evaluating<a class="headerlink" href="#evaluating" title="Permalink to this headline">¶</a></h2>
+<p>To evaluate the model, run <code class="docutils literal notranslate"><span class="pre">bert_base.py</span></code> with the path to the model:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bash run_tuning.sh --topology<span class="o">=</span>roberta_base_MRPC <span class="se">\ </span>
+                   --dataset_location<span class="o">=</span><span class="nv">$GLUE_DIR</span>/<span class="nv">$TASK_NAME</span> <span class="se">\ </span>
+                   --input_model<span class="o">=</span>path/to/model <span class="se">\ </span><span class="c1"># model path as *.onnx</span>
+                   --output_model<span class="o">=</span>path/to/model_tune
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../../object_detection/ssd_mobilenet_v1/readme.html" class="btn btn-neutral float-right" title="Evaluate performance of ONNX Runtime(SSD Mobilenet v1)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../mobilebert/readme.html" class="btn btn-neutral float-left" title="Evaluate performance of ONNX Runtime(MobileBERT)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Intel® LPOT.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

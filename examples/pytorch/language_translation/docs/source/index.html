@@ -1,0 +1,513 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Transformers &mdash; Intel® Low Precision Optimization Tool  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../../" src="../../../../../_static/documentation_options.js"></script>
+        <script src="../../../../../_static/jquery.js"></script>
+        <script src="../../../../../_static/underscore.js"></script>
+        <script src="../../../../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> Intel® Low Precision Optimization Tool
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../welcome.html">Introduction to Intel LPOT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../docs/introduction.html">APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../readme.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../docs/index.html">Developer Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../CONTRIBUTING.html">Contributing guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../CODE_OF_CONDUCT.html">Contributor Covenant Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../legal_information.html">Legal Information {#legal_information}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../legal_information.html#trademark-information">Trademark Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../SECURITY.html">Security Policy</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">Intel® Low Precision Optimization Tool</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Transformers</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../../_sources/examples/pytorch/language_translation/docs/source/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="transformers">
+<h1>Transformers<a class="headerlink" href="#transformers" title="Permalink to this headline">¶</a></h1>
+<p>🤗 Transformers (formerly known as <cite>pytorch-transformers</cite> and <cite>pytorch-pretrained-bert</cite>) provides general-purpose architectures
+(BERT, GPT-2, RoBERTa, XLM, DistilBert, XLNet…) for Natural Language Understanding (NLU) and Natural Language Generation
+(NLG) with over 32+ pretrained models in 100+ languages and deep interoperability between TensorFlow 2.0 and PyTorch.</p>
+<p>This is the documentation of our repository <a class="reference external" href="https://github.com/huggingface/transformers">transformers</a>.</p>
+<div class="section" id="features">
+<h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>As easy to use as pytorch-transformers</p></li>
+<li><p>As powerful and concise as Keras</p></li>
+<li><p>High performance on NLU and NLG tasks</p></li>
+<li><p>Low barrier to entry for educators and practitioners</p></li>
+</ul>
+<p>State-of-the-art NLP for everyone:</p>
+<ul class="simple">
+<li><p>Deep learning researchers</p></li>
+<li><p>Hands-on practitioners</p></li>
+<li><p>AI/ML/NLP teachers and educators</p></li>
+</ul>
+<p>Lower compute costs, smaller carbon footprint:</p>
+<ul class="simple">
+<li><p>Researchers can share trained models instead of always retraining</p></li>
+<li><p>Practitioners can reduce compute time and production costs</p></li>
+<li><p>8 architectures with over 30 pretrained models, some in more than 100 languages</p></li>
+</ul>
+<p>Choose the right framework for every part of a model’s lifetime:</p>
+<ul class="simple">
+<li><p>Train state-of-the-art models in 3 lines of code</p></li>
+<li><p>Deep interoperability between TensorFlow 2.0 and PyTorch models</p></li>
+<li><p>Move a single model between TF2.0/PyTorch frameworks at will</p></li>
+<li><p>Seamlessly pick the right framework for training, evaluation, production</p></li>
+</ul>
+</div>
+<div class="section" id="contents">
+<h2>Contents<a class="headerlink" href="#contents" title="Permalink to this headline">¶</a></h2>
+<p>The library currently contains PyTorch and Tensorflow implementations, pre-trained model weights, usage scripts and conversion utilities for the following models:</p>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://github.com/google-research/bert">BERT</a> (from Google) released with the paper <a class="reference external" href="https://arxiv.org/abs/1810.04805">BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding</a> by Jacob Devlin, Ming-Wei Chang, Kenton Lee and Kristina Toutanova.</p></li>
+<li><p><a class="reference external" href="https://github.com/openai/finetune-transformer-lm">GPT</a> (from OpenAI) released with the paper <a class="reference external" href="https://blog.openai.com/language-unsupervised">Improving Language Understanding by Generative Pre-Training</a> by Alec Radford, Karthik Narasimhan, Tim Salimans and Ilya Sutskever.</p></li>
+<li><p><a class="reference external" href="https://blog.openai.com/better-language-models">GPT-2</a> (from OpenAI) released with the paper <a class="reference external" href="https://blog.openai.com/better-language-models">Language Models are Unsupervised Multitask Learners</a> by Alec Radford*, Jeffrey Wu*, Rewon Child, David Luan, Dario Amodei** and Ilya Sutskever**.</p></li>
+<li><p><a class="reference external" href="https://github.com/kimiyoung/transformer-xl">Transformer-XL</a> (from Google/CMU) released with the paper <a class="reference external" href="https://arxiv.org/abs/1901.02860">Transformer-XL: Attentive Language Models Beyond a Fixed-Length Context</a> by Zihang Dai*, Zhilin Yang*, Yiming Yang, Jaime Carbonell, Quoc V. Le, Ruslan Salakhutdinov.</p></li>
+<li><p><a class="reference external" href="https://github.com/zihangdai/xlnet">XLNet</a> (from Google/CMU) released with the paper <a class="reference external" href="https://arxiv.org/abs/1906.08237">​XLNet: Generalized Autoregressive Pretraining for Language Understanding</a> by Zhilin Yang*, Zihang Dai*, Yiming Yang, Jaime Carbonell, Ruslan Salakhutdinov, Quoc V. Le.</p></li>
+<li><p><a class="reference external" href="https://github.com/facebookresearch/XLM">XLM</a> (from Facebook) released together with the paper <a class="reference external" href="https://arxiv.org/abs/1901.07291">Cross-lingual Language Model Pretraining</a> by Guillaume Lample and Alexis Conneau.</p></li>
+<li><p><a class="reference external" href="https://github.com/pytorch/fairseq/tree/master/examples/roberta">RoBERTa</a> (from Facebook), released together with the paper a <a class="reference external" href="https://arxiv.org/abs/1907.11692">Robustly Optimized BERT Pretraining Approach</a> by Yinhan Liu, Myle Ott, Naman Goyal, Jingfei Du, Mandar Joshi, Danqi Chen, Omer Levy, Mike Lewis, Luke Zettlemoyer, Veselin Stoyanov.</p></li>
+<li><p><a class="reference external" href="https://huggingface.co/transformers/model_doc/distilbert.html">DistilBERT</a> (from HuggingFace) released together with the paper <a class="reference external" href="https://arxiv.org/abs/1910.01108">DistilBERT, a distilled version of BERT: smaller, faster, cheaper and lighter</a> by Victor Sanh, Lysandre Debut and Thomas Wolf. The same method has been applied to compress GPT2 into <a class="reference external" href="https://github.com/huggingface/transformers/tree/master/examples/distillation">DistilGPT2</a>.</p></li>
+<li><p><a class="reference external" href="https://github.com/pytorch/fairseq/tree/master/examples/ctrl">CTRL</a> (from Salesforce), released together with the paper <a class="reference external" href="https://www.github.com/salesforce/ctrl">CTRL: A Conditional Transformer Language Model for Controllable Generation</a> by Nitish Shirish Keskar*, Bryan McCann*, Lav R. Varshney, Caiming Xiong and Richard Socher.</p></li>
+<li><p><a class="reference external" href="https://huggingface.co/transformers/model_doc/camembert.html">CamemBERT</a> (from FAIR, Inria, Sorbonne Université) released together with the paper <a class="reference external" href="https://arxiv.org/abs/1911.03894">CamemBERT: a Tasty French Language Model</a> by Louis Martin, Benjamin Muller, Pedro Javier Ortiz Suarez, Yoann Dupont, Laurent Romary, Eric Villemonte de la Clergerie, Djame Seddah, and Benoît Sagot.</p></li>
+<li><p><a class="reference external" href="https://github.com/google-research/ALBERT">ALBERT</a> (from Google Research), released together with the paper a <a class="reference external" href="https://arxiv.org/abs/1909.11942">ALBERT: A Lite BERT for Self-supervised Learning of Language Representations</a> by Zhenzhong Lan, Mingda Chen, Sebastian Goodman, Kevin Gimpel, Piyush Sharma, Radu Soricut.</p></li>
+</ol>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#with-pip">With pip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#from-source">From source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#tests">Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#openai-gpt-original-tokenization-workflow">OpenAI GPT original tokenization workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#note-on-model-downloads-continuous-integration-or-large-scale-deployments">Note on model downloads (Continuous Integration or large-scale deployments)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#do-you-want-to-run-a-transformer-model-on-a-mobile-device">Do you want to run a Transformer model on a mobile device?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#philosophy">Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#main-concepts">Main concepts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#quick-tour-usage">Quick tour: Usage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pretrained_models.html">Pretrained models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#tensorflow-2-0-bert-models-on-glue">TensorFlow 2.0 Bert models on GLUE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#language-model-fine-tuning">Language model fine-tuning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#language-generation">Language generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#glue">GLUE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#multiple-choice">Multiple Choice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#squad">SQuAD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#named-entity-recognition">Named Entity Recognition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#xnli">XNLI</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks.html">Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serialization.html">Loading Google AI or OpenAI pre-trained weights or PyTorch dump</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="serialization.html#from-pretrained-method"><code class="docutils literal notranslate"><span class="pre">from_pretrained()</span></code> method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="serialization.html#cache-directory">Cache directory</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="serialization.html#serialization-best-practices">Serialization best-practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="converting_tensorflow_models.html">Converting Tensorflow Checkpoints</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="converting_tensorflow_models.html#bert">BERT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="converting_tensorflow_models.html#openai-gpt">OpenAI GPT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="converting_tensorflow_models.html#openai-gpt-2">OpenAI GPT-2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="converting_tensorflow_models.html#transformer-xl">Transformer-XL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="converting_tensorflow_models.html#xlnet">XLNet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="converting_tensorflow_models.html#xlm">XLM</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="migration.html">Migrating from pytorch-pretrained-bert</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="migration.html#models-always-output-tuples">Models always output <code class="docutils literal notranslate"><span class="pre">tuples</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="migration.html#serialization">Serialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migration.html#optimizers-bertadam-openaiadam-are-now-adamw-schedules-are-standard-pytorch-schedules">Optimizers: BertAdam &amp; OpenAIAdam are now AdamW, schedules are standard PyTorch schedules</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bertology.html">BERTology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="torchscript.html">TorchScript</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="torchscript.html#implications">Implications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torchscript.html#using-torchscript-in-python">Using TorchScript in Python</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="multilingual.html">Multi-lingual models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="multilingual.html#xlm">XLM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multilingual.html#bert">BERT</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="benchmarks.html">Benchmarks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="benchmarks.html#benchmarking-all-models-for-inference">Benchmarking all models for inference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="benchmarks.html#tf2-with-mixed-precision-xla-distribution-tlkh">TF2 with mixed precision, XLA, Distribution (&#64;tlkh)</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Main classes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="main_classes/configuration.html">Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="main_classes/configuration.html#pretrainedconfig"><code class="docutils literal notranslate"><span class="pre">PretrainedConfig</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="main_classes/model.html">Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="main_classes/model.html#pretrainedmodel"><code class="docutils literal notranslate"><span class="pre">PreTrainedModel</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="main_classes/model.html#tfpretrainedmodel"><code class="docutils literal notranslate"><span class="pre">TFPreTrainedModel</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="main_classes/tokenizer.html">Tokenizer</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="main_classes/tokenizer.html#pretrainedtokenizer"><code class="docutils literal notranslate"><span class="pre">PreTrainedTokenizer</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="main_classes/optimizer_schedules.html">Optimizer</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="main_classes/optimizer_schedules.html#adamw"><code class="docutils literal notranslate"><span class="pre">AdamW</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="main_classes/optimizer_schedules.html#adamweightdecay"><code class="docutils literal notranslate"><span class="pre">AdamWeightDecay</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="main_classes/optimizer_schedules.html#schedules">Schedules</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="main_classes/optimizer_schedules.html#warmup"><code class="docutils literal notranslate"><span class="pre">Warmup</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="main_classes/optimizer_schedules.html#gradient-strategies">Gradient Strategies</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="main_classes/optimizer_schedules.html#gradientaccumulator"><code class="docutils literal notranslate"><span class="pre">GradientAccumulator</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="main_classes/processors.html">Processors</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="main_classes/processors.html#id1">Processors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main_classes/processors.html#glue">GLUE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main_classes/processors.html#xnli">XNLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main_classes/processors.html#squad">SQuAD</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Package Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="model_doc/auto.html">AutoModels</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/auto.html#autoconfig"><code class="docutils literal notranslate"><span class="pre">AutoConfig</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/auto.html#automodel"><code class="docutils literal notranslate"><span class="pre">AutoModel</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/auto.html#autotokenizer"><code class="docutils literal notranslate"><span class="pre">AutoTokenizer</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="model_doc/bert.html">BERT</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/bert.html#bertconfig"><code class="docutils literal notranslate"><span class="pre">BertConfig</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/bert.html#berttokenizer"><code class="docutils literal notranslate"><span class="pre">BertTokenizer</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/bert.html#bertmodel"><code class="docutils literal notranslate"><span class="pre">BertModel</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/bert.html#bertforpretraining"><code class="docutils literal notranslate"><span class="pre">BertForPreTraining</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/bert.html#bertformaskedlm"><code class="docutils literal notranslate"><span class="pre">BertForMaskedLM</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/bert.html#bertfornextsentenceprediction"><code class="docutils literal notranslate"><span class="pre">BertForNextSentencePrediction</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/bert.html#bertforsequenceclassification"><code class="docutils literal notranslate"><span class="pre">BertForSequenceClassification</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/bert.html#bertformultiplechoice"><code class="docutils literal notranslate"><span class="pre">BertForMultipleChoice</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/bert.html#bertfortokenclassification"><code class="docutils literal notranslate"><span class="pre">BertForTokenClassification</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/bert.html#bertforquestionanswering"><code class="docutils literal notranslate"><span class="pre">BertForQuestionAnswering</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/bert.html#tfbertmodel"><code class="docutils literal notranslate"><span class="pre">TFBertModel</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/bert.html#tfbertforpretraining"><code class="docutils literal notranslate"><span class="pre">TFBertForPreTraining</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/bert.html#tfbertformaskedlm"><code class="docutils literal notranslate"><span class="pre">TFBertForMaskedLM</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/bert.html#tfbertfornextsentenceprediction"><code class="docutils literal notranslate"><span class="pre">TFBertForNextSentencePrediction</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/bert.html#tfbertforsequenceclassification"><code class="docutils literal notranslate"><span class="pre">TFBertForSequenceClassification</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/bert.html#tfbertformultiplechoice"><code class="docutils literal notranslate"><span class="pre">TFBertForMultipleChoice</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/bert.html#tfbertfortokenclassification"><code class="docutils literal notranslate"><span class="pre">TFBertForTokenClassification</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/bert.html#tfbertforquestionanswering"><code class="docutils literal notranslate"><span class="pre">TFBertForQuestionAnswering</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="model_doc/gpt.html">OpenAI GPT</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/gpt.html#openaigptconfig"><code class="docutils literal notranslate"><span class="pre">OpenAIGPTConfig</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/gpt.html#openaigpttokenizer"><code class="docutils literal notranslate"><span class="pre">OpenAIGPTTokenizer</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/gpt.html#openaigptmodel"><code class="docutils literal notranslate"><span class="pre">OpenAIGPTModel</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/gpt.html#openaigptlmheadmodel"><code class="docutils literal notranslate"><span class="pre">OpenAIGPTLMHeadModel</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/gpt.html#openaigptdoubleheadsmodel"><code class="docutils literal notranslate"><span class="pre">OpenAIGPTDoubleHeadsModel</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/gpt.html#tfopenaigptmodel"><code class="docutils literal notranslate"><span class="pre">TFOpenAIGPTModel</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/gpt.html#tfopenaigptlmheadmodel"><code class="docutils literal notranslate"><span class="pre">TFOpenAIGPTLMHeadModel</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/gpt.html#tfopenaigptdoubleheadsmodel"><code class="docutils literal notranslate"><span class="pre">TFOpenAIGPTDoubleHeadsModel</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="model_doc/transformerxl.html">Transformer XL</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/transformerxl.html#transfoxlconfig"><code class="docutils literal notranslate"><span class="pre">TransfoXLConfig</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/transformerxl.html#transfoxltokenizer"><code class="docutils literal notranslate"><span class="pre">TransfoXLTokenizer</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/transformerxl.html#transfoxlmodel"><code class="docutils literal notranslate"><span class="pre">TransfoXLModel</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/transformerxl.html#transfoxllmheadmodel"><code class="docutils literal notranslate"><span class="pre">TransfoXLLMHeadModel</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/transformerxl.html#tftransfoxlmodel"><code class="docutils literal notranslate"><span class="pre">TFTransfoXLModel</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/transformerxl.html#tftransfoxllmheadmodel"><code class="docutils literal notranslate"><span class="pre">TFTransfoXLLMHeadModel</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="model_doc/gpt2.html">OpenAI GPT2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/gpt2.html#gpt2config"><code class="docutils literal notranslate"><span class="pre">GPT2Config</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/gpt2.html#gpt2tokenizer"><code class="docutils literal notranslate"><span class="pre">GPT2Tokenizer</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/gpt2.html#gpt2model"><code class="docutils literal notranslate"><span class="pre">GPT2Model</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/gpt2.html#gpt2lmheadmodel"><code class="docutils literal notranslate"><span class="pre">GPT2LMHeadModel</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/gpt2.html#gpt2doubleheadsmodel"><code class="docutils literal notranslate"><span class="pre">GPT2DoubleHeadsModel</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/gpt2.html#tfgpt2model"><code class="docutils literal notranslate"><span class="pre">TFGPT2Model</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/gpt2.html#tfgpt2lmheadmodel"><code class="docutils literal notranslate"><span class="pre">TFGPT2LMHeadModel</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/gpt2.html#tfgpt2doubleheadsmodel"><code class="docutils literal notranslate"><span class="pre">TFGPT2DoubleHeadsModel</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="model_doc/xlm.html">XLM</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/xlm.html#xlmconfig"><code class="docutils literal notranslate"><span class="pre">XLMConfig</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/xlm.html#xlmtokenizer"><code class="docutils literal notranslate"><span class="pre">XLMTokenizer</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/xlm.html#xlmmodel"><code class="docutils literal notranslate"><span class="pre">XLMModel</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/xlm.html#xlmwithlmheadmodel"><code class="docutils literal notranslate"><span class="pre">XLMWithLMHeadModel</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/xlm.html#xlmforsequenceclassification"><code class="docutils literal notranslate"><span class="pre">XLMForSequenceClassification</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/xlm.html#xlmforquestionanswering"><code class="docutils literal notranslate"><span class="pre">XLMForQuestionAnswering</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/xlm.html#tfxlmmodel"><code class="docutils literal notranslate"><span class="pre">TFXLMModel</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/xlm.html#tfxlmwithlmheadmodel"><code class="docutils literal notranslate"><span class="pre">TFXLMWithLMHeadModel</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/xlm.html#tfxlmforsequenceclassification"><code class="docutils literal notranslate"><span class="pre">TFXLMForSequenceClassification</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/xlm.html#tfxlmforquestionansweringsimple"><code class="docutils literal notranslate"><span class="pre">TFXLMForQuestionAnsweringSimple</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="model_doc/xlnet.html">XLNet</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/xlnet.html#xlnetconfig"><code class="docutils literal notranslate"><span class="pre">XLNetConfig</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/xlnet.html#xlnettokenizer"><code class="docutils literal notranslate"><span class="pre">XLNetTokenizer</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/xlnet.html#xlnetmodel"><code class="docutils literal notranslate"><span class="pre">XLNetModel</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/xlnet.html#xlnetlmheadmodel"><code class="docutils literal notranslate"><span class="pre">XLNetLMHeadModel</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/xlnet.html#xlnetforsequenceclassification"><code class="docutils literal notranslate"><span class="pre">XLNetForSequenceClassification</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/xlnet.html#xlnetforquestionanswering"><code class="docutils literal notranslate"><span class="pre">XLNetForQuestionAnswering</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/xlnet.html#tfxlnetmodel"><code class="docutils literal notranslate"><span class="pre">TFXLNetModel</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/xlnet.html#tfxlnetlmheadmodel"><code class="docutils literal notranslate"><span class="pre">TFXLNetLMHeadModel</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/xlnet.html#tfxlnetforsequenceclassification"><code class="docutils literal notranslate"><span class="pre">TFXLNetForSequenceClassification</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/xlnet.html#tfxlnetforquestionansweringsimple"><code class="docutils literal notranslate"><span class="pre">TFXLNetForQuestionAnsweringSimple</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="model_doc/roberta.html">RoBERTa</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/roberta.html#robertaconfig"><code class="docutils literal notranslate"><span class="pre">RobertaConfig</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/roberta.html#robertatokenizer"><code class="docutils literal notranslate"><span class="pre">RobertaTokenizer</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/roberta.html#robertamodel"><code class="docutils literal notranslate"><span class="pre">RobertaModel</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/roberta.html#robertaformaskedlm"><code class="docutils literal notranslate"><span class="pre">RobertaForMaskedLM</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/roberta.html#robertaforsequenceclassification"><code class="docutils literal notranslate"><span class="pre">RobertaForSequenceClassification</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/roberta.html#tfrobertamodel"><code class="docutils literal notranslate"><span class="pre">TFRobertaModel</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/roberta.html#tfrobertaformaskedlm"><code class="docutils literal notranslate"><span class="pre">TFRobertaForMaskedLM</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/roberta.html#tfrobertaforsequenceclassification"><code class="docutils literal notranslate"><span class="pre">TFRobertaForSequenceClassification</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="model_doc/distilbert.html">DistilBERT</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/distilbert.html#distilbertconfig"><code class="docutils literal notranslate"><span class="pre">DistilBertConfig</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/distilbert.html#distilberttokenizer"><code class="docutils literal notranslate"><span class="pre">DistilBertTokenizer</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/distilbert.html#distilbertmodel"><code class="docutils literal notranslate"><span class="pre">DistilBertModel</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/distilbert.html#distilbertformaskedlm"><code class="docutils literal notranslate"><span class="pre">DistilBertForMaskedLM</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/distilbert.html#distilbertforsequenceclassification"><code class="docutils literal notranslate"><span class="pre">DistilBertForSequenceClassification</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/distilbert.html#distilbertforquestionanswering"><code class="docutils literal notranslate"><span class="pre">DistilBertForQuestionAnswering</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/distilbert.html#tfdistilbertmodel"><code class="docutils literal notranslate"><span class="pre">TFDistilBertModel</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/distilbert.html#tfdistilbertformaskedlm"><code class="docutils literal notranslate"><span class="pre">TFDistilBertForMaskedLM</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/distilbert.html#tfdistilbertforsequenceclassification"><code class="docutils literal notranslate"><span class="pre">TFDistilBertForSequenceClassification</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/distilbert.html#tfdistilbertforquestionanswering"><code class="docutils literal notranslate"><span class="pre">TFDistilBertForQuestionAnswering</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="model_doc/ctrl.html">CTRL</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/ctrl.html#ctrlconfig"><code class="docutils literal notranslate"><span class="pre">CTRLConfig</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/ctrl.html#ctrltokenizer"><code class="docutils literal notranslate"><span class="pre">CTRLTokenizer</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/ctrl.html#ctrlmodel"><code class="docutils literal notranslate"><span class="pre">CTRLModel</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/ctrl.html#ctrllmheadmodel"><code class="docutils literal notranslate"><span class="pre">CTRLLMHeadModel</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/ctrl.html#tfctrlmodel"><code class="docutils literal notranslate"><span class="pre">TFCTRLModel</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/ctrl.html#tfctrllmheadmodel"><code class="docutils literal notranslate"><span class="pre">TFCTRLLMHeadModel</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="model_doc/camembert.html">CamemBERT</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/camembert.html#camembertconfig"><code class="docutils literal notranslate"><span class="pre">CamembertConfig</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/camembert.html#camemberttokenizer"><code class="docutils literal notranslate"><span class="pre">CamembertTokenizer</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/camembert.html#camembertmodel"><code class="docutils literal notranslate"><span class="pre">CamembertModel</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/camembert.html#camembertformaskedlm"><code class="docutils literal notranslate"><span class="pre">CamembertForMaskedLM</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/camembert.html#camembertforsequenceclassification"><code class="docutils literal notranslate"><span class="pre">CamembertForSequenceClassification</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/camembert.html#camembertformultiplechoice"><code class="docutils literal notranslate"><span class="pre">CamembertForMultipleChoice</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/camembert.html#camembertfortokenclassification"><code class="docutils literal notranslate"><span class="pre">CamembertForTokenClassification</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="model_doc/albert.html">ALBERT</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/albert.html#albrtconfig"><code class="docutils literal notranslate"><span class="pre">AlbrtConfig</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/albert.html#alberttokenizer"><code class="docutils literal notranslate"><span class="pre">AlbertTokenizer</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/albert.html#albertmodel"><code class="docutils literal notranslate"><span class="pre">AlbertModel</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/albert.html#albertformaskedlm"><code class="docutils literal notranslate"><span class="pre">AlbertForMaskedLM</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/albert.html#albertforsequenceclassification"><code class="docutils literal notranslate"><span class="pre">AlbertForSequenceClassification</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/albert.html#albertforquestionanswering"><code class="docutils literal notranslate"><span class="pre">AlbertForQuestionAnswering</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/albert.html#tfalbertmodel"><code class="docutils literal notranslate"><span class="pre">TFAlbertModel</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/albert.html#tfalbertformaskedlm"><code class="docutils literal notranslate"><span class="pre">TFAlbertForMaskedLM</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_doc/albert.html#tfalbertforsequenceclassification"><code class="docutils literal notranslate"><span class="pre">TFAlbertForSequenceClassification</span></code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Intel® LPOT.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

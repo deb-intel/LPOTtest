@@ -1,0 +1,297 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>tf_example3 example &mdash; Intel® Low Precision Optimization Tool  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="tf_example4 example" href="../tf_example4/README.html" />
+    <link rel="prev" title="tf_example2 example" href="../tf_example2/README.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Intel® Low Precision Optimization Tool
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../welcome.html">Introduction to Intel LPOT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/introduction.html">APIs</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../readme.html">Examples</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../readme.html#hello-world">Hello World</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../README.html">Hello World Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tf_example1/README.html">tf_example1 example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tf_example2/README.html">tf_example2 example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tf_example2/README.html#step-by-step">Step-by-Step</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tf_example2/README.html#the-cmd-of-quantization-and-predict-with-the-quantized-model">The cmd of quantization and predict with the quantized model</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">tf_example3 example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tf_example4/README.html">tf_example4 example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tf_example5/README.html">tf_example5 example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../readme.html#mxnet">MXNet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../readme.html#onnx">ONNX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../readme.html#pytorch">PyTorch</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/index.html">Developer Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../CONTRIBUTING.html">Contributing guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../CODE_OF_CONDUCT.html">Contributor Covenant Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../legal_information.html">Legal Information {#legal_information}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../legal_information.html#trademark-information">Trademark Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../SECURITY.html">Security Policy</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Intel® Low Precision Optimization Tool</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../readme.html">Examples</a> &raquo;</li>
+        
+      <li>tf_example3 example</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/examples/helloworld/tf_example3/README.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="tf-example3-example">
+<h1>tf_example3 example<a class="headerlink" href="#tf-example3-example" title="Permalink to this headline">¶</a></h1>
+<p>This example is used to demonstrate how to utilize LPOT builtin dataloader and metric to enabling quantization for models defined in slim.</p>
+<ol class="simple">
+<li><p>Prepare</p></li>
+</ol>
+<ul class="simple">
+<li><p>Prepare the FP32 model
+wget http://download.tensorflow.org/models/inception_v1_2016_08_28.tar.gz
+tar -xvf inception_v1_2016_08_28.tar.gz</p></li>
+<li><p>Instanll dependencies
+pip install -r requirements.txt</p></li>
+</ul>
+<ol class="simple">
+<li><p>Config dataloader in conf.ymal
+The configuration will help user to create a dataloader of Imagenet and it will do Bilinear resampling to resize the image to 224x224. It also creates a TopK metric function for evaluation.</p></li>
+</ol>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">quantization</span><span class="p">:</span>                                        <span class="c1"># optional. tuning constraints on model-wise for advance user to reduce tuning space.</span>
+  <span class="nt">calibration</span><span class="p">:</span>
+    <span class="nt">sampling_size</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">20, 50</span>                            <span class="c1"># optional. default value is 100. used to set how many samples should be used in calibration.</span>
+    <span class="nt">dataloader</span><span class="p">:</span>
+      <span class="nt">batch_size</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
+      <span class="nt">dataset</span><span class="p">:</span>
+        <span class="nt">ImageRecord</span><span class="p">:</span>
+          <span class="nt">root</span><span class="p">:</span> <span class="nt">/path/to/imagenet/                   # NOTE</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">modify to calibration dataset location if needed</span>
+      <span class="nt">transform</span><span class="p">:</span>
+        <span class="nt">ParseDecodeImagenet</span><span class="p">:</span>
+        <span class="nt">BilinearImagenet</span><span class="p">:</span> 
+          <span class="nt">height</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">224</span>
+          <span class="nt">width</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">224</span>
+<span class="l l-Scalar l-Scalar-Plain">......</span>
+<span class="nt">evaluation</span><span class="p">:</span>                                          <span class="c1"># optional. required if user doesn&#39;t provide eval_func in Quantization.</span>
+  <span class="nt">accuracy</span><span class="p">:</span>                                          <span class="c1"># optional. required if user doesn&#39;t provide eval_func in Quantization.</span>
+    <span class="nt">metric</span><span class="p">:</span>
+      <span class="nt">topk</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>                                        <span class="c1"># built-in metrics are topk, map, f1, allow user to register new metric.</span>
+    <span class="nt">dataloader</span><span class="p">:</span>
+      <span class="nt">batch_size</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span> 
+      <span class="nt">last_batch</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">discard</span> 
+      <span class="nt">dataset</span><span class="p">:</span>
+        <span class="nt">ImageRecord</span><span class="p">:</span>
+          <span class="nt">root</span><span class="p">:</span> <span class="nt">/path/to/imagenet/                   # NOTE</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">modify to evaluation dataset location if needed</span>
+      <span class="nt">transform</span><span class="p">:</span>
+        <span class="nt">ParseDecodeImagenet</span><span class="p">:</span>
+        <span class="nt">BilinearImagenet</span><span class="p">:</span> 
+          <span class="nt">height</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">224</span>
+          <span class="nt">width</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">224</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>Run quantizaiton</p></li>
+</ol>
+<ul class="simple">
+<li><p>In order to do quanzation for slim models, we need to get graph from slim .ckpt first.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="kn">from</span> <span class="nn">lpot.experimental</span> <span class="kn">import</span> <span class="n">Quantization</span><span class="p">,</span> <span class="n">common</span>
+    <span class="n">quantizer</span> <span class="o">=</span> <span class="n">Quantization</span><span class="p">(</span><span class="s1">&#39;./conf.yaml&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Do quantization</span>
+    <span class="n">quantizer</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">common</span><span class="o">.</span><span class="n">Model</span><span class="p">(</span><span class="s1">&#39;./inception_v1.ckpt&#39;</span><span class="p">)</span>
+    <span class="n">quantized_model</span> <span class="o">=</span> <span class="n">quantizer</span><span class="p">()</span>
+ 
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../tf_example4/README.html" class="btn btn-neutral float-right" title="tf_example4 example" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../tf_example2/README.html" class="btn btn-neutral float-left" title="tf_example2 example" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Intel® LPOT.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

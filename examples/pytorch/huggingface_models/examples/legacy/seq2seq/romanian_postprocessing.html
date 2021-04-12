@@ -1,0 +1,266 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Motivation &mdash; Intel® Low Precision Optimization Tool  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../../_static/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../../../" src="../../../../../../_static/documentation_options.js"></script>
+        <script src="../../../../../../_static/jquery.js"></script>
+        <script src="../../../../../../_static/underscore.js"></script>
+        <script src="../../../../../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../../../index.html" class="icon icon-home"> Intel® Low Precision Optimization Tool
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../welcome.html">Introduction to Intel LPOT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../docs/introduction.html">APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../readme.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../docs/index.html">Developer Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../CONTRIBUTING.html">Contributing guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../CODE_OF_CONDUCT.html">Contributor Covenant Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../legal_information.html">Legal Information {#legal_information}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../legal_information.html#trademark-information">Trademark Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../SECURITY.html">Security Policy</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../../index.html">Intel® Low Precision Optimization Tool</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Motivation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../../../_sources/examples/pytorch/huggingface_models/examples/legacy/seq2seq/romanian_postprocessing.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="motivation">
+<h1>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h1>
+<p>Without processing, english-&gt; romanian mbart-large-en-ro gets BLEU score 26.8 on the WMT data.
+With post processing, it can score 37..
+Here is the postprocessing code, stolen from &#64;mjpost in this <a class="reference external" href="https://github.com/pytorch/fairseq/issues/1758">issue</a></p>
+</div>
+<div class="section" id="instructions">
+<h1>Instructions<a class="headerlink" href="#instructions" title="Permalink to this headline">¶</a></h1>
+<p>Note: You need to have your test_generations.txt before you start this process.
+(1) Setup <code class="docutils literal notranslate"><span class="pre">mosesdecoder</span></code> and <code class="docutils literal notranslate"><span class="pre">wmt16-scripts</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> <span class="nv">$HOME</span>
+git clone git@github.com:moses-smt/mosesdecoder.git
+<span class="nb">cd</span> mosesdecoder  
+git clone git@github.com:rsennrich/wmt16-scripts.git
+</pre></div>
+</div>
+<p>(2) define a function for post processing.
+It removes diacritics and does other things I don’t understand</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ro_post_process <span class="o">()</span> <span class="o">{</span>
+  <span class="nv">sys</span><span class="o">=</span><span class="nv">$1</span>
+  <span class="nv">ref</span><span class="o">=</span><span class="nv">$2</span>
+  <span class="nb">export</span> <span class="nv">MOSES_PATH</span><span class="o">=</span><span class="nv">$HOME</span>/mosesdecoder
+  <span class="nv">REPLACE_UNICODE_PUNCT</span><span class="o">=</span><span class="nv">$MOSES_PATH</span>/scripts/tokenizer/replace-unicode-punctuation.perl
+  <span class="nv">NORM_PUNC</span><span class="o">=</span><span class="nv">$MOSES_PATH</span>/scripts/tokenizer/normalize-punctuation.perl
+  <span class="nv">REM_NON_PRINT_CHAR</span><span class="o">=</span><span class="nv">$MOSES_PATH</span>/scripts/tokenizer/remove-non-printing-char.perl
+  <span class="nv">REMOVE_DIACRITICS</span><span class="o">=</span><span class="nv">$MOSES_PATH</span>/wmt16-scripts/preprocess/remove-diacritics.py
+  <span class="nv">NORMALIZE_ROMANIAN</span><span class="o">=</span><span class="nv">$MOSES_PATH</span>/wmt16-scripts/preprocess/normalise-romanian.py
+  <span class="nv">TOKENIZER</span><span class="o">=</span><span class="nv">$MOSES_PATH</span>/scripts/tokenizer/tokenizer.perl
+
+
+
+  <span class="nv">lang</span><span class="o">=</span>ro
+  <span class="k">for</span> file in <span class="nv">$sys</span> <span class="nv">$ref</span><span class="p">;</span> <span class="k">do</span>
+    cat <span class="nv">$file</span> <span class="se">\</span>
+    <span class="p">|</span> <span class="nv">$REPLACE_UNICODE_PUNCT</span> <span class="se">\</span>
+    <span class="p">|</span> <span class="nv">$NORM_PUNC</span> -l <span class="nv">$lang</span> <span class="se">\</span>
+    <span class="p">|</span> <span class="nv">$REM_NON_PRINT_CHAR</span> <span class="se">\</span>
+    <span class="p">|</span> <span class="nv">$NORMALIZE_ROMANIAN</span> <span class="se">\</span>
+    <span class="p">|</span> <span class="nv">$REMOVE_DIACRITICS</span> <span class="se">\</span>
+    <span class="p">|</span> <span class="nv">$TOKENIZER</span> -no-escape -l <span class="nv">$lang</span> <span class="se">\</span>
+    &gt; <span class="k">$(</span>basename <span class="nv">$file</span><span class="k">)</span>.tok
+  <span class="k">done</span>
+  <span class="c1"># compute BLEU</span>
+  cat <span class="k">$(</span>basename <span class="nv">$sys</span><span class="k">)</span>.tok <span class="p">|</span> sacrebleu -tok none -s none -b <span class="k">$(</span>basename <span class="nv">$ref</span><span class="k">)</span>.tok
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>(3) Call the function on test_generations.txt and test.target
+For example,</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ro_post_process enro_finetune/test_generations.txt wmt_en_ro/test.target
+</pre></div>
+</div>
+<p>This will split out a new blue score and write a new fine called <code class="docutils literal notranslate"><span class="pre">test_generations.tok</span></code> with post-processed outputs.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Intel® LPOT.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

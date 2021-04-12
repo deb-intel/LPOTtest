@@ -1,0 +1,274 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>How to add a new model in 🤗Transformers &mdash; Intel® Low Precision Optimization Tool  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../../" src="../../../../../_static/documentation_options.js"></script>
+        <script src="../../../../../_static/jquery.js"></script>
+        <script src="../../../../../_static/underscore.js"></script>
+        <script src="../../../../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> Intel® Low Precision Optimization Tool
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../welcome.html">Introduction to Intel LPOT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../docs/introduction.html">APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../readme.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../docs/index.html">Developer Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../CONTRIBUTING.html">Contributing guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../CODE_OF_CONDUCT.html">Contributor Covenant Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../legal_information.html">Legal Information {#legal_information}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../legal_information.html#trademark-information">Trademark Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../SECURITY.html">Security Policy</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">Intel® Low Precision Optimization Tool</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>How to add a new model in 🤗Transformers</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../../_sources/examples/pytorch/language_translation/templates/adding_a_new_model/README.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="how-to-add-a-new-model-in-transformers">
+<h1>How to add a new model in 🤗Transformers<a class="headerlink" href="#how-to-add-a-new-model-in-transformers" title="Permalink to this headline">¶</a></h1>
+<p>This folder describes the process to add a new model in 🤗Transformers and provide templates for the required files.</p>
+<p>The library is designed to incorporate a variety of models and code bases. As such the process for adding a new model usually mostly consists in copy-pasting to relevant original code in the various sections of the templates included in the present repository.</p>
+<p>One important point though is that the library has the following goals impacting the way models are incorporated:</p>
+<ul class="simple">
+<li><p>one specific feature of the API is the capability to run the model and tokenizer inline. The tokenization code thus often have to be slightly adapted to allow for running in the python interpreter.</p></li>
+<li><p>the package is also designed to be as self-consistent and with a small and reliable set of packages dependencies. In consequence, additional dependencies are usually not allowed when adding a model but can be allowed for the inclusion of a new tokenizer (recent examples of dependencies added for tokenizer specificities include <code class="docutils literal notranslate"><span class="pre">sentencepiece</span></code> and <code class="docutils literal notranslate"><span class="pre">sacremoses</span></code>). Please make sure to check the existing dependencies when possible before adding a new one.</p></li>
+</ul>
+<p>For a quick overview of the library organization, please check the <a class="reference external" href="https://huggingface.co/transformers/quickstart.html">QuickStart section of the documentation</a>.</p>
+</div>
+<div class="section" id="typical-workflow-for-including-a-model">
+<h1>Typical workflow for including a model<a class="headerlink" href="#typical-workflow-for-including-a-model" title="Permalink to this headline">¶</a></h1>
+<p>Here an overview of the general workflow:</p>
+<ul class="simple">
+<li><p>[ ] add model/configuration/tokenization classes</p></li>
+<li><p>[ ] add conversion scripts</p></li>
+<li><p>[ ] add tests</p></li>
+<li><p>[ ] finalize</p></li>
+</ul>
+<p>Let’s detail what should be done at each step</p>
+<div class="section" id="adding-model-configuration-tokenization-classes">
+<h2>Adding model/configuration/tokenization classes<a class="headerlink" href="#adding-model-configuration-tokenization-classes" title="Permalink to this headline">¶</a></h2>
+<p>Here is the workflow for adding model/configuration/tokenization classes:</p>
+<ul class="simple">
+<li><p>[ ] copy the python files from the present folder to the main folder and rename them, replacing <code class="docutils literal notranslate"><span class="pre">xxx</span></code> with your model name,</p></li>
+<li><p>[ ] edit the files to replace <code class="docutils literal notranslate"><span class="pre">XXX</span></code> (with various casing) with your model name</p></li>
+<li><p>[ ] copy-paste or create a simple configuration class for your model in the <code class="docutils literal notranslate"><span class="pre">configuration_...</span></code> file</p></li>
+<li><p>[ ] copy-paste or create the code for your model in the <code class="docutils literal notranslate"><span class="pre">modeling_...</span></code> files (PyTorch and TF 2.0)</p></li>
+<li><p>[ ] copy-paste or create a tokenizer class for your model in the <code class="docutils literal notranslate"><span class="pre">tokenization_...</span></code> file</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="adding-conversion-scripts">
+<h1>Adding conversion scripts<a class="headerlink" href="#adding-conversion-scripts" title="Permalink to this headline">¶</a></h1>
+<p>Here is the workflow for the conversion scripts:</p>
+<ul class="simple">
+<li><p>[ ] copy the conversion script (<code class="docutils literal notranslate"><span class="pre">convert_...</span></code>) from the present folder to the main folder.</p></li>
+<li><p>[ ] edit this script to convert your original checkpoint weights to the current pytorch ones.</p></li>
+</ul>
+</div>
+<div class="section" id="adding-tests">
+<h1>Adding tests:<a class="headerlink" href="#adding-tests" title="Permalink to this headline">¶</a></h1>
+<p>Here is the workflow for the adding tests:</p>
+<ul class="simple">
+<li><p>[ ] copy the python files from the <code class="docutils literal notranslate"><span class="pre">tests</span></code> sub-folder of the present folder to the <code class="docutils literal notranslate"><span class="pre">tests</span></code> subfolder of the main folder and rename them, replacing <code class="docutils literal notranslate"><span class="pre">xxx</span></code> with your model name,</p></li>
+<li><p>[ ] edit the tests files to replace <code class="docutils literal notranslate"><span class="pre">XXX</span></code> (with various casing) with your model name</p></li>
+<li><p>[ ] edit the tests code as needed</p></li>
+</ul>
+</div>
+<div class="section" id="final-steps">
+<h1>Final steps<a class="headerlink" href="#final-steps" title="Permalink to this headline">¶</a></h1>
+<p>You can then finish the addition step by adding imports for your classes in the common files:</p>
+<ul class="simple">
+<li><p>[ ] add import for all the relevant classes in <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code></p></li>
+<li><p>[ ] add your configuration in <code class="docutils literal notranslate"><span class="pre">configuration_auto.py</span></code></p></li>
+<li><p>[ ] add your PyTorch and TF 2.0 model respectively in <code class="docutils literal notranslate"><span class="pre">modeling_auto.py</span></code> and <code class="docutils literal notranslate"><span class="pre">modeling_tf_auto.py</span></code></p></li>
+<li><p>[ ] add your tokenizer in <code class="docutils literal notranslate"><span class="pre">tokenization_auto.py</span></code></p></li>
+<li><p>[ ] add your models and tokenizer to <code class="docutils literal notranslate"><span class="pre">pipeline.py</span></code></p></li>
+<li><p>[ ] add a link to your conversion script in the main conversion utility (currently in <code class="docutils literal notranslate"><span class="pre">__main__</span></code> but will be moved to the <code class="docutils literal notranslate"><span class="pre">commands</span></code> subfolder in the near future)</p></li>
+<li><p>[ ] edit the PyTorch to TF 2.0 conversion script to add your model in the <code class="docutils literal notranslate"><span class="pre">convert_pytorch_checkpoint_to_tf2.py</span></code> file</p></li>
+<li><p>[ ] add a mention of your model in the doc: <code class="docutils literal notranslate"><span class="pre">README.md</span></code> and the documentation itself at <code class="docutils literal notranslate"><span class="pre">docs/source/pretrained_models.rst</span></code>.</p></li>
+<li><p>[ ] upload the pretrained weigths, configurations and vocabulary files.</p></li>
+</ul>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Intel® LPOT.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
