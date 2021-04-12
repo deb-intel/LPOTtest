@@ -363,8 +363,7 @@ class TensorFlowAdaptor(Adaptor):
         logger.debug('Dump quantization configurations:')
         logger.debug(self.quantize_config)
         from .tf_utils.graph_converter import GraphConverter
-        quantize_model = self.pre_optimized_model if self.pre_optimized_model else model
-        converter = GraphConverter(quantize_model,
+        converter = GraphConverter(model,
                                    qt_config=self.quantize_config,
                                    recipes=self.recipes,
                                    int8_sequences=self.op_wise_sequences,
@@ -391,11 +390,12 @@ class TensorFlowAdaptor(Adaptor):
         other_config = self.query_handler.get_quantization_capability()['uint8']['default']
 
         if ('bf16' in valid_precision and CpuInfo().bf16) or os.getenv('FORCE_BF16') == '1':
-            conv_config['weight']['dtype'].append('bf16')
-            matmul_config['weight']['dtype'].append('bf16')
-            conv_config['activation']['dtype'].append('bf16')
-            matmul_config['activation']['dtype'].append('bf16')
-            other_config['activation']['dtype'].append('bf16')
+            #TODO we need to enhance below logic by introducing precision priority.
+            conv_config['weight']['dtype'].insert(-1, 'bf16')
+            matmul_config['weight']['dtype'].insert(-1, 'bf16')
+            conv_config['activation']['dtype'].insert(-1, 'bf16')
+            matmul_config['activation']['dtype'].insert(-1, 'bf16')
+            other_config['activation']['dtype'].insert(-1, 'bf16')
 
         self.quantizable_op_details = OrderedDict()
 
@@ -455,15 +455,17 @@ class TensorFlowAdaptor(Adaptor):
         Returns:
             [dict]: model-wise & op-wise configuration for quantization.
         """
-        import tensorflow as tf
         from .tf_utils.graph_rewriter.generic.pre_optimize import PreOptimization
 
         self.pre_optimizer_handle = PreOptimization(model, self.optimization)
+
         self.pre_optimized_model = self.pre_optimizer_handle.get_optimized_model()
+        model.graph_def = self.pre_optimized_model.graph_def
+
         self.exclude_node_names = self.pre_optimizer_handle.get_excluded_node_names()
         patterns = self.query_handler.generate_internal_patterns()
         matched_nodes = self.pre_optimizer_handle.get_matched_nodes(patterns)
-        original_graph_node_name = [i.name for i in self.pre_optimized_model.graph_def.node]
+        original_graph_node_name = [i.name for i in model.graph_def.node]
         matched_nodes = sorted(matched_nodes, reverse=True, key=lambda i: (
             original_graph_node_name.index(i[0]), len(i[-1])))
 
@@ -494,7 +496,8 @@ class TensorFlowAdaptor(Adaptor):
 
         return capability
 
-    def inspect_tensor(self, model, dataloader, op_list=[], iteration_list=[]):
+    def inspect_tensor(self, model, dataloader, op_list=[], iteration_list=[],
+                       weights=False, save_to_disk=False):
         """Collect the specified tensor's output on specified iteration.
 
         Args:
@@ -507,14 +510,28 @@ class TensorFlowAdaptor(Adaptor):
             [dict]: the key is op_name while the value is the ndarray tensor.
         """
         logger.info("Start to run inspect_tensor..")
-        quantized_model = os.path.join(os.getcwd(), "tf_quantized.pb")
         from .tf_utils.graph_converter import GraphConverter
-        converter = GraphConverter(self.pre_optimized_model \
-                                        if self.pre_optimized_model else model,
+        converter = GraphConverter(model,
                                    qt_config=self.quantize_config,
                                    int8_sequences=self.op_wise_sequences,
                                    data_loader=dataloader)
-        return converter.inspect_tensor(op_list, iteration_list, self.work_dir)
+
+        dump_content = converter.inspect_tensor(op_list, iteration_list, self.work_dir, weights)
+
+        if save_to_disk:
+            dump_dir = os.path.join(self.work_dir, 'dump_tensor')
+            os.makedirs(dump_dir, exist_ok=True)
+            for index, value in enumerate(dump_content['activation']):
+                tmp_dict = {}
+                for k, v in value.items():
+                    tmp_dict[k[0]] = v
+                output_path = os.path.join(dump_dir, 'activation_iter{}.npz'.format(index + 1))
+                np.savez(output_path, **tmp_dict)
+
+            if weights and dump_content['weight']:
+                np.savez(os.path.join(dump_dir, 'weight.npz'), **dump_content['weight'])
+
+        return dump_content
 
     def quantize_input(self, model):
         ''' quantize the model to be able to take quantized input

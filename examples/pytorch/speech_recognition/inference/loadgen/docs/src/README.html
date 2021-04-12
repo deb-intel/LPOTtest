@@ -1,0 +1,245 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Generating the HTML docs {#ReadmeHtmlDocs} &mdash; Intel® Low Precision Optimization Tool  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../../../_static/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../../../../" src="../../../../../../../_static/documentation_options.js"></script>
+        <script src="../../../../../../../_static/jquery.js"></script>
+        <script src="../../../../../../../_static/underscore.js"></script>
+        <script src="../../../../../../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../../../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../../../../index.html" class="icon icon-home"> Intel® Low Precision Optimization Tool
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../welcome.html">Introduction to Intel LPOT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../docs/introduction.html">APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../readme.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../docs/index.html">Developer Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../CONTRIBUTING.html">Contributing Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../CODE_OF_CONDUCT.html">Contributor Covenant Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../legal_information.html">Legal Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../SECURITY.html">Security Policy</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../../../index.html">Intel® Low Precision Optimization Tool</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Generating the HTML docs {#ReadmeHtmlDocs}</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../../../../_sources/examples/pytorch/speech_recognition/inference/loadgen/docs/src/README.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="generating-the-html-docs-readmehtmldocs">
+<h1>Generating the HTML docs {#ReadmeHtmlDocs}<a class="headerlink" href="#generating-the-html-docs-readmehtmldocs" title="Permalink to this headline">¶</a></h1>
+<p>This document is generated from inline docstrings in the source and
+various markdown files checked into the git repository. If you’ve
+checked out the code, you can generate this documentation.</p>
+<p><em>Prerequisite:</em> You must have <a class="reference external" href="http://www.doxygen.nl">doxygen</a> installed
+on your system:</p>
+<div class="section" id="with-gn-ninja">
+<h2>With gn / ninja<a class="headerlink" href="#with-gn-ninja" title="Permalink to this headline">¶</a></h2>
+<p>If you are using the gn build flow, you may run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ninja</span> <span class="o">-</span><span class="n">C</span> <span class="n">out</span><span class="o">/</span><span class="n">Release</span> <span class="n">generate_doxygen_html</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>This will output the documentation to out/Release/gen/loadgen/docs/gen and
+avoid poluting the source directory.</p></li>
+</ul>
+</div>
+<div class="section" id="manually">
+<h2>Manually<a class="headerlink" href="#manually" title="Permalink to this headline">¶</a></h2>
+<p>Alternatively, you can manually run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">docs</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">doxygen_html_generator</span><span class="o">.</span><span class="n">py</span> <span class="o">&lt;</span><span class="n">target_dir</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">loadgen_root</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>If &lt;loadgen_root&gt; is omitted, it will default to “.”.</p></li>
+<li><p>If &lt;target_dir&gt; is also omitted, it will default to “./docs/gen”.</p></li>
+</ul>
+</div>
+<div class="section" id="hosting">
+<h2>Hosting<a class="headerlink" href="#hosting" title="Permalink to this headline">¶</a></h2>
+<p>A version of this doc is currently hosted online at
+https://mlperf.github.io/inference/loadgen/index.html</p>
+<p>To update the hosted version, submit a PR to the
+<a class="reference external" href="https://github.com/mlperf/mlperf.github.io">mlperf.github.io</a> repository.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Intel® LPOT.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

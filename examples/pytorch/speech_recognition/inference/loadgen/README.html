@@ -1,0 +1,337 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Overview {#mainpage} &mdash; Intel® Low Precision Optimization Tool  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../../" src="../../../../../_static/documentation_options.js"></script>
+        <script src="../../../../../_static/jquery.js"></script>
+        <script src="../../../../../_static/underscore.js"></script>
+        <script src="../../../../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> Intel® Low Precision Optimization Tool
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../welcome.html">Introduction to Intel LPOT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../docs/introduction.html">APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../readme.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../docs/index.html">Developer Docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../CONTRIBUTING.html">Contributing Guidelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../CODE_OF_CONDUCT.html">Contributor Covenant Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../legal_information.html">Legal Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../SECURITY.html">Security Policy</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">Intel® Low Precision Optimization Tool</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Overview {#mainpage}</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../../_sources/examples/pytorch/speech_recognition/inference/loadgen/README.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="overview-mainpage">
+<h1>Overview {#mainpage}<a class="headerlink" href="#overview-mainpage" title="Permalink to this headline">¶</a></h1>
+<p><em>Note:</em> A compiled html version of this document is hosted online
+<a class="reference external" href="https://mlperf.github.io/inference/loadgen/index.html">here</a>.</p>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>The LoadGen is a <em>reusable</em> module that <em>efficiently</em> and <em>fairly</em> measures
+the performance of inference systems.</p></li>
+<li><p>It generates traffic for scenarios as formulated by a diverse set of experts
+in the <a class="reference external" href="https://mlperf.org/about">MLPerf working group</a>.</p></li>
+<li><p>The scenarios emulate the workloads seen in mobile devices,
+autonomous vehicles, robotics, and cloud-based setups.</p></li>
+<li><p>Although the LoadGen is not model or dataset aware, its strength is in its
+reusability with logic that is.</p></li>
+</ul>
+</div>
+<div class="section" id="integration-example-and-flow">
+<h2>Integration Example and Flow<a class="headerlink" href="#integration-example-and-flow" title="Permalink to this headline">¶</a></h2>
+<p>The following is an diagram of how the LoadGen can be integrated into an
+inference system, resembling how some of the MLPerf reference models are
+implemented.</p>
+<div style="display:flex; flex-flow:row wrap; justify-content: space-evenly;">
+<img src="loadgen_integration_diagram.svg" width="500px" style="padding: 20px">
+<ol style="padding: 20px">
+<li>Benchmark knows the model, dataset, and preprocessing.</li>
+<li>Benchmark hands dataset sample IDs to LoadGen.</li>
+<li>LoadGen starts generating queries of sample IDs.</li>
+<li>Benchmark creates requests to backend.</li>
+<li>Result is post processed and forwarded to LoadGen.</li>
+<li>LoadGen outputs logs for analysis.<br>
+</ol>
+</div></div>
+<div class="section" id="useful-links">
+<h2>Useful Links<a class="headerlink" href="#useful-links" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>[FAQ](&#64;ref ReadmeFAQ)</p></li>
+<li><p>[LoadGen Build Instructions](&#64;ref ReadmeBuild)</p></li>
+<li><p>[LoadGen API](&#64;ref LoadgenAPI)</p></li>
+<li><p>[Test Settings](&#64;ref LoadgenAPITestSettings) -
+A good description of available scenarios, modes, and knobs.</p></li>
+<li><p><a class="reference external" href="https://github.com/mlperf/inference">MLPerf Inference Code</a> -
+Includes source for the LoadGen and reference models that use the LoadGen.</p></li>
+<li><p><a class="reference external" href="https://github.com/mlperf/inference_policies">MLPerf Inference Rules</a> -
+Any mismatch with this is a bug in the LoadGen.</p></li>
+<li><p><a class="reference external" href="www.mlperf.org">MLPerf Website</a></p></li>
+</ul>
+</div>
+<div class="section" id="scope-of-the-loadgen-s-responsibilities">
+<h2>Scope of the LoadGen’s Responsibilities<a class="headerlink" href="#scope-of-the-loadgen-s-responsibilities" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="in-scope">
+<h3>In Scope<a class="headerlink" href="#in-scope" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><strong>Provide a reusable</strong> C++ library with python bindings.</p></li>
+<li><p><strong>Implement</strong> the traffic patterns of the MLPerf Inference scenarios and
+modes.</p></li>
+<li><p><strong>Record</strong> all traffic generated and received for later analysis and
+verification.</p></li>
+<li><p><strong>Summarize</strong> the results and whether performance constraints were met.</p></li>
+<li><p><strong>Target high-performance</strong> systems with efficient multi-thread friendly
+logging utilities.</p></li>
+<li><p><strong>Generate trust</strong> via a shared, well-tested, and community-hardened
+code base.</p></li>
+</ul>
+</div>
+<div class="section" id="out-of-scope">
+<h3>Out of Scope<a class="headerlink" href="#out-of-scope" title="Permalink to this headline">¶</a></h3>
+<p>The LoadGen is:</p>
+<ul class="simple">
+<li><p><strong>NOT</strong> aware of the ML model it is running against.</p></li>
+<li><p><strong>NOT</strong> aware of the data formats of the model’s inputs and outputs.</p></li>
+<li><p><strong>NOT</strong> aware of how to score the accuracy of a model’s outputs.</p></li>
+<li><p><strong>NOT</strong> aware of MLPerf rules regarding scenario-specific constraints.</p></li>
+</ul>
+<p>Limitting the scope of the LoadGen in this way keeps it reusable across
+different models and datasets without modification. Using composition and
+dependency injection, the user can define their own model, datasets, and
+metrics.</p>
+<p>Additionally, not hardcoding MLPerf-specific test constraints, like test
+duration and performance targets, allows users to use the LoadGen unmodified
+for custom testing and continuous integration purposes.</p>
+</div>
+</div>
+<div class="section" id="submission-considerations">
+<h2>Submission Considerations<a class="headerlink" href="#submission-considerations" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="upstream-all-local-modifications">
+<h3>Upstream all local modifications<a class="headerlink" href="#upstream-all-local-modifications" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>As a rule, no local modifications to the LoadGen’s C++ library are allowed
+for submission.</p></li>
+<li><p>Please upstream early and often to keep the playing field level.</p></li>
+</ul>
+</div>
+<div class="section" id="choose-your-testsettings-carefully">
+<h3>Choose your TestSettings carefully!<a class="headerlink" href="#choose-your-testsettings-carefully" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Since the LoadGen is oblivious to the model, it can’t enforce the MLPerf
+requirements for submission. <em>e.g.:</em> target percentiles and latencies.</p></li>
+<li><p>For verification, the values in TestSettings are logged.</p></li>
+<li><p>To help make sure your settings are spec compliant, use
+TestSettings::FromConfig in conjunction with the relevant config file provided
+with the reference models.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="responsibilities-of-a-loadgen-user">
+<h2>Responsibilities of a LoadGen User<a class="headerlink" href="#responsibilities-of-a-loadgen-user" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="implement-the-interfaces">
+<h3>Implement the Interfaces<a class="headerlink" href="#implement-the-interfaces" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Implement the SystemUnderTest and QuerySampleLibrary interfaces and pass
+them to the StartTest function.</p></li>
+<li><p>Call QuerySampleComplete for every sample received by
+SystemUnderTest::IssueQuery.</p></li>
+</ul>
+</div>
+<div class="section" id="assess-accuracy">
+<h3>Assess Accuracy<a class="headerlink" href="#assess-accuracy" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Process the <em>mlperf_log_accuracy.json</em> output by the LoadGen to determine
+the accuracy of your system.</p></li>
+<li><p>For the official models, Python scripts will be provided by the MLPerf model
+owners for you to do this automatically.</p></li>
+</ul>
+<p>For templates of how to do the above in detail, refer to code for the demos,
+tests, and reference models.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Intel® LPOT.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
