@@ -1,5 +1,5 @@
-Developer Docs
-##############
+Documentation
+#############
 
 **This section is outdated. Updates are forthcoming.**
 
