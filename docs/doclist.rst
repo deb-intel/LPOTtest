@@ -1,22 +1,43 @@
 Documentation
 #############
 
-**This section is outdated. Updates are forthcoming.**
-
 Read the following material as you learn how to use LPOT.
+
+Getting Started
+===============
+
+* `Introduction <introduction.md>`__ explains Intel® Low Precision Optimization Tool's API.
+* `Transform <docs/transform.md>`__ introduces how to utilize LPOT's built-in data processing and how to develop a custom data processing method. 
+* `Dataset <docs/dataset.md>`__ introduces how to utilize LPOT's built-in dataset and how to develop a custom dataset.
+* `Metric <docs/metric.md>`__ introduces how to utilize LPOT's built-in metrics and how to develop a custom metric.
+* `Tutorial <docs/tutorial.md>`__ provides comprehensive instructions on how to utilize LPOT's features with examples. 
+* `Examples <examples>`__ are provided to demonstrate the usage of LPOT in different frameworks: `TensorFlow <examples/tensorflow>`__, `PyTorch <examples/pytorch>`__, `MXNet <examples/mxnet>`__, and `ONNX Runtime <examples/onnxrt>`__.
+* `UX <docs/ux.md>`__ is a web-based system used to simplify LPOT usage.
+* `Intel oneAPI AI Analytics Toolkit Get Started Guide <https://software.intel.com/content/www/us/en/develop/documentation/get-started-with-ai-linux/top.html>`__ explains the AI Kit components, installation and configuration guides, and instructions for building and running sample apps.
+* `AI and Analytics Samples <https://github.com/oneapi-src/oneAPI-samples/tree/master/AI-and-Analytics>`__ includes code samples for Intel oneAPI libraries.
+
+.. toctree::
+    :maxdepth: 1
+    :hidden:
+
+    introduction.md
+    transform.md
+    dataset.md
+    metrics.md
+    tutorial.md
+    examples
+    ux.md
+
 
 Deep Dive
 =========
 
-* `Quantization <Quantization.md>`__ is the processes that enable inference and training by performing computations at low precision data type, such as fixed point integers. LPOT supports Post-Training Quantization (`PTQ <PTQ.md>`__) and Quantization-Aware Training (`QAT <Qat.md>`__). Note that `Dynamic Quantization <dynamic_quantization.md>`__ currently has limited support.
+* `Quantization <Quantization.md>`__ are processes that enable inference and training by performing computations at low-precision data types, such as fixed-point integers. LPOT supports Post-Training Quantization (`PTQ <PTQ.md>`__) and Quantization-Aware Training (`QAT <Qat.md>`__). Note that `Dynamic Quantization <dynamic_quantization.md>`__ currently has limited support.
 * `Pruning <pruning.md>`__ provides a common method for introducing sparsity in weights and activations.
 * `Benchmarking <benchmark.md>`__ introduces how to utilize the benchmark interface of LPOT.
 * `Mixed precision <mixed_precision.md>`__ introduces how to enable mixed precision, including BFP16 and int8 and FP32, on Intel platforms during tuning.
-* `Transform <transform.md>`__ introduces how to utilize LPOT buildin data processing and how to develop a custom data processing method. 
-* `Dataset <dataset.md>`__ introduces how to utilize LPOT buildin dataset and how to develop a custom dataset.
-* `Metric <metrics.md>`__ introduces how to utilize LPOT buildin metrics and how to develop a custom metric.
-* `TensorBoard <tensorboard.md>`__ provides tensor histogram and execution graph for tuning debugging purpose. LPOT supports a variety of `TensorFlow models <tensorflow_model_support.md>`__.
-* `PyTorch Deploy <pytorch_model_saving.md>`__ introduces how LPOT saves and loads quantized PyTorch model.
+* `TensorBoard <tensorboard.md>`__ provides tensor histograms and execution graphs for tuning debugging purposes. 
+
 
 .. toctree::
     :maxdepth: 1
@@ -29,13 +50,8 @@ Deep Dive
     pruning.md
     benchmark.md
     mixed_precision.md
-    transform.md
-    dataset.md
-    dataloader_metric.md
-    metrics.md
     tensorboard.md
-    tensorflow_model_support.md
-    pytorch_model_saving.md  
+  
     
 Advanced Topics
 ===============
