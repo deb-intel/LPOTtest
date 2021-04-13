@@ -14,7 +14,7 @@ Sections
    getting_started.md
    docs/introduction.md
    examples/readme.rst
-   docs/index.rst
+   docs/doclist.rst
    release.md
    CONTRIBUTING.md
    CODE_OF_CONDUCT.md
