@@ -102,7 +102,7 @@ The [Tutorial](../docs/tutorial.md) provides comprehensive instructions on how t
 
 ## Documentation
 
-View LPOT [Documentation](../docs/index.rst) for getting started, deep dive, and advanced resources to help you use and develop LPOT.
+View LPOT [Documentation](docs/index.rst) for getting started, deep dive, and advanced resources to help you use and develop LPOT.
 
 ## System Requirements
 
