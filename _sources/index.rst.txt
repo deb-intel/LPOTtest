@@ -13,7 +13,7 @@ Sections
    welcome.md
    getting_started.md
    docs/introduction.md
-   examples/readme.rst
+   examples/readme.md
    docs/doclist.rst
    release.md
    CONTRIBUTING.md
