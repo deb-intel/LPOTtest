@@ -97,7 +97,7 @@ The [Tutorial](../docs/tutorial.md) provides comprehensive instructions on how t
 
 ### Examples
 
-[Examples](examples/readme.rst) are provided to demonstrate the usage of Intel® Low Precision Optimization Tool in different frameworks: TensorFlow, PyTorch, MXNet, and ONNX Runtime. Hello World examples are also available.
+[Examples](examples/readme.md) are provided to demonstrate the usage of Intel® Low Precision Optimization Tool in different frameworks: TensorFlow, PyTorch, MXNet, and ONNX Runtime. Hello World examples are also available.
 
 
 ## Documentation

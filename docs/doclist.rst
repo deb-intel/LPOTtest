@@ -11,7 +11,7 @@ Getting Started
 * `Dataset <docs/dataset.md>`__ introduces how to utilize LPOT's built-in dataset and how to develop a custom dataset.
 * `Metric <docs/metric.md>`__ introduces how to utilize LPOT's built-in metrics and how to develop a custom metric.
 * `Tutorial <docs/tutorial.md>`__ provides comprehensive instructions on how to utilize LPOT's features with examples. 
-* `Examples <examples>`__ are provided to demonstrate the usage of LPOT in different frameworks: `TensorFlow <examples/tensorflow>`__, `PyTorch <examples/pytorch>`__, `MXNet <examples/mxnet>`__, and `ONNX Runtime <examples/onnxrt>`__.
+* `Examples <examples/readme.md>`__ are provided to demonstrate the usage of LPOT in different frameworks: TensorFlow, PyTorch, MXNet, and ONNX Runtime.
 * `UX <docs/ux.md>`__ is a web-based system used to simplify LPOT usage.
 * `Intel oneAPI AI Analytics Toolkit Get Started Guide <https://software.intel.com/content/www/us/en/develop/documentation/get-started-with-ai-linux/top.html>`__ explains the AI Kit components, installation and configuration guides, and instructions for building and running sample apps.
 * `AI and Analytics Samples <https://github.com/oneapi-src/oneAPI-samples/tree/master/AI-and-Analytics>`__ includes code samples for Intel oneAPI libraries.
@@ -25,7 +25,7 @@ Getting Started
     dataset.md
     metrics.md
     tutorial.md
-    examples
+    examples.md
     ux.md
 
 
