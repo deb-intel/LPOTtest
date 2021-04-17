@@ -47,7 +47,7 @@ the AI Kit distribution package that's best suited for you and follow the
 for post-installation instructions.
 
 |[Download AI Kit](https://software.intel.com/content/www/us/en/develop/tools/oneapi/ai-analytics-toolkit/) |[AI Kit Get Started Guide](https://software.intel.com/content/www/us/en/develop/documentation/get-started-with-ai-linux/top.html) |
-|---|---|
+|-|-|
 
 ### Windows Installation
 
@@ -98,10 +98,10 @@ The [Tutorial](../docs/tutorial.md) provides comprehensive instructions on how t
 
 ### Examples
 
-[Examples](examples/readme.md) are provided to demonstrate the usage of Intel® Low Precision Optimization Tool in different frameworks: TensorFlow, PyTorch, MXNet, and ONNX Runtime. Hello World examples are also available.
+[Examples](examples_readme.md) are provided to demonstrate the usage of Intel® Low Precision Optimization Tool in different frameworks: TensorFlow, PyTorch, MXNet, and ONNX Runtime. Hello World examples are also available.
 
 
-## Documentation
+## Developer Documentation
 
 View LPOT [Documentation](docs/doclist.rst) for getting started, deep dive, and advanced resources to help you use and develop LPOT.
 

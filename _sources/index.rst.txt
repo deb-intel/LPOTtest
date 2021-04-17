@@ -15,10 +15,10 @@ Sections
    api-documentation/api-introduction.md
    examples_readme.md
    docs/doclist.rst
-   releases-info.md
-   contributing.md
+   releases_info.md
+   contributions.md
    legal_information.md
-   security.md
+   security_policy.md
 
     
 
