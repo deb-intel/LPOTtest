@@ -38,7 +38,9 @@
 
     
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" /> 
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Tutorial" href="tutorial.html" />
+    <link rel="prev" title="Dataset" href="dataset.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -83,17 +85,34 @@
               
             
             
-              <ul>
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../welcome.html">Introduction to Intel LPOT</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="introduction.html">APIs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../examples/readme.html">Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="doclist.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api-documentation/api-introduction.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_readme.html">Examples</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="doclist.html">Developer Documentation</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="doclist.html#getting-started">Getting Started</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../api-documentation/api-introduction.html">API Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="transform.html">Transform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dataset.html">Dataset</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Metrics</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#use-metrics">Use Metrics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#built-in-metric-support-list">Built-in metric support list</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples_readme.html">Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ux.html">LPOT UX</a></li>
+<li class="toctree-l3"><a class="reference external" href="https://software.intel.com/content/www/us/en/develop/documentation/get-started-with-ai-linux/top.html">Intel oneAPI AI Analytics Toolkit Get Started Guide</a></li>
+<li class="toctree-l3"><a class="reference external" href="https://github.com/oneapi-src/oneAPI-samples/tree/master/AI-and-Analytics">AI and Analytics Samples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="doclist.html#deep-dive">Deep Dive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doclist.html#advanced-topics">Advanced Topics</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../releases-info.html">Releases</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../CONTRIBUTING.html">Contributing Guidelines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../CODE_OF_CONDUCT.html">Contributor Covenant Code of Conduct</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../legal_information.html">Legal Information</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../SECURITY.html">Security Policy</a></li>
 </ul>
 
             
@@ -142,6 +161,8 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
+          <li><a href="doclist.html">Developer Documentation</a> &raquo;</li>
+        
       <li>Metrics</li>
     
     
@@ -164,11 +185,10 @@
   <div class="section" id="metrics">
 <h1>Metrics<a class="headerlink" href="#metrics" title="Permalink to this headline">¶</a></h1>
 <p>As to evaluate the performance of a specific model, we should have general metrics to measure the performance of different model. Different framework always have their own Metric module but with different features and API, as lpot is cross framework tool, it is hard to use them in the same way, another request is that this tool support code-free configuration through yaml file, with built-in metrics, lpot can get the performance and accuracy without code change from user. In special case, user can also register its own metric class through lpot method.</p>
-</div>
-<div class="section" id="how-to-use-it">
-<h1>How to use it<a class="headerlink" href="#how-to-use-it" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="use-metrics">
+<h2>Use Metrics<a class="headerlink" href="#use-metrics" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="config-built-in-metric-in-yaml-file">
-<h2>Config built-in metric in yaml file<a class="headerlink" href="#config-built-in-metric-in-yaml-file" title="Permalink to this headline">¶</a></h2>
+<h3>Config built-in metric in yaml file<a class="headerlink" href="#config-built-in-metric-in-yaml-file" title="Permalink to this headline">¶</a></h3>
 <p>User can specify some LPOT build-in metric like below:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">evaluation</span><span class="p">:</span>
   <span class="nt">accuracy</span><span class="p">:</span>
@@ -179,7 +199,7 @@
 <p>or</p>
 </div>
 <div class="section" id="config-custom-metric-in-code">
-<h2>Config custom metric in code<a class="headerlink" href="#config-custom-metric-in-code" title="Permalink to this headline">¶</a></h2>
+<h3>Config custom metric in code<a class="headerlink" href="#config-custom-metric-in-code" title="Permalink to this headline">¶</a></h3>
 <p>User can register their own metric as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Metric</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -209,12 +229,12 @@
 </div>
 </div>
 </div>
-<div class="section" id="builtin-metric-support-list">
-<h1>Builtin metric support list<a class="headerlink" href="#builtin-metric-support-list" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="built-in-metric-support-list">
+<h2>Built-in metric support list<a class="headerlink" href="#built-in-metric-support-list" title="Permalink to this headline">¶</a></h2>
 <p>LPOT supports some builtin metrics that popularly used in industry.</p>
 <p>Please refer to <a class="reference external" href="docs/../examples/helloworld/tf_example1">example</a> on how to config a builtin metric.</p>
 <div class="section" id="tensorflow">
-<h2>TensorFlow<a class="headerlink" href="#tensorflow" title="Permalink to this headline">¶</a></h2>
+<h3>TensorFlow<a class="headerlink" href="#tensorflow" title="Permalink to this headline">¶</a></h3>
 <table border="1" class="docutils">
 <thead>
 <tr>
@@ -299,7 +319,7 @@
 </tbody>
 </table></div>
 <div class="section" id="pytorch">
-<h2>PyTorch<a class="headerlink" href="#pytorch" title="Permalink to this headline">¶</a></h2>
+<h3>PyTorch<a class="headerlink" href="#pytorch" title="Permalink to this headline">¶</a></h3>
 <table border="1" class="docutils">
 <thead>
 <tr>
@@ -363,7 +383,7 @@
 </tbody>
 </table></div>
 <div class="section" id="mxnet">
-<h2>MXNet<a class="headerlink" href="#mxnet" title="Permalink to this headline">¶</a></h2>
+<h3>MXNet<a class="headerlink" href="#mxnet" title="Permalink to this headline">¶</a></h3>
 <table border="1" class="docutils">
 <thead>
 <tr>
@@ -427,7 +447,7 @@
 </tbody>
 </table></div>
 <div class="section" id="onnxrt">
-<h2>ONNXRT<a class="headerlink" href="#onnxrt" title="Permalink to this headline">¶</a></h2>
+<h3>ONNXRT<a class="headerlink" href="#onnxrt" title="Permalink to this headline">¶</a></h3>
 <table border="1" class="docutils">
 <thead>
 <tr>
@@ -491,12 +511,17 @@
 </tbody>
 </table></div>
 </div>
+</div>
 
 
            </div>
            
           </div>
           <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="tutorial.html" class="btn btn-neutral float-right" title="Tutorial" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="dataset.html" class="btn btn-neutral float-left" title="Dataset" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
 
   <hr/>
 

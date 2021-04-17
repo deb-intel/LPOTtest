@@ -1,18 +1,13 @@
 Tutorial
-=========================================
+========
 
-This tutorial will introduce step by step instructions on how to integrate models with Intel® Low Precision Optimization Tool (LPOT) with examples. 
+This tutorial introduces step by step instructions on how to integrate models with Intel® Low Precision Optimization Tool (LPOT) with examples. 
 
-<table>
-  <tr>
-    <td>Steps of enabling model with LPOT</td>
-  </tr>
-  <tr>
-    <td><img src="./imgs/tutorial.png" width=640 height=320></td>
-  </tr>
- </table>
+The following diagram shows steps for enabling model with LPOT:
 
-# Usage Examples
+![Tutorial](imgs/tutorial.png "Tutorial") 
+
+## Usage Examples
 
 To write lanuncher code, user need prepare four components:
 
@@ -123,9 +118,9 @@ quantizer.eval_dataloader = common.DataLoader(dataset, batch_size=1)
 quantizer.model = common.Model('../models/simple_model')
 q_model = quantizer()
 ```
-Note: 
-
-In the customized dataset, the `__getitem__()` interface must be implemented and return single sample and label. In this example, it returns the (image, label) pair. User could return (image, 0) for label-free case.
+> **Note** 
+>
+> In the customized dataset, the `__getitem__()` interface must be implemented and return single sample and label. In this example, it returns the (image, label) pair. User could return (image, 0) for label-free case.
 
 In the customized metric, the update() function records the predict result of each mini-batch, the result() function would be invoked by LPOT at the end of evaluation to return a scalar to reflect model accuracy. By default, this scalar is higher-is-better. If this scalar returned from customerized metric is a lower-is-better value, `tuning.accuracy_criterion.higher_is_better` in yaml should be set to `False`.
 
@@ -145,7 +140,7 @@ tuning:
   random_seed: 100
 ```
 
-# Helloworld Examples
+## Helloworld Examples
 
 1.  Builtin dataloader and metric example: see [README](../examples/helloworld/tf_example1/README.md) for more details.
 2.  TensorFlow checkpoint: see [tf_example4](../examples/helloworld/tf_example4) for more details.

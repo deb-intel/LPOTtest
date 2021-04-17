@@ -1,7 +1,7 @@
-Intel® Low Precision Optimization Tool UX
-=========================================
+LPOT UX
+=======
 
-# Starting the UX
+## Starting the UX
 1. Start LPOT UX server:
    ```shell
    lpot_ux
@@ -17,15 +17,15 @@ Intel® Low Precision Optimization Tool UX
 
    Please make sure that requested port forwarding is set up (depending on your OS), then open address in your web browser
 
-# My Models list
+## My Models list
 This view lists all Model Configurations defined on given server. 
 
 You can create new model using pre-defined models using a New Model Wizard or Examples
 
 ![My models list](imgs/ux/my_models.png "My models list")
 
-# New Model Configuration from New Model Wizard
-## Basic parameters
+## New Model Configuration from New Model Wizard
+### Basic parameters
 1. If you have all related files in one directory, you can point your Workspace there.
    
    Click the ![Change Current Workspace Button](imgs/ux/workspace_change.png "Change")
@@ -37,11 +37,11 @@ You can create new model using pre-defined models using a New Model Wizard or Ex
    ![Basic parameters wizard](imgs/ux/wizard_basic.png "Basic parameters")
 1. You can either save this configuration (by clicking "Save"), or change some advanced parameters (by clicking "Next").
 
-## Advanced parameters
+### Advanced parameters
 On advanced parameters page, you can select how more features of tuning, quantization and benchmarking will be configured.
    ![Advanced parameters wizard](imgs/ux/wizard_advanced.png "Advanced parameters")
 
-# New Model Configuration from Examples
+## New Model Configuration from Examples
 ![Examples](imgs/ux/examples.png "Examples")
 We have some models prepared to test the tuning with. Visit "Examples" tab to:
 1. Download a model to selected Workspace.
@@ -49,14 +49,14 @@ We have some models prepared to test the tuning with. Visit "Examples" tab to:
 1. When both model and configuration are downloaded, you can point to Dataset to be used and finally click "Add to my models".
 1. New model will be added to "My models" list, ready for tuning.
 
-# Custom dataset or metric
+## Custom dataset or metric
 If you choose "custom" in Dataset or Metric section, appropriate code template will be generated for you to fill in with your code.
 
 Path to the template will be available by clicking "Copy code template path" button in right-most column in My models list.
 
 Follow the comments in generated code template to fill in required methods with your own code.
 
-# Tuning
+## Tuning
 Having a Model Configuration created, you can:
 1. See generated config (by clicking the "Show config" link).
 1. Start the tuning:
@@ -68,8 +68,8 @@ Having a Model Configuration created, you can:
       - "Model size" will compare sizes of both models
       - when automatic benchmarking is finished, "Throughput" will show performance gain from tuning 
 
-# Advanced options
-## TLS connection encryption
+## Advanced options
+### TLS connection encryption
 
 You can provide your own certificate and key to the server in order to use TLS encrypted communication between UI and server.
 

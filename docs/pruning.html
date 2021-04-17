@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Introduction &mdash; Intel® Low Precision Optimization Tool  documentation</title>
+  <title>Pruning &mdash; Intel® Low Precision Optimization Tool  documentation</title>
   
 
   
@@ -88,42 +88,32 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../welcome.html">Introduction to Intel LPOT</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="introduction.html">APIs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../examples/readme.html">Examples</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="doclist.html">Documentation</a><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../api-documentation/api-introduction.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_readme.html">Examples</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="doclist.html">Developer Documentation</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="doclist.html#getting-started">Getting Started</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="doclist.html#deep-dive">Deep Dive</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="Quantization.html">Quantization</a></li>
 <li class="toctree-l3"><a class="reference internal" href="PTQ.html">PTQ</a></li>
 <li class="toctree-l3"><a class="reference internal" href="QAT.html">QAT</a></li>
 <li class="toctree-l3"><a class="reference internal" href="dynamic_quantization.html">Dynamic Quantization</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Introduction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#design">Design</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#usage">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#examples">Examples</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Pruning</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#design">Design</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#usage">Usage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examples">Examples</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="benchmark.html">Benchmarking</a></li>
-<li class="toctree-l3"><a class="reference internal" href="mixed_precision.html">BF16 Convert</a></li>
-<li class="toctree-l3"><a class="reference internal" href="mixed_precision.html#bf16-convert-transformation-in-tensorflow">BF16 Convert Transformation in TensorFlow</a></li>
-<li class="toctree-l3"><a class="reference internal" href="mixed_precision.html#how-to-use-it">How to use it</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tensorboard.html">Introduction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tensorboard.html#pytorch-tensorboard">PyTorch TensorBoard</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tensorboard.html#design">Design</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tensorboard.html#usage">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tensorboard.html#examples">Examples</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tensorboard.html#tensorflow-tensorboard">TensorFlow Tensorboard</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tensorboard.html#id1">Design</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tensorboard.html#id2">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tensorboard.html#id3">Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mixed_precision.html">Mixed Precision</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tensorboard.html">TensorBoard</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="doclist.html#advanced-topics">Advanced Topics</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../releases-info.html">Releases</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../CONTRIBUTING.html">Contributing Guidelines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../CODE_OF_CONDUCT.html">Contributor Covenant Code of Conduct</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../legal_information.html">Legal Information</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../SECURITY.html">Security Policy</a></li>
 </ul>
 
             
@@ -172,9 +162,9 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-          <li><a href="doclist.html">Documentation</a> &raquo;</li>
+          <li><a href="doclist.html">Developer Documentation</a> &raquo;</li>
         
-      <li>Introduction</li>
+      <li>Pruning</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -193,8 +183,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="introduction">
-<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="pruning">
+<h1>Pruning<a class="headerlink" href="#pruning" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <p>Sparsity is a a measure of how many percents of elements in a tensor are exact zeros[^1].  A tensor is considered sparse if “most” of its elements are zero. Appeartly only non-zero elements will be stored and computed so the inference process could be accelerated due to Tops and memory saved[^2].
 [^1]: https://nervanasystems.github.io/distiller/pruning.html
 [^2]: acceleration needs sparse compute kernels which are WIP</p>
@@ -207,13 +199,13 @@ density = 1 - sparsity
 A common method for introducing sparsity in weights and activations is called <em>pruning</em>.  Pruning is the application of a binary criteria to decide which weights to prune: weights which match the pruning criteria are assigned a value of zero.  Pruned elements are “trimmed” from the model: we replace their values with zero and also make sure they don’t take part in the back-propagation process.</p></p>
 </div>
 <div class="section" id="design">
-<h1>Design<a class="headerlink" href="#design" title="Permalink to this headline">¶</a></h1>
+<h2>Design<a class="headerlink" href="#design" title="Permalink to this headline">¶</a></h2>
 <p>Pruning process is sometimes similar with quantization-aware training(QAT). Intel® Low Precision Optimization Tool will do related model transformation during training and retrain the model to meet the accuracy goal.
 We implemented 2 kinds of object: Pruner and PrunePolicy. Firstly we define a sparsity goal(model-wise or op-wise, depending on whether there are ops not suitable for pruning) and the way to reach sparsity goal(Usually we increase the sparsity target linearly as the epoches). The pruner is in singleton mode, and will update sparsity goal and schedule all PrunePolicy on different phase of training.
 PrunePolicy carries different pruning algos. For example, MagnitudePrunePolicy set thresholds of absolute value so that elements whose absolute value lower than the threshold will be zeroed. The zeroing process happens on beginning and end of each minibatch iteration.</p>
 </div>
 <div class="section" id="usage">
-<h1>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h1>
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
 <p>Pruning configs need to be added into yaml as pruning field. Global parameters contain <strong>start_epoch</strong> (on which epoch pruning begins), <strong>end_epoch</strong> (on which epoch pruning ends), <strong>init_sparsity</strong> (initial sparsity goal default 0), <strong>target_sparsity</strong> (target sparsity goal) and <strong>frequency</strong> (of updating sparsity). At least one pruner instance need to be defined, under specific algos (currently only magnitude supported). you can override all global params in specific pruner using field names and specify which weight of model to be pruned. if no weight specified, all weights of model will be pruned.</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">pruning</span><span class="p">:</span>
   <span class="nt">magnitude</span><span class="p">:</span>
@@ -230,7 +222,7 @@ PrunePolicy carries different pruning algos. For example, MagnitudePrunePolicy s
 </div>
 </div>
 <div class="section" id="examples">
-<h1>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h1>
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <p>Users must pass a modified training function to Intel® Low Precision Optimization Tool. Take a typical pytorch training function as example.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">p_func</span><span class="p">(</span><span class="n">model</span><span class="p">):</span>
     <span class="c1"># from lpot.pruning import Pruner</span>
@@ -258,6 +250,7 @@ PrunePolicy carries different pruning algos. For example, MagnitudePrunePolicy s
 <span class="n">prune</span><span class="o">.</span><span class="n">q_func</span> <span class="o">=</span> <span class="n">p_func</span>
 <span class="n">q_model</span> <span class="o">=</span> <span class="n">prune</span><span class="p">()</span>
 </pre></div>
+</div>
 </div>
 </div>
 

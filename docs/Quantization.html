@@ -40,7 +40,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="PTQ" href="PTQ.html" />
-    <link rel="prev" title="Intel® Low Precision Optimization Tool UX" href="ux.html" /> 
+    <link rel="prev" title="LPOT UX" href="ux.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -88,42 +88,26 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../welcome.html">Introduction to Intel LPOT</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="introduction.html">APIs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../examples/readme.html">Examples</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="doclist.html">Documentation</a><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../api-documentation/api-introduction.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_readme.html">Examples</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="doclist.html">Developer Documentation</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="doclist.html#getting-started">Getting Started</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="doclist.html#deep-dive">Deep Dive</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Quantization</a></li>
 <li class="toctree-l3"><a class="reference internal" href="PTQ.html">PTQ</a></li>
 <li class="toctree-l3"><a class="reference internal" href="QAT.html">QAT</a></li>
 <li class="toctree-l3"><a class="reference internal" href="dynamic_quantization.html">Dynamic Quantization</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pruning.html">Introduction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pruning.html#design">Design</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pruning.html#usage">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pruning.html#examples">Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pruning.html">Pruning</a></li>
 <li class="toctree-l3"><a class="reference internal" href="benchmark.html">Benchmarking</a></li>
-<li class="toctree-l3"><a class="reference internal" href="mixed_precision.html">BF16 Convert</a></li>
-<li class="toctree-l3"><a class="reference internal" href="mixed_precision.html#bf16-convert-transformation-in-tensorflow">BF16 Convert Transformation in TensorFlow</a></li>
-<li class="toctree-l3"><a class="reference internal" href="mixed_precision.html#how-to-use-it">How to use it</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tensorboard.html">Introduction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tensorboard.html#pytorch-tensorboard">PyTorch TensorBoard</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tensorboard.html#design">Design</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tensorboard.html#usage">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tensorboard.html#examples">Examples</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tensorboard.html#tensorflow-tensorboard">TensorFlow Tensorboard</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tensorboard.html#id1">Design</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tensorboard.html#id2">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tensorboard.html#id3">Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mixed_precision.html">Mixed Precision</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tensorboard.html">TensorBoard</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="doclist.html#advanced-topics">Advanced Topics</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../releases-info.html">Releases</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../CONTRIBUTING.html">Contributing Guidelines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../CODE_OF_CONDUCT.html">Contributor Covenant Code of Conduct</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../legal_information.html">Legal Information</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../SECURITY.html">Security Policy</a></li>
 </ul>
 
             
@@ -172,7 +156,7 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-          <li><a href="doclist.html">Documentation</a> &raquo;</li>
+          <li><a href="doclist.html">Developer Documentation</a> &raquo;</li>
         
       <li>Quantization</li>
     
@@ -203,7 +187,8 @@
 <li><p><a class="reference internal" href="dynamic_quantization.html"><span class="doc">Dynamic Quantization</span></a></p></li>
 </ul>
 <blockquote>
-<div><p>NOTE: Dynamic Quantization currently is only supported with onnxruntime backend.</p>
+<div><p><strong>Note</strong></p>
+<p>Dynamic Quantization currently is only supported with onnxruntime backend.</p>
 </div></blockquote>
 </div>
 
@@ -214,7 +199,7 @@
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
         <a href="PTQ.html" class="btn btn-neutral float-right" title="PTQ" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="ux.html" class="btn btn-neutral float-left" title="Intel® Low Precision Optimization Tool UX" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ux.html" class="btn btn-neutral float-left" title="LPOT UX" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

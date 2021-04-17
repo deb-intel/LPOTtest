@@ -39,8 +39,8 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Intel® Low Precision Optimization Tool UX" href="ux.html" />
-    <link rel="prev" title="Dataset" href="dataset.html" /> 
+    <link rel="next" title="LPOT UX" href="ux.html" />
+    <link rel="prev" title="Metrics" href="metric.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -88,24 +88,23 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../welcome.html">Introduction to Intel LPOT</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="introduction.html">APIs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../examples/readme.html">Examples</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="doclist.html">Documentation</a><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../api-documentation/api-introduction.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_readme.html">Examples</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="doclist.html">Developer Documentation</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="doclist.html#getting-started">Getting Started</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="introduction.html">APIs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api-documentation/api-introduction.html">API Documentation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="transform.html">Transform</a></li>
 <li class="toctree-l3"><a class="reference internal" href="dataset.html">Dataset</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Tutorial</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#usage-examples">Usage Examples</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#helloworld-examples">Helloworld Examples</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ux.html">Intel® Low Precision Optimization Tool UX</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ux.html#starting-the-ux">Starting the UX</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ux.html#my-models-list">My Models list</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ux.html#new-model-configuration-from-new-model-wizard">New Model Configuration from New Model Wizard</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ux.html#new-model-configuration-from-examples">New Model Configuration from Examples</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ux.html#custom-dataset-or-metric">Custom dataset or metric</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ux.html#tuning">Tuning</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ux.html#advanced-options">Advanced options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="metric.html">Metrics</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Tutorial</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#usage-examples">Usage Examples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#helloworld-examples">Helloworld Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../examples_readme.html">Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ux.html">LPOT UX</a></li>
+<li class="toctree-l3"><a class="reference external" href="https://software.intel.com/content/www/us/en/develop/documentation/get-started-with-ai-linux/top.html">Intel oneAPI AI Analytics Toolkit Get Started Guide</a></li>
+<li class="toctree-l3"><a class="reference external" href="https://github.com/oneapi-src/oneAPI-samples/tree/master/AI-and-Analytics">AI and Analytics Samples</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="doclist.html#deep-dive">Deep Dive</a></li>
@@ -113,10 +112,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../releases-info.html">Releases</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../CONTRIBUTING.html">Contributing Guidelines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../CODE_OF_CONDUCT.html">Contributor Covenant Code of Conduct</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../legal_information.html">Legal Information</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../SECURITY.html">Security Policy</a></li>
 </ul>
 
             
@@ -165,7 +161,7 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-          <li><a href="doclist.html">Documentation</a> &raquo;</li>
+          <li><a href="doclist.html">Developer Documentation</a> &raquo;</li>
         
       <li>Tutorial</li>
     
@@ -188,17 +184,11 @@
             
   <div class="section" id="tutorial">
 <h1>Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this headline">¶</a></h1>
-<p>This tutorial will introduce step by step instructions on how to integrate models with Intel® Low Precision Optimization Tool (LPOT) with examples.</p>
-<table>
-  <tr>
-    <td>Steps of enabling model with LPOT</td>
-  </tr>
-  <tr>
-    <td><img src="./imgs/tutorial.png" width=640 height=320></td>
-  </tr>
- </table></div>
+<p>This tutorial introduces step by step instructions on how to integrate models with Intel® Low Precision Optimization Tool (LPOT) with examples.</p>
+<p>The following diagram shows steps for enabling model with LPOT:</p>
+<p><img alt="Tutorial" src="../_images/tutorial.png" /></p>
 <div class="section" id="usage-examples">
-<h1>Usage Examples<a class="headerlink" href="#usage-examples" title="Permalink to this headline">¶</a></h1>
+<h2>Usage Examples<a class="headerlink" href="#usage-examples" title="Permalink to this headline">¶</a></h2>
 <p>To write lanuncher code, user need prepare four components:</p>
 <ol class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">Dataloader/Dataset</span></code></p></li>
@@ -297,8 +287,10 @@
 <span class="n">q_model</span> <span class="o">=</span> <span class="n">quantizer</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Note:</p>
+<blockquote>
+<div><p><strong>Note</strong></p>
 <p>In the customized dataset, the <code class="docutils literal notranslate"><span class="pre">__getitem__()</span></code> interface must be implemented and return single sample and label. In this example, it returns the (image, label) pair. User could return (image, 0) for label-free case.</p>
+</div></blockquote>
 <p>In the customized metric, the update() function records the predict result of each mini-batch, the result() function would be invoked by LPOT at the end of evaluation to return a scalar to reflect model accuracy. By default, this scalar is higher-is-better. If this scalar returned from customerized metric is a lower-is-better value, <code class="docutils literal notranslate"><span class="pre">tuning.accuracy_criterion.higher_is_better</span></code> in yaml should be set to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># conf.yaml</span>
 <span class="nt">model</span><span class="p">:</span>
@@ -317,13 +309,14 @@
 </div>
 </div>
 <div class="section" id="helloworld-examples">
-<h1>Helloworld Examples<a class="headerlink" href="#helloworld-examples" title="Permalink to this headline">¶</a></h1>
+<h2>Helloworld Examples<a class="headerlink" href="#helloworld-examples" title="Permalink to this headline">¶</a></h2>
 <ol class="simple">
-<li><p>Builtin dataloader and metric example: see <a class="reference internal" href="../examples/helloworld/tf_example1/README.html"><span class="doc">README</span></a> for more details.</p></li>
+<li><p>Builtin dataloader and metric example: see <a class="reference external" href="../examples/helloworld/tf_example1/README">README</a> for more details.</p></li>
 <li><p>TensorFlow checkpoint: see <a class="reference external" href="docs/../examples/helloworld/tf_example4">tf_example4</a> for more details.</p></li>
 <li><p>Enable benchmark for performance and accuracy measurement: see <a class="reference external" href="docs/../examples/helloworld/tf_example5">tf_example5</a> for more details.</p></li>
-<li><p>TensorFlow slim model: see <a class="reference internal" href="../examples/helloworld/tf_example3/README.html"><span class="doc">tf_example3</span></a> for more details.</p></li>
+<li><p>TensorFlow slim model: see <a class="reference external" href="../examples/helloworld/tf_example3/README">tf_example3</a> for more details.</p></li>
 </ol>
+</div>
 </div>
 
 
@@ -332,8 +325,8 @@
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="ux.html" class="btn btn-neutral float-right" title="Intel® Low Precision Optimization Tool UX" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="dataset.html" class="btn btn-neutral float-left" title="Dataset" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ux.html" class="btn btn-neutral float-right" title="LPOT UX" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="metric.html" class="btn btn-neutral float-left" title="Metrics" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
