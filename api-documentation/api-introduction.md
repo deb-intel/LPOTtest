@@ -1,5 +1,7 @@
-APIs
-====
+API Documentation
+=================
+
+## Introduction
 
 Intel® Low Precision Optimization Tool is an open-source Python library designed to help users quickly deploy low-precision inference solutions on popular deep learning (DL) frameworks such as TensorFlow*, PyTorch*, MXNet, and ONNX Runtime. It automatically optimizes low-precision recipes for deep learning models in order to achieve optimal product objectives, such as inference performance and memory usage, with expected accuracy criteria.
 
@@ -8,9 +10,9 @@ Intel® Low Precision Optimization Tool is an open-source Python library designe
 
 These APIs are intended to unify low-precision quantization interfaces cross multiple DL frameworks for the best out-of-the-box experiences.
 
-**NOTE**
-
-LPOT is continuously improving user-facing APIs to create a better user experience. 
+> **Note**
+>
+> LPOT is continuously improving user-facing APIs to create a better user experience. 
 
 Two sets of user-facing APIs exist. One is the default one supported from LPOT v1.0 for backwards compatibility. The other set consists of new APIs in 
 the `lpot.experimental` package.
@@ -25,7 +27,7 @@ The major differences between the default use-facing APIs and the experimental A
 
 ## Experimental user-facing APIs
 
-Rxperimental user-facing APIs consist of the following components:
+Experimental user-facing APIs consist of the following components:
 
 ### quantization-related APIs
 ```python
@@ -70,7 +72,7 @@ The `conf_fname` parameter used in the class initialization is the path to the u
 
 **LPOT User YAML Syntax**
 
-Intel® Low Precision Optimization Tool provides template yaml files for [Post-Training Quantization](../lpot/template/ptq.yaml), [Quantization-Aware Traing](../lpot/template/qat.yaml), and [Pruning](../lpot/template/pruning.yaml) scenarios. Refer to these template files to understand the meaning of each field.
+Intel® Low Precision Optimization Tool provides template yaml files for [Post-Training Quantization](../lpot/template/ptq.yaml), [Quantization-Aware Training](../lpot/template/qat.yaml), and [Pruning](../lpot/template/pruning.yaml) scenarios. Refer to these template files to understand the meaning of each field.
 
 Note that most fields in the yaml templates are optional. View the [HelloWorld Yaml](../examples/helloworld/tf_example2/conf.yaml) example for reference.
 
@@ -165,7 +167,7 @@ class Pruning(object):
 
 This API is used to do sparsity pruning. Currently, it is a Proof of Concept; LPOT only supports `magnitude pruning` on PyTorch.
 
-To learn how to use this API, refer to [Pruning Document](./pruning.md)
+To learn how to use this API, refer to the [pruning document](../docs/pruning.md).
 
 ### benchmarking-related APIs
 ```python
@@ -195,12 +197,10 @@ class Benchmark(object):
 
 This API is used to measure model performance and accuracy.
 
-To learn how to use this API, refer to the [Benchmark Document](./benchmark.md)
+To learn how to use this API, refer to the [benchmark document](../docs/benchmark.md)
 
 ## Default user-facing APIs
 
 The default user-facing APIs exist for backwards compatiblity from the v1.0 release. Refer to [v1.1 API](https://github.com/intel/lpot/blob/v1.1/docs/introduction.md) to understand how the default user-facing APIs work.
-
-A [HelloWorld example](../examples/helloworld/tf_example6) using default user-facing APIs is provided for user reference.
 
 Full examples using default user-facing APIs can be found [here](https://github.com/intel/lpot/tree/v1.1/examples).

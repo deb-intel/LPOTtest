@@ -41,12 +41,13 @@ Intel® oneAPI AI Analytics Toolkit.
 The AI Kit, which includes the LPOT
 library, is distributed through many common channels,
 including from Intel's website, YUM, APT, Anaconda, and more.
-[Select and download](https://software.intel.com/content/www/us/en/develop/tools/oneapi/ai-analytics-toolkit/download.html)
+Select and [download](https://software.intel.com/content/www/us/en/develop/tools/oneapi/ai-analytics-toolkit/download.html)
 the AI Kit distribution package that's best suited for you and follow the
 [Get Started Guide](https://software.intel.com/content/www/us/en/develop/documentation/get-started-with-ai-linux/top.html)
 for post-installation instructions.
 
 |[Download AI Kit](https://software.intel.com/content/www/us/en/develop/tools/oneapi/ai-analytics-toolkit/) |[AI Kit Get Started Guide](https://software.intel.com/content/www/us/en/develop/documentation/get-started-with-ai-linux/top.html) |
+|---|---|
 
 ### Windows Installation
 
@@ -68,7 +69,7 @@ The following prerequisites and requirements must be satisfied in order to insta
 
 - Python version: 3.6 or 3.7 or 3.8
 
-- Download and install anaconda: [anaconda](https://anaconda.org/)
+- Download and install [anaconda](https://anaconda.org/).
 
 - Create a virtual environment named lpot in anaconda:
     ```shell
@@ -177,7 +178,7 @@ Intel® Low Precision Optimization Tool requires installing the pertinent Intel-
 
 ## Validated Models
 
-Intel® Low Precision Optimization Tool provides numerous examples to show promising accuracy loss with the best performance gain. Full quantized model list on various frameworks is available in [Model List](docs/full_model_list.md).
+Intel® Low Precision Optimization Tool provides numerous examples to show promising accuracy loss with the best performance gain. A full quantized model list on various frameworks is available in the [Model List](docs/full_model_list.md).
 
 <table class="docutils">
 <thead>
@@ -441,61 +442,3 @@ Intel® Low Precision Optimization Tool provides numerous examples to show promi
   </tr>
 </tbody>
 </table>
-
-## Known Issues
-
-The MSE tuning strategy does not work with the PyTorch adaptor layer. This strategy requires a comparison between the FP32 and INT8 tensors to decide which op impacts the final quantization accuracy. The PyTorch adaptor layer does not implement this inspect tensor interface. Therefore, do not choose the MSE tuning strategy for PyTorch models.
-
-## Incompatible Changes
-
-[LPOT v1.2](https://github.com/intel/lpot/tree/v1.2) introduces incompatible changes in user facing APIs. Please refer to [incompatible changes](./docs/incompatible_changes.md) to know which incompatible changes are made in v1.2.
-
-[LPOT v1.2.1](https://github.com/intel/lpot/tree/v1.2.1) solves this backward compatible issues introduced in v1.2 by moving new user facing APIs to lpot.experimental package and keep old one as is. Please refer to [introduction](./docs/introduction.md) to know the details of user-facing APIs.
-
-## Support
-
-Submit your questions, feature requests, and bug reports to the
-[GitHub issues](https://github.com/intel/lpot/issues) page. You may also reach out to lpot.maintainers@intel.com.
-
-## Contribution
-
-We welcome community contributions to Intel® Low Precision Optimization
-Tool. If you have an idea on how to improve the library, refer to the following:
-
-* For changes impacting the public API, submit an [RFC pull request](CONTRIBUTING.md#RFC_pull_requests).
-* Ensure that the changes are consistent with the [code contribution guidelines](CONTRIBUTING.md#code_contribution_guidelines) and [coding style](CONTRIBUTING.md#coding_style).
-* Ensure that you can run all the examples with your patch.
-* Submit a [pull request](https://github.com/intel/lpot/pulls).
-
-For additional details, see [contribution guidelines](CONTRIBUTING.md).
-
-This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](CODE_OF_CONDUCT.md) code of conduct.
-
-## License
-
-Intel® Low Precision Optimization Tool is licensed under [Apache License Version 2.0](http://www.apache.org/licenses/LICENSE-2.0). This software includes components that have separate copyright notices and licensing terms. Your use of the source code for these components is subject to the terms and conditions of the following licenses.
-
-Apache License Version 2.0:
-* [Intel TensorFlow Quantization Tool](https://github.com/IntelAI/tools)
-
-MIT License:
-* [bayesian-optimization](https://github.com/fmfn/BayesianOptimization)
-
-See the accompanying [LICENSE](LICENSE) file for full license text and copyright notices.
-
---------
-
-View [Legal Information](legal_information.md).
-
-## Citation
-
-If you use Intel® Low Precision Optimization Tool in your research or you wish to refer to the tuning results published in the [Validated Models](#validated-models), use the following BibTeX entry.
-
-```
-@misc{Intel® Low Precision Optimization Tool,
-  author =       {Feng Tian, Chuanqi Wang, Guoming Zhang, Penghui Cheng, Pengxin Yuan, Haihao Shen, and Jiong Gong},
-  title =        {Intel® Low Precision Optimization Tool},
-  howpublished = {\url{https://github.com/intel/lpot}},
-  year =         {2020}
-}
-```

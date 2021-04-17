@@ -12,13 +12,13 @@ Sections
 
    welcome.md
    getting_started.md
-   docs/introduction.md
-   examples/readme.md
+   api-documentation/api-introduction.md
+   examples_readme.md
    docs/doclist.rst
    releases-info.md
-   CONTRIBUTING.md
-   CODE_OF_CONDUCT.md
+   contributing.md
    legal_information.md
-   SECURITY.md
+   security.md
+
     
 
