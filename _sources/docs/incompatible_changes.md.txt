@@ -8,7 +8,7 @@ The user-facing APIs are changed between v1.2 and v1.1. The major changes are:
 
 2. v1.2 unifies the calling style by setting model, calibration dataloader, evaluation dataloader, and metric through `quantizer` attributes rather than passing as function inputs.
 
-Refer to below examples to for details.
+Refer to below examples for details.
 
 ```python
 # user facing API example in v1.1
@@ -38,4 +38,4 @@ q_model.save('/path/to/output/dir') # explicitly call to save q_model
 
 v1.2 refines LPOT built-in transform/dataset/metric to unify APIs cross different framework backends.
 
-Refer to [dataset](./dataset.md), [transform](./transform.md) and [metric](./metric.md) to learn how to use them in yaml or code.
+Refer to [dataset](./dataset.md), [transform](./transform.md), and [metric](./metric.md) to learn how to use them in yaml or code.

@@ -93,7 +93,8 @@
 <li class="toctree-l2"><a class="reference internal" href="#user-facing-apis">User-facing APIs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#experimental-user-facing-apis">Experimental user-facing APIs</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#quantization-related-apis">Quantization-related APIs</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#benchmarking-related-apis">benchmarking-related APIs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pruning-related-apis-poc">Pruning-related APIs (POC)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#benchmarking-related-apis">Benchmarking-related APIs</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#default-user-facing-apis">Default user-facing APIs</a></li>
@@ -303,7 +304,9 @@ the <code class="docutils literal notranslate"><span class="pre">lpot.experiment
 <p><code class="docutils literal notranslate"><span class="pre">postprocess</span></code> attribute in <code class="docutils literal notranslate"><span class="pre">Quantization</span></code> class is not necessary in most of the use cases. It is only needed when the user wants to use the LPOT built-in metric but the model output can not directly be handled by LPOT built-in metrics. In this case, the user can register a transform to convert the model output to the expected one required by the LPOT built-in metric.</p>
 <p><code class="docutils literal notranslate"><span class="pre">q_func</span></code> attribute in <code class="docutils literal notranslate"><span class="pre">Quantization</span></code> class is only for <code class="docutils literal notranslate"><span class="pre">Quantization</span> <span class="pre">Aware</span> <span class="pre">Training</span></code> case, in which the user needs to register a function that takes <code class="docutils literal notranslate"><span class="pre">model</span></code> as the input parameter and executes the entire training process with self-contained training hyper-parameters.</p>
 <p><code class="docutils literal notranslate"><span class="pre">eval_func</span></code> attribute in <code class="docutils literal notranslate"><span class="pre">Quantization</span></code> class is reserved for special cases. If the user had an evaluation function when train a model, the user must implement a <code class="docutils literal notranslate"><span class="pre">calib_dataloader</span></code> and leave <code class="docutils literal notranslate"><span class="pre">eval_dataloader</span></code> as None. Then, modify this evaluation function to take <code class="docutils literal notranslate"><span class="pre">model</span></code> as the input parameter and return a higher-is-better scaler. In some scenarios, it may reduce development effort.</p>
-<p>###Ppruning-related APIs (POC)</p>
+</div>
+<div class="section" id="pruning-related-apis-poc">
+<h3>Pruning-related APIs (POC)<a class="headerlink" href="#pruning-related-apis-poc" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Pruning</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">conf_fname</span><span class="p">):</span>
         <span class="o">...</span>
@@ -336,7 +339,7 @@ the <code class="docutils literal notranslate"><span class="pre">lpot.experiment
 <p>To learn how to use this API, refer to the <a class="reference internal" href="../docs/pruning.html"><span class="doc">pruning document</span></a>.</p>
 </div>
 <div class="section" id="benchmarking-related-apis">
-<h3>benchmarking-related APIs<a class="headerlink" href="#benchmarking-related-apis" title="Permalink to this headline">¶</a></h3>
+<h3>Benchmarking-related APIs<a class="headerlink" href="#benchmarking-related-apis" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Benchmark</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">conf_fname</span><span class="p">):</span>
         <span class="o">...</span>
@@ -362,7 +365,7 @@ the <code class="docutils literal notranslate"><span class="pre">lpot.experiment
 </pre></div>
 </div>
 <p>This API is used to measure model performance and accuracy.</p>
-<p>To learn how to use this API, refer to the <a class="reference internal" href="../docs/benchmark.html"><span class="doc">benchmark document</span></a></p>
+<p>To learn how to use this API, refer to the <a class="reference internal" href="../docs/benchmark.html"><span class="doc">benchmark document</span></a>.</p>
 </div>
 </div>
 <div class="section" id="default-user-facing-apis">
