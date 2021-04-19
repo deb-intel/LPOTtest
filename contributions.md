@@ -3,7 +3,7 @@ Contribution Guidelines
 
 If you have improvements to Intel® Low Precision Optimization Tool, send your pull requests for
 [review](https://github.com/intel/lpot/pulls). If you are new to Github, view the pull request
-[how to](https://help.github.com/articles/using-pull-requests/).
+[How To](https://help.github.com/articles/using-pull-requests/).
 
 
 ## Pull Request Checklist
@@ -116,10 +116,12 @@ members of the project's leadership.
 
 ### Attribution
 
-This Code of Conduct is adapted from the [Contributor Covenant][homepage], version 1.4,
-available at https://www.contributor-covenant.org/version/1/4/code-of-conduct.html
+This Code of Conduct is adapted from the [Contributor Covenant][homepage], [version 1.4][ver1.4].
 
 [homepage]: https://www.contributor-covenant.org
 
-For answers to common questions about this code of conduct, see
-https://www.contributor-covenant.org/faq
+[ver1.4]: https://www.contributor-covenant.org/version/1/4/code-of-conduct.html
+
+For answers to common questions about this code of conduct, see the [FAQ][FAQ-page] page.
+
+[FAQ-page]: https://www.contributor-covenant.org/faq
