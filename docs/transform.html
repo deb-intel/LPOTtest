@@ -234,11 +234,11 @@
 <td align="left">Compose(transform_list)</td>
 <td align="left"><strong>transform_list</strong> (list of Transform objects):  list of transforms to compose</td>
 <td align="left">Composes several transforms together</td>
-<td align="left">If user uses yaml file to configure transforms, LPOT will automatic call Compose to group other transforms. <br> <strong>In user code:</strong> <br> from lpot.data import TRANSFORMS <br> preprocess = TRANSFORMS(framework, 'preprocess') <br> resize = preprocess["Resize"] (*<em>args) <br> normalize = preprocess["Normalize"] (*</em>args) <br> compose = preprocess["Compose"] ([resize, normalize]) <br> sample = compose(sample) <br> # sample: image, label</td>
+<td align="left">If user uses yaml file to configure transforms, LPOT will automatic call Compose to group other transforms. <br> <strong>In user code:</strong> <br> from lpot.experimental.data  import TRANSFORMS <br> preprocess = TRANSFORMS(framework, 'preprocess') <br> resize = preprocess["Resize"] (*<em>args) <br> normalize = preprocess["Normalize"] (*</em>args) <br> compose = preprocess["Compose"] ([resize, normalize]) <br> sample = compose(sample) <br> # sample: image, label</td>
 </tr>
 <tr>
 <td align="left">CropResize(x, y, width, height, size, interpolation)</td>
-<td align="left"><strong>x</strong> (int):Left boundary of the cropping area <br> <strong>y</strong> (int):Top boundary of the cropping area <br> <strong>width</strong> (int):Width of the cropping area <br> <strong>height</strong> (int):Height of the cropping area <br> <strong>size</strong> (list or int): resize to new size after cropping <br> <strong>interpolation</strong> (str, default='bilinear'):Desired interpolation type, support 'bilinear', 'nearest'</td>
+<td align="left"><strong>x</strong> (int):Left boundary of the cropping area <br> <strong>y</strong> (int):Top boundary of the cropping area <br> <strong>width</strong> (int):Width of the cropping area <br> <strong>height</strong> (int):Height of the cropping area <br> <strong>size</strong> (list or int): resize to new size after cropping <br> <strong>interpolation</strong> (str, default='bilinear'):Desired interpolation type, support 'bilinear', 'nearest' and 'bicubic'</td>
 <td align="left">Crop the input image with given location and resize it</td>
 <td align="left">CropResize: <br> &ensp;&ensp; x: 0 <br> &ensp;&ensp; y: 5 <br> &ensp;&ensp; width: 224 <br> &ensp;&ensp; height: 224 <br> &ensp;&ensp; size: [100, 100] # or size: 100 <br> &ensp;&ensp; interpolation: bilinear</td>
 </tr>
@@ -315,28 +315,22 @@
 <td align="left">ResizeCropImagenet: <br> &ensp;&ensp; height: 224 <br> &ensp;&ensp; width: 224 <br> &ensp;&ensp; random_crop: False <br> &ensp;&ensp; resize_side: 256 <br> &ensp;&ensp; random_flip_left_right: False <br> &ensp;&ensp; mean_value: [123.68, 116.78, 103.94] <br> &ensp;&ensp; scale: 0.017</td>
 </tr>
 <tr>
-<td align="left">QuantizedInput(dtype)</td>
-<td align="left">dtype(str): desired image dtype, support 'uint8', 'int8' <br> scale(float, default=None):scaling ratio of each point in image</td>
+<td align="left">QuantizedInput(dtype, scale)</td>
+<td align="left"><strong>dtype</strong>(str): desired image dtype, support 'uint8', 'int8' <br> <strong>scale</strong>(float, default=None):scaling ratio of each point in image</td>
 <td align="left">Convert the dtype of input to quantize it</td>
 <td align="left">QuantizedInput: <br> &ensp;&ensp; dtype: 'uint8'</td>
 </tr>
 <tr>
 <td align="left">LabelShift(label_shift)</td>
-<td align="left">label_shift(int, default=0): number of label shift</td>
+<td align="left"><strong>label_shift</strong>(int, default=0): number of label shift</td>
 <td align="left">Convert label to label - label_shift</td>
 <td align="left">LabelShift: <br> &ensp;&ensp; label_shift: 0</td>
 </tr>
 <tr>
 <td align="left">BilinearImagenet(height, width, central_fraction, mean_value, scale)</td>
-<td align="left">height: Height of the result <br> width:Width of the result <br> central_fraction(float, default=0.875):fraction of size to crop <br> mean_value(list, default=[0.0,0.0,0.0]):means for each channel <br> scale(float, default=1.0):std value</td>
+<td align="left"><strong>height</strong>(int): Height of the result <br> <strong>width</strong>(int):Width of the result <br> <strong>central_fraction</strong>(float, default=0.875):fraction of size to crop <br> <strong>mean_value</strong>(list, default=[0.0,0.0,0.0]):means for each channel <br> <strong>scale</strong>(float, default=1.0):std value</td>
 <td align="left">Combination of a series of transforms which is applicable to images in Imagenet</td>
 <td align="left">BilinearImagenet: <br> &ensp;&ensp; height: 224 <br> &ensp;&ensp; width: 224 <br> &ensp;&ensp; central_fraction: 0.875 <br> &ensp;&ensp; mean_value: [0.0,0.0,0.0] <br> &ensp;&ensp; scale: 1.0</td>
-</tr>
-<tr>
-<td align="left">ParseDecodeCoco()</td>
-<td align="left">None</td>
-<td align="left">Parse features in Example proto</td>
-<td align="left">ParseDecodeCoco: {}</td>
 </tr>
 <tr>
 <td align="left">SquadV1(label_file, n_best_size, max_seq_length, max_query_length, max_answer_length, do_lower_case, doc_stride)</td>
@@ -392,7 +386,7 @@
 <td align="left">Compose(transform_list)</td>
 <td align="left"><strong>transform_list</strong> (list of Transform objects):  list of transforms to compose</td>
 <td align="left">Composes several transforms together</td>
-<td align="left">If user uses yaml file to configure transforms, LPOT will automatic call Compose to group other transforms. <br> <strong>In user code:</strong> <br> from lpot.data import TRANSFORMS <br> preprocess = TRANSFORMS(framework, 'preprocess') <br> resize = preprocess["Resize"] (*<em>args) <br> normalize = preprocess["Normalize"] (*</em>args) <br> compose = preprocess["Compose"] ([resize, normalize]) <br> sample = compose(sample) <br> # sample: image, label</td>
+<td align="left">If user uses yaml file to configure transforms, LPOT will automatic call Compose to group other transforms. <br> <strong>In user code:</strong> <br> from lpot.experimental.data  import TRANSFORMS <br> preprocess = TRANSFORMS(framework, 'preprocess') <br> resize = preprocess["Resize"] (*<em>args) <br> normalize = preprocess["Normalize"] (*</em>args) <br> compose = preprocess["Compose"] ([resize, normalize]) <br> sample = compose(sample) <br> # sample: image, label</td>
 </tr>
 <tr>
 <td align="left">RandomHorizontalFlip()</td>
@@ -514,7 +508,7 @@
 <td align="left">Compose(transform_list)</td>
 <td align="left"><strong>transform_list</strong> (list of Transform objects):  list of transforms to compose</td>
 <td align="left">Composes several transforms together</td>
-<td align="left">If user uses yaml file to configure transforms, LPOT will automatic call Compose to group other transforms. <br> <strong>In user code:</strong> <br> from lpot.data import TRANSFORMS <br> preprocess = TRANSFORMS(framework, 'preprocess') <br> resize = preprocess["Resize"] (*<em>args) <br> normalize = preprocess["Normalize"] (*</em>args) <br> compose = preprocess["Compose"] ([resize, normalize]) <br> sample = compose(sample) <br> # sample: image, label</td>
+<td align="left">If user uses yaml file to configure transforms, LPOT will automatic call Compose to group other transforms. <br> <strong>In user code:</strong> <br> from lpot.experimental.data  import TRANSFORMS <br> preprocess = TRANSFORMS(framework, 'preprocess') <br> resize = preprocess["Resize"] (*<em>args) <br> normalize = preprocess["Normalize"] (*</em>args) <br> compose = preprocess["Compose"] ([resize, normalize]) <br> sample = compose(sample) <br> # sample: image, label</td>
 </tr>
 <tr>
 <td align="left">CropResize(x, y, width, height, size, interpolation)</td>
@@ -539,12 +533,6 @@
 <td align="left"><strong>offset_height</strong> (int): Vertical coordinate of the top-left corner of the result in the input <br> <strong>offset_width</strong> (int): Horizontal coordinate of the top-left corner of the result in the input <br> <strong>target_height</strong> (int): Height of the result <br> <strong>target_width</strong> (int): Width of the result</td>
 <td align="left">Crops an image to a specified bounding box</td>
 <td align="left">CropToBoundingBox: <br> &ensp;&ensp; offset_height: 10 <br> &ensp;&ensp; offset_width: 10 <br> &ensp;&ensp; target_height: 224 <br> &ensp;&ensp; 224</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
 </tr>
 <tr>
 <td align="left">ToArray()</td>
@@ -575,6 +563,12 @@
 <td align="left"><strong>dim</strong> (int): The channel number of result image</td>
 <td align="left">Align image channel, now just support [H,W]-&gt;[H,W,dim], [H,W,4]-&gt;[H,W,3] and [H,W,3]-&gt;[H,W]</td>
 <td align="left">AlignImageChannel: <br> &ensp;&ensp; dim: 3</td>
+</tr>
+<tr>
+<td align="left">ToNDArray()</td>
+<td align="left">None</td>
+<td align="left">Convert np.array to NDArray</td>
+<td align="left">ToNDArray: {}</td>
 </tr>
 </tbody>
 </table></div>
@@ -624,7 +618,7 @@
 <td align="left">Compose(transform_list)</td>
 <td align="left"><strong>transform_list</strong> (list of Transform objects):  list of transforms to compose</td>
 <td align="left">Composes several transforms together</td>
-<td align="left">If user uses yaml file to configure transforms, LPOT will automatic call Compose to group other transforms. <br> <strong>In user code:</strong> <br> from lpot.data import TRANSFORMS <br> preprocess = TRANSFORMS(framework, 'preprocess') <br> resize = preprocess["Resize"] (*<em>args) <br> normalize = preprocess["Normalize"] (*</em>args) <br> compose = preprocess["Compose"] ([resize, normalize]) <br> sample = compose(sample) <br> # sample: image, label</td>
+<td align="left">If user uses yaml file to configure transforms, LPOT will automatic call Compose to group other transforms. <br> <strong>In user code:</strong> <br> from lpot.experimental.data  import TRANSFORMS <br> preprocess = TRANSFORMS(framework, 'preprocess') <br> resize = preprocess["Resize"] (*<em>args) <br> normalize = preprocess["Normalize"] (*</em>args) <br> compose = preprocess["Compose"] ([resize, normalize]) <br> sample = compose(sample) <br> # sample: image, label</td>
 </tr>
 <tr>
 <td align="left">CropResize(x, y, width, height, size, interpolation)</td>

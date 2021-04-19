@@ -189,9 +189,9 @@
 <p><a class="reference external" href="https://pytorch.org/tutorials/recipes/recipes/dynamic_quantization.html">^1</a>The key idea with dynamic quantization as described here is that we are going to determine the scale factor for activations dynamically based on the data range observed at runtime. This ensures that the scale factor is “tuned” so that as much signal as possible about each observed dataset is preserved.</p>
 <p>Dynamic quantization is relatively free of tuning parameters which makes it well suited to be added into production pipelines as a standard part of NLP models.</p>
 <p>Take onnxruntime bert_base model as an example, users can specific quantization method like the following yaml:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">model</span><span class="p">:</span>                                               <span class="c1"># mandatory. lpot uses this model name and framework name to decide where to save snapshot if tuning.snapshot field is empty.</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">model</span><span class="p">:</span>                                               <span class="c1"># mandatory. used to specify model specific information.</span>
   <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">bert</span> 
-  <span class="nt">framework</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">onnxrt_integerops</span>                       <span class="c1"># possible values are tensorflow, mxnet, pytorch or onnxrt</span>
+  <span class="nt">framework</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">onnxrt_integerops</span>                       <span class="c1"># mandatory. possible values are tensorflow, mxnet, pytorch, pytorch_ipex, onnxrt_integerops and onnxrt_qlinearops.</span>
 
 <span class="nt">quantization</span><span class="p">:</span>
   <span class="nt">approach</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">post_training_dynamic_quant</span>              <span class="c1"># optional. default value is post_training_static_quant</span>

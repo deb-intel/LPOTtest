@@ -173,8 +173,8 @@
     <td>Workflow</td>
   </tr>
   <tr>
-    <td><img src="docs/imgs/infrastructure.jpg" width=640 height=320></td>
-    <td><img src="docs/imgs/workflow.jpg" width=640 height=320></td>
+    <td><img src="docs/imgs/infrastructure.png" width=640 height=320></td>
+    <td><img src="docs/imgs/workflow.png" width=640 height=320></td>
   </tr>
  </table><p>Supported Intel optimized DL frameworks are:</p>
 <ul class="simple">
@@ -243,20 +243,8 @@ for post-installation instructions.</p>
 </div>
 <div class="section" id="install-for-windows">
 <h2>Install for Windows<a class="headerlink" href="#install-for-windows" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id1">
-<h3>Install from binary<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># install from pip</span>
-pip install lpot
-
-<span class="c1"># install from conda</span>
-conda install lpot -c conda-forge -c intel 
-</pre></div>
-</div>
-</div>
-<div class="section" id="id2">
-<h3>Install from source<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="prerequisites">
-<h4><strong>Prerequisites</strong><a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h4>
+<h3><strong>Prerequisites</strong><a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h3>
 <p>The following prerequisites and requirements must be satisfied in order to install successfully：</p>
 <ul>
 <li><p>Python version: 3.6 or 3.7 or 3.8</p></li>
@@ -270,14 +258,23 @@ conda activate lpot
 </li>
 </ul>
 </div>
-<div class="section" id="installation-procedure">
-<h4><strong>Installation Procedure</strong><a class="headerlink" href="#installation-procedure" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id1">
+<h3>Install from binary<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># install from pip</span>
+pip install lpot
+
+<span class="c1"># install from conda</span>
+conda install lpot -c conda-forge -c intel 
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h3>Install from source<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/intel/lpot.git
 <span class="nb">cd</span> lpot
 pip install -r requirements.txt
 python setup.py install
 </pre></div>
-</div>
 </div>
 </div>
 </div>
@@ -303,6 +300,7 @@ python setup.py install
 <li><p><a class="reference internal" href="docs/pruning.html"><span class="doc">Pruning</span></a> provides a common method for introducing sparsity in weights and activations.</p></li>
 <li><p><a class="reference internal" href="docs/benchmark.html"><span class="doc">Benchmarking</span></a> introduces how to utilize the benchmark interface of LPOT.</p></li>
 <li><p><a class="reference internal" href="docs/mixed_precision.html"><span class="doc">Mixed precision</span></a> introduces how to enable mixed precision, including BFP16 and int8 and FP32, on Intel platforms during tuning.</p></li>
+<li><p><a class="reference internal" href="docs/graph_optimization.html"><span class="doc">Graph Optimization</span></a> introduces how to enable graph optimization for fp32 and auto-mixed precision.</p></li>
 <li><p><a class="reference internal" href="docs/tensorboard.html"><span class="doc">TensorBoard</span></a> provides tensor histogram and execution graph for tuning debugging purpose.</p></li>
 </ul>
 </div>
