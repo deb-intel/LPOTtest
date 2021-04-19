@@ -199,7 +199,7 @@ class Benchmark(object):
 
 This API is used to measure model performance and accuracy.
 
-To learn how to use this API, refer to the [benchmark document](../docs/benchmark.md).
+To learn how to use this API, refer to the [benchmarking document](../docs/benchmark.md).
 
 ## Default user-facing APIs
 

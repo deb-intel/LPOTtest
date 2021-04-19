@@ -4,11 +4,11 @@ Metrics
 As to evaluate the performance of a specific model, we should have general metrics to measure the performance of different model. Different framework always have their own Metric module but with different features and API, as lpot is cross framework tool, it is hard to use them in the same way, another request is that this tool support code-free configuration through yaml file, with built-in metrics, lpot can get the performance and accuracy without code change from user. In special case, user can also register its own metric class through lpot method.
 
 
-## Use Metrics
+## How to use Metrics
 
 ### Config built-in metric in yaml file
 
-User can specify some LPOT build-in metric like below:
+Users can specify an LPOT build-in metric such as shown below:
 
 ```yaml
 evaluation:
@@ -17,11 +17,10 @@ evaluation:
       topk: 1
 ```
 
-or
 
 ### Config custom metric in code
 
-User can register their own metric as follows:
+Users can also register their own metric as follows:
 
 ```python
 class Metric(object):
@@ -40,9 +39,9 @@ class Metric(object):
 
 ```
 
-The result() function returns a higher-is-better scalar to reflect model accuracy on evaluation dataset.
+The result() function returns a higher-is-better scalar to reflect model accuracy on an evaluation dataset.
 
-After defining the metric class, user needs to register it with a user defined metric name and the metric class
+After defining the metric class, users need to register it with a user-defined metric name and the metric class:
 
 ```python
 
@@ -57,9 +56,9 @@ q_model = quantizer()
 
 ## Built-in metric support list
 
-LPOT supports some builtin metrics that popularly used in industry. 
+LPOT supports some built-in metrics that are popularly used in industry. 
 
-Please refer to [example](../examples/helloworld/tf_example1) on how to config a builtin metric.
+Refer to [this example](https://github.com/intel/lpot/tree/master/examples/helloworld/tf_example1) on how to config a built-in metric.
 
 #### TensorFlow
 

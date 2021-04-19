@@ -162,8 +162,8 @@
             
   <div class="section" id="model">
 <h1>Model<a class="headerlink" href="#model" title="Permalink to this headline">¶</a></h1>
-<p>Model feature of LPOT is used to encapsulate the behavior of model building and saving. By just give information of different model format and framework_specific_info, LPOT will do optimizations and quantization on this model object and return a LPOT Model object for further model persisting or benchmark. LPOT Model make it possible to keep neccessary information of a model which is needed during optimization and quantization like the input/output names, workspace path and other model format knowledges. This helps unify the features gap bring by different model format and frameworks.</p>
-<p>User can create, use and save a model in this way:</p>
+<p>The LPOT Model feature is used to encapsulate the behavior of model building and saving. By simply providing information such as different model formats and framework_specific_info, LPOT performs optimizations and quantization on this model object and returns an LPOT Model object for further model persisting or benchmarking. An LPOT Model helps users to maintain necessary model information which is needed during optimization and quantization such as the input/output names, workspace path, and other model format knowledge. This helps unify the features gap brought by different model formats and frameworks.</p>
+<p>Users can create, use, and save models in the following manner:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lpot</span> <span class="kn">import</span> <span class="n">Quantization</span><span class="p">,</span> <span class="n">common</span>
 <span class="n">quantizer</span> <span class="o">=</span> <span class="n">Quantization</span><span class="p">(</span><span class="s1">&#39;./conf.yaml&#39;</span><span class="p">)</span>
 <span class="n">quantizer</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">common</span><span class="o">.</span><span class="n">Model</span><span class="p">(</span><span class="s1">&#39;/path/to/model&#39;</span><span class="p">)</span>
@@ -171,11 +171,10 @@
 <span class="n">q_model</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">save_path</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
 <div class="section" id="framework-model-support-list">
-<h1>Framework model support list<a class="headerlink" href="#framework-model-support-list" title="Permalink to this headline">¶</a></h1>
+<h2>Framework model support list<a class="headerlink" href="#framework-model-support-list" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="tensorflow">
-<h2>TensorFlow<a class="headerlink" href="#tensorflow" title="Permalink to this headline">¶</a></h2>
+<h3>TensorFlow<a class="headerlink" href="#tensorflow" title="Permalink to this headline">¶</a></h3>
 <table border="1" class="docutils">
 <thead>
 <tr>
@@ -253,7 +252,7 @@
 <td></td>
 </tr>
 </tbody>
-</table><p>The following methods can be used in tensorflow model</p>
+</table><p>The following methods can be used in the TensorFlow model:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">graph_def</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">graph_def</span>
 <span class="n">input_tensor_names</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">input_tensor_names</span>
 <span class="n">model</span><span class="o">.</span><span class="n">input_tensor_names</span> <span class="o">=</span> <span class="n">input_tensor_names</span>
@@ -267,7 +266,7 @@
 </div>
 </div>
 <div class="section" id="mxnet">
-<h2>MXNet<a class="headerlink" href="#mxnet" title="Permalink to this headline">¶</a></h2>
+<h3>MXNet<a class="headerlink" href="#mxnet" title="Permalink to this headline">¶</a></h3>
 <table border="1" class="docutils">
 <thead>
 <tr>
@@ -292,7 +291,7 @@
 </tr>
 </tbody>
 </table><ul class="simple">
-<li><p>Get symbol, arg_params, aux_params from symbol and param files</p></li>
+<li><p>Get symbol, arg_params, aux_params from symbol and param files.</p></li>
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">mxnet</span> <span class="kn">as</span> <span class="nn">mx</span>
 <span class="kn">from</span> <span class="nn">mxnet</span> <span class="kn">import</span> <span class="n">nd</span>
@@ -311,7 +310,7 @@
 </div>
 </div>
 <div class="section" id="pytorch">
-<h2>PyTorch<a class="headerlink" href="#pytorch" title="Permalink to this headline">¶</a></h2>
+<h3>PyTorch<a class="headerlink" href="#pytorch" title="Permalink to this headline">¶</a></h3>
 <table border="1" class="docutils">
 <thead>
 <tr>
@@ -351,6 +350,7 @@
     <span class="k">with</span> <span class="n">ipex</span><span class="o">.</span><span class="n">AutoMixPrecision</span><span class="p">(</span><span class="n">conf</span><span class="p">,</span> <span class="n">running_mode</span><span class="o">=</span><span class="s1">&#39;inference&#39;</span><span class="p">):</span>
         <span class="n">output</span> <span class="o">=</span> <span class="n">new_model</span><span class="p">(</span><span class="nb">input</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">ipex</span><span class="o">.</span><span class="n">DEVICE</span><span class="p">))</span>
 </pre></div>
+</div>
 </div>
 </div>
 </div>

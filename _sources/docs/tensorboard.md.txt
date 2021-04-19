@@ -1,4 +1,3 @@
-
 TensorBoard
 ===========
 
@@ -6,7 +5,7 @@ TensorBoard
 
 TensorBoard is a suite of web applications for inspecting and understanding your topology runs and graphs (see [TensorFlow TensorBoard](https://github.com/tensorflow/tensorboard) and [PyTorch TensorBoard](https://github.com/pytorch/pytorch/tree/master/torch/utils/tensorboard)). Intel® Low Precision Optimization Tool performs accuracy driven quantization, the tuning process will quantize the tensor, do graph transformation and optimization to achieve optimal performance under accuracy requirement. If you want to observe the behaviors of the optimizations, or you may want to find the reason why an accuracy target cannot be met, TensorBoard can provide you some valuable information.You can inspect the graph and tensor after each run of tuning and if a model cannot meet accuracy requirement user can analyze through the comparison of FP32 and int8 tensor histogram.    
 
-We collect the TensorBoard event summary during evaluation, the first time is on baseline FP32 model and later on at the end of each tuning runs based on quantized model. The TensorBoard log directory is named baseline_acc_<accuracy> and tune_<runs>_acc_<accuracy>, to indicate the stage and accuracy of the data is generated. User can select the data he or she has interest to observe with TensorBoard. 
+We collect the TensorBoard event summary during evaluation, the first time is on baseline FP32 model and later on at the end of each tuning runs based on quantized model. The TensorBoard log directory is named baseline_acc_<accuracy>and tune_<runs>_acc_<accuracy>, to indicate the stage and accuracy of the data is generated. User can select the data he or she has interest to observe with TensorBoard. 
 
 
 ## PyTorch TensorBoard
@@ -110,6 +109,7 @@ def _post_eval_hook(self, model, **args):
  
 
 ### Usage
+
 (Introduce the usage method of the feature)
 1. Add "tensorboard: true" in yaml file.
 2. Run quantization tuning, a "./runs" folder will be generated in working folder.
@@ -124,9 +124,10 @@ def _post_eval_hook(self, model, **args):
   examples/pytorch/image_recognition/imagenet/cpu/ptq/run_tuning_dump_tensor.sh 
 ```
 
-##TensorFlow Tensorboard
+## TensorFlow Tensorboard
 
 ### Design
+
 The implementation of TensorFlow TensorBoard basically have 4 steps:
 1. before evaluation we create the TensorBoard summary write and write graph, collect fp32 and node name for inspection and dump the histogram of weights and bias tensor directly from graph_def.
 2. Run get_tensor_by_name_with_import() to get data output tensors.

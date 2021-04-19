@@ -40,7 +40,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Adaptor" href="adaptor.html" />
-    <link rel="prev" title="Mixed Precision" href="mixed_precision.html" /> 
+    <link rel="prev" title="Graph Optimization" href="graph_optimization.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -100,9 +100,11 @@
 <li class="toctree-l3"><a class="reference internal" href="pruning.html">Pruning</a></li>
 <li class="toctree-l3"><a class="reference internal" href="benchmark.html">Benchmarking</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mixed_precision.html">Mixed Precision</a></li>
+<li class="toctree-l3"><a class="reference internal" href="graph_optimization.html">Graph Optimization</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">TensorBoard</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#introduction">Introduction</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#pytorch-tensorboard">PyTorch TensorBoard</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tensorflow-tensorboard">TensorFlow Tensorboard</a></li>
 </ul>
 </li>
 </ul>
@@ -188,7 +190,7 @@
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <p>TensorBoard is a suite of web applications for inspecting and understanding your topology runs and graphs (see <a class="reference external" href="https://github.com/tensorflow/tensorboard">TensorFlow TensorBoard</a> and <a class="reference external" href="https://github.com/pytorch/pytorch/tree/master/torch/utils/tensorboard">PyTorch TensorBoard</a>). Intel® Low Precision Optimization Tool performs accuracy driven quantization, the tuning process will quantize the tensor, do graph transformation and optimization to achieve optimal performance under accuracy requirement. If you want to observe the behaviors of the optimizations, or you may want to find the reason why an accuracy target cannot be met, TensorBoard can provide you some valuable information.You can inspect the graph and tensor after each run of tuning and if a model cannot meet accuracy requirement user can analyze through the comparison of FP32 and int8 tensor histogram.</p>
-<p>We collect the TensorBoard event summary during evaluation, the first time is on baseline FP32 model and later on at the end of each tuning runs based on quantized model. The TensorBoard log directory is named baseline_acc_<accuracy> and tune_<runs><em>acc</em><accuracy>, to indicate the stage and accuracy of the data is generated. User can select the data he or she has interest to observe with TensorBoard.</p>
+<p>We collect the TensorBoard event summary during evaluation, the first time is on baseline FP32 model and later on at the end of each tuning runs based on quantized model. The TensorBoard log directory is named baseline_acc_<accuracy>and tune_<runs><em>acc</em><accuracy>, to indicate the stage and accuracy of the data is generated. User can select the data he or she has interest to observe with TensorBoard.</p>
 </div>
 <div class="section" id="pytorch-tensorboard">
 <h2>PyTorch TensorBoard<a class="headerlink" href="#pytorch-tensorboard" title="Permalink to this headline">¶</a></h2>
@@ -306,8 +308,10 @@
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>  examples/pytorch/image_recognition/imagenet/cpu/ptq/run_tuning_dump_tensor.sh 
 </pre></div>
 </div>
-<p>##TensorFlow Tensorboard</p>
 </div>
+</div>
+<div class="section" id="tensorflow-tensorboard">
+<h2>TensorFlow Tensorboard<a class="headerlink" href="#tensorflow-tensorboard" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id1">
 <h3>Design<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>The implementation of TensorFlow TensorBoard basically have 4 steps:</p>
@@ -382,7 +386,7 @@ baseline_acc_0.776  tune_1_acc_0.095
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
         <a href="adaptor.html" class="btn btn-neutral float-right" title="Adaptor" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="mixed_precision.html" class="btn btn-neutral float-left" title="Mixed Precision" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="graph_optimization.html" class="btn btn-neutral float-left" title="Graph Optimization" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

@@ -38,6 +38,7 @@ Deep Dive
 * `Pruning <pruning.md>`__ provides a common method for introducing sparsity in weights and activations.
 * `Benchmarking <benchmark.md>`__ introduces how to utilize the benchmark interface of LPOT.
 * `Mixed precision <mixed_precision.md>`__ introduces how to enable mixed precision, including BFP16 and int8 and FP32, on Intel platforms during tuning.
+* `Graph Optimization <graph_optimization.md>`__ introduces how to enable graph optimization for FP3232 and auto-mixed precision.
 * `TensorBoard <tensorboard.md>`__ provides tensor histograms and execution graphs for tuning debugging purposes. 
 
 
@@ -52,6 +53,7 @@ Deep Dive
     pruning.md
     benchmark.md
     mixed_precision.md
+    graph_optimization.md
     tensorboard.md
   
     

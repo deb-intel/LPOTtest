@@ -99,7 +99,7 @@
 <li class="toctree-l3"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../examples_readme.html">Examples</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">LPOT UX</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#starting-the-ux">Starting the UX</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#start-the-ux">Start the UX</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#my-models-list">My Models list</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#new-model-configuration-from-new-model-wizard">New Model Configuration from New Model Wizard</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#new-model-configuration-from-examples">New Model Configuration from Examples</a></li>
@@ -191,29 +191,29 @@
             
   <div class="section" id="lpot-ux">
 <h1>LPOT UX<a class="headerlink" href="#lpot-ux" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="starting-the-ux">
-<h2>Starting the UX<a class="headerlink" href="#starting-the-ux" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="start-the-ux">
+<h2>Start the UX<a class="headerlink" href="#start-the-ux" title="Permalink to this headline">¶</a></h2>
 <ol>
-<li><p>Start LPOT UX server:</p>
+<li><p>Start the LPOT UX server:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>lpot_ux
 </pre></div>
 </div>
 </li>
-<li><p>Server prints information how to access the Web UI.</p>
-<p>Example message looks like:</p>
+<li><p>The server prints information on how to access the Web UI.</p>
+<p>An example message looks like this:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>LPOT UX Server started.
 Setup port forwarding from your local port 5000 to 5000 on this machine.
 Then open address http://localhost:5000/?token=338174d13706855fc6924cec7b3a8ae8
 </pre></div>
 </div>
-<p>Please make sure that requested port forwarding is set up (depending on your OS), then open address in your web browser</p>
+<p>Make certain that requested port forwarding is set up (depending on your OS) and then open the address in your web browser.</p>
 </li>
 </ol>
 </div>
 <div class="section" id="my-models-list">
 <h2>My Models list<a class="headerlink" href="#my-models-list" title="Permalink to this headline">¶</a></h2>
-<p>This view lists all Model Configurations defined on given server.</p>
-<p>You can create new model using pre-defined models using a New Model Wizard or Examples</p>
+<p>This view lists all Model Configurations defined on a given server.</p>
+<p>You can create a new model using pre-defined models by using a New Model Wizard or <strong>Examples</strong>:</p>
 <p><img alt="My models list" src="../_images/my_models.png" /></p>
 </div>
 <div class="section" id="new-model-configuration-from-new-model-wizard">
@@ -221,33 +221,31 @@ Then open address http://localhost:5000/?token=338174d13706855fc6924cec7b3a8ae8
 <div class="section" id="basic-parameters">
 <h3>Basic parameters<a class="headerlink" href="#basic-parameters" title="Permalink to this headline">¶</a></h3>
 <ol>
-<li><p>If you have all related files in one directory, you can point your Workspace there.</p>
+<li><p>If all related files are located in one directory, point your Workspace there.</p>
 <p>Click the <img alt="Change Current Workspace Button" src="../_images/workspace_change.png" />
-button (on the top-left part of UX) and navigate to desired directory.</p>
-<p>In opened modal window, click “Choose” to confirm your selection.</p>
+button (on the top-left part of UX) and navigate to the desired directory. Click <strong>Choose</strong> to confirm your selection.</p>
 </li>
-<li><p>Open the wizard by clicking <img alt="Create low precision model button image" src="../_images/model_create_new.png" /> button.</p></li>
-<li><p>In the wizard fill in all required fields (marked by a *)
+<li><p>Open the Wizard by clicking the <img alt="Create low precision model button image" src="../_images/model_create_new.png" /> button.</p></li>
+<li><p>Enter information in all required fields (marked by a *) in the Wizard:
 <img alt="Basic parameters wizard" src="../_images/wizard_basic.png" /></p></li>
-<li><p>You can either save this configuration (by clicking “Save”), or change some advanced parameters (by clicking “Next”).</p></li>
+<li><p>Either save this configuration (by clicking <strong>Save</strong>), or change some advanced parameters (by clicking <strong>Next</strong>).</p></li>
 </ol>
 </div>
 <div class="section" id="advanced-parameters">
 <h3>Advanced parameters<a class="headerlink" href="#advanced-parameters" title="Permalink to this headline">¶</a></h3>
-<p>On advanced parameters page, you can select how more features of tuning, quantization and benchmarking will be configured.
-<img alt="Advanced parameters wizard" src="../_images/wizard_advanced.png" /></p>
+<p>From the advanced parameters page, you can configure more features such as tuning, quantization, and benchmarking.</p>
+<p><img alt="Advanced parameters wizard" src="../_images/wizard_advanced.png" /></p>
 </div>
 </div>
 <div class="section" id="new-model-configuration-from-examples">
 <h2>New Model Configuration from Examples<a class="headerlink" href="#new-model-configuration-from-examples" title="Permalink to this headline">¶</a></h2>
-<p><img alt="Examples" src="../_images/examples.png" />
-We have some models prepared to test the tuning with. Visit “Examples” tab to:</p>
-<ol class="simple">
-<li><p>Download a model to selected Workspace.</p></li>
-<li><p>Download predefined configuration file for models.</p></li>
-<li><p>When both model and configuration are downloaded, you can point to Dataset to be used and finally click “Add to my models”.</p></li>
-<li><p>New model will be added to “My models” list, ready for tuning.</p></li>
-</ol>
+<p><img alt="Examples" src="../_images/examples.png" /></p>
+<p>Included are models you can use to test tuning. Visit <strong>Examples</strong> to:</p>
+<ul class="simple">
+<li><p>Download a model to a selected Workspace.</p></li>
+<li><p>Download a predefined configuration file for models.</p></li>
+</ul>
+<p>When both models and configurations are downloaded, you can point to the Dataset to be used and then click <strong>Add to my models</strong>. A new model will be added to the <strong>My models</strong> list, ready for tuning.</p>
 </div>
 <div class="section" id="custom-dataset-or-metric">
 <h2>Custom dataset or metric<a class="headerlink" href="#custom-dataset-or-metric" title="Permalink to this headline">¶</a></h2>
@@ -257,31 +255,31 @@ We have some models prepared to test the tuning with. Visit “Examples” tab t
 </div>
 <div class="section" id="tuning">
 <h2>Tuning<a class="headerlink" href="#tuning" title="Permalink to this headline">¶</a></h2>
-<p>Having a Model Configuration created, you can:</p>
-<ol class="simple">
-<li><p>See generated config (by clicking the “Show config” link).</p></li>
-<li><p>Start the tuning:</p>
-<ol class="simple">
-<li><p>Click the blue arrow <img alt="Start Tuning button" src="../_images/tuning_start.png" /> to start the tuning.</p></li>
-<li><p>You can now click on “Show output” link to see logs generated during tuning.</p></li>
-<li><p>Your model will be tuned according to configuration.</p></li>
-<li><p>When tuning is finished, you will see accuracy results in My models list:</p>
+<p>Having a Model Configuration created, you can do the following:</p>
 <ul class="simple">
-<li><p>“Accuracy” section will display comparison in accuracy metric between original and tuned model,</p></li>
-<li><p>“Model size” will compare sizes of both models</p></li>
-<li><p>when automatic benchmarking is finished, “Throughput” will show performance gain from tuning</p></li>
+<li><p>See the generated config (by clicking the “Show config” link).</p></li>
+<li><p>Start the tuning:</p>
+<ul>
+<li><p>Click the blue arrow <img alt="Start Tuning button" src="../_images/tuning_start.png" /> to start the tuning.</p></li>
+<li><p>Click <strong>Show output</strong> to see logs that are generated during tuning.</p></li>
+<li><p>Your model will be tuned according to configuration.</p></li>
+<li><p>When the tuning is finished, you will see accuracy results in the <strong>My Models</strong> list:</p>
+<ul>
+<li><p>The <strong>Accuracy</strong> section displays comparisons in accuracy metrics between the original and tuned models.</p></li>
+<li><p><strong>Model size</strong> compares the sizes of both models.</p></li>
+<li><p>When automatic benchmarking is finished, <strong>Throughput</strong> shows the performance gain from tuning.</p></li>
 </ul>
 </li>
-</ol>
+</ul>
 </li>
-</ol>
+</ul>
 </div>
 <div class="section" id="advanced-options">
 <h2>Advanced options<a class="headerlink" href="#advanced-options" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="tls-connection-encryption">
 <h3>TLS connection encryption<a class="headerlink" href="#tls-connection-encryption" title="Permalink to this headline">¶</a></h3>
-<p>You can provide your own certificate and key to the server in order to use TLS encrypted communication between UI and server.</p>
-<p>Add two parameters to server start command:</p>
+<p>You can provide your own certificate and key to the server in order to use TLS-encrypted communication between the UI and the server.</p>
+<p>Add two parameters to the server start command:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lpot_ux</span> <span class="o">--</span><span class="n">certfile</span> <span class="n">path_to_cert</span><span class="o">.</span><span class="n">crt</span> <span class="o">--</span><span class="n">keyfile</span> <span class="n">path_to_private_key</span><span class="o">.</span><span class="n">key</span>
 </pre></div>
 </div>

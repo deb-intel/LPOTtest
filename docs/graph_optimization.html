@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Graph Optimization Introduction &mdash; Intel® Low Precision Optimization Tool  documentation</title>
+  <title>Graph Optimization &mdash; Intel® Low Precision Optimization Tool  documentation</title>
   
 
   
@@ -38,7 +38,9 @@
 
     
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" /> 
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="TensorBoard" href="tensorboard.html" />
+    <link rel="prev" title="Mixed Precision" href="mixed_precision.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -83,12 +85,32 @@
               
             
             
-              <ul>
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../welcome.html">Introduction to Intel LPOT</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api-documentation/api-introduction.html">API Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples_readme.html">Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="doclist.html">Developer Documentation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="doclist.html">Developer Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="doclist.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="doclist.html#deep-dive">Deep Dive</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Quantization.html">Quantization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PTQ.html">PTQ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="QAT.html">QAT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dynamic_quantization.html">Dynamic Quantization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pruning.html">Pruning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="benchmark.html">Benchmarking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mixed_precision.html">Mixed Precision</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Graph Optimization</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#how-to-use-it">How to use it</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tensorboard.html">TensorBoard</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="doclist.html#advanced-topics">Advanced Topics</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../releases_info.html">Releases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contributions.html">Contribution Guidelines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../legal_information.html">Legal Information</a></li>
@@ -141,7 +163,9 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Graph Optimization Introduction</li>
+          <li><a href="doclist.html">Developer Documentation</a> &raquo;</li>
+        
+      <li>Graph Optimization</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -160,20 +184,22 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="graph-optimization-introduction">
-<h1>Graph Optimization Introduction<a class="headerlink" href="#graph-optimization-introduction" title="Permalink to this headline">¶</a></h1>
-<p>The graph optimization is mainly focus on below two kind of scenarios.</p>
+  <div class="section" id="graph-optimization">
+<h1>Graph Optimization<a class="headerlink" href="#graph-optimization" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Graph optimization is primarily focused on two scenarios, shown below:</p>
 <ol class="simple">
-<li><p><strong>FP32 optimization</strong>. This is similar to TensorFlow optimization tool <a class="reference external" href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/tools/optimize_for_inference.py">optimize_for_inference</a> while LPOT enables more optimizations (e.g., common subexpression elimination).</p></li>
-<li><p><strong>Auto-mixed precision optimization</strong>. LPOT generates the optimal model with auto-mixed precision (<a class="reference external" href="https://cloud.google.com/tpu/docs/bfloat16">bfloat16</a> &amp; FP32) and allows the further auto-tuning per accuracy requirement.</p></li>
+<li><p><strong>FP32 optimization</strong>. This is similar to the TensorFlow optimization tool <a class="reference external" href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/tools/optimize_for_inference.py">optimize_for_inference</a> while LPOT enables more optimizations (such as common subexpression elimination).</p></li>
+<li><p><strong>Auto-mixed precision optimization</strong>. LPOT generates the optimal model with auto-mixed precision (<a class="reference external" href="https://cloud.google.com/tpu/docs/bfloat16">bfloat16</a> and FP32) and allows for additional auto-tuning per accuracy requirements.</p></li>
 </ol>
 </div>
 <div class="section" id="how-to-use-it">
-<h1>How to use it<a class="headerlink" href="#how-to-use-it" title="Permalink to this headline">¶</a></h1>
-<p>Generally, we list below three examples to demonstrate the usage of graph optimization API.</p>
+<h2>How to use it<a class="headerlink" href="#how-to-use-it" title="Permalink to this headline">¶</a></h2>
+<p>See the following three examples which demonstrate graph optimization API usage.</p>
 <div class="section" id="fp32-optimization">
-<h2>1. <strong>FP32 Optimization</strong><a class="headerlink" href="#fp32-optimization" title="Permalink to this headline">¶</a></h2>
-<p>LPOT would run graph optimization under FP32 optimization by default. In other words, it equals the user set the precisions to <strong>‘fp32’</strong> explicitly,</p>
+<h3>FP32 Optimization<a class="headerlink" href="#fp32-optimization" title="Permalink to this headline">¶</a></h3>
+<p>LPOT runs the graph optimization under FP32 Optimization by default. In other words, the <strong>precisions</strong> field is explicitly set to <strong>fp32</strong>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="kn">from</span> <span class="nn">lpot.experimental</span> <span class="kn">import</span> <span class="n">Graph_Optimization</span>
     <span class="n">graph_optimizer</span> <span class="o">=</span> <span class="n">Graph_Optimization</span><span class="p">()</span>
     <span class="n">graph_optimizer</span><span class="o">.</span><span class="n">precisions</span> <span class="o">=</span> <span class="s1">&#39;fp32&#39;</span> <span class="c1">#Optional, default is &#39;fp32&#39;</span>
@@ -185,11 +211,10 @@
 </div>
 </div>
 <div class="section" id="auto-mixed-precision-optimization">
-<h2>2. <strong>Auto-mixed Precision Optimization</strong><a class="headerlink" href="#auto-mixed-precision-optimization" title="Permalink to this headline">¶</a></h2>
-</div>
+<h3>Auto-mixed Precision Optimization<a class="headerlink" href="#auto-mixed-precision-optimization" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="default-auto-mixed-precision">
-<h2>2.1. <em>Default auto-mixed precision</em><a class="headerlink" href="#default-auto-mixed-precision" title="Permalink to this headline">¶</a></h2>
-<p>The only difference between this and default mode is the <code class="docutils literal notranslate"><span class="pre">bf16</span></code> needs to be added into the precisions filed.</p>
+<h4>Default auto-mixed precision<a class="headerlink" href="#default-auto-mixed-precision" title="Permalink to this headline">¶</a></h4>
+<p>The only difference between this and the default mode (FP32 optimization) is that <strong>bf16</strong> must be added to the <strong>precisions</strong> field.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="kn">from</span> <span class="nn">lpot.experimental</span> <span class="kn">import</span> <span class="n">Graph_Optimization</span>
     <span class="n">graph_optimizer</span> <span class="o">=</span> <span class="n">Graph_Optimization</span><span class="p">()</span>
     <span class="n">graph_optimizer</span><span class="o">.</span><span class="n">precisions</span> <span class="o">=</span> <span class="s1">&#39;bf16, fp32&#39;</span>
@@ -201,21 +226,22 @@
 </div>
 </div>
 <div class="section" id="auto-mixed-precision-with-auto-tuning">
-<h2>2.2. <em>Auto-mixed precision with auto-tuning.</em><a class="headerlink" href="#auto-mixed-precision-with-auto-tuning" title="Permalink to this headline">¶</a></h2>
-<p>LPOT also supports the tuning the model under graph optimization mode.
-The end user need to replace the quantization field with graph_optimization parts like below. The precisions filed only supports ‘bf16’ and ‘fp32’.</p>
+<h4>Auto-mixed precision with auto-tuning<a class="headerlink" href="#auto-mixed-precision-with-auto-tuning" title="Permalink to this headline">¶</a></h4>
+<p>LPOT also supports tuning the model in graph optimization mode. The end user must replace the quantization field with graph_optimization parts such as shown below. The <strong>precisions</strong> field only supports <strong>bf16</strong> and <strong>fp32</strong>.</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">graph_optimization</span><span class="p">:</span>
   <span class="nt">precisions</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;bf16&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;fp32&#39;</span><span class="p p-Indicator">]</span>
 </pre></div>
 </div>
-<p>Note, if we remove the evaluation field from the yaml, the graph optimization will only convert the model depends on the precisions setting.</p>
-<p>When the graph_optimization field set and the evaluation field exists in the yaml, LPOT will execute the similar process like quantization. It means the LPOT would convert op into bf16 as much as possible and check the metric later, if the metric meet the criterion, the LPOT would exit or it would fallback one op to fp32 and re-run the above process till it meet the exit policy setting.</p>
-<p>Below is the example of using the yaml to trigger the graph optimization.</p>
+<p>Note that if we remove the evaluation field from the yaml file, the graph optimization will only convert the model depending on the precisions setting.</p>
+<p>When the graph_optimization field is set and the evaluation field exists in the yaml file, LPOT executes the similar process like quantization. It means the LPOT converts op into bf16 as much as possible and checks the metric later. If the metric meets the criterion, LPOT exits or it fallbacks one op to fp32 and re-runs the above process until it meets the exit policy setting.</p>
+<p>Below is an example of using yaml to trigger graph optimization.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="kn">from</span> <span class="nn">lpot.experimental</span> <span class="kn">import</span> <span class="n">Graph_Optimization</span>
     <span class="n">graph_optimizer</span> <span class="o">=</span> <span class="n">Graph_Optimization</span><span class="p">(</span><span class="s1">&#39;/path/to/config.yaml&#39;</span><span class="p">)</span>
     <span class="n">graph_optimizer</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="s1">&#39;/path/to/model&#39;</span>
     <span class="n">optimized_model</span> <span class="o">=</span> <span class="n">graph_optimizer</span><span class="p">()</span>
 </pre></div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -225,6 +251,10 @@ The end user need to replace the quantization field with graph_optimization part
            
           </div>
           <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="tensorboard.html" class="btn btn-neutral float-right" title="TensorBoard" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="mixed_precision.html" class="btn btn-neutral float-left" title="Mixed Precision" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
 
   <hr/>
 
