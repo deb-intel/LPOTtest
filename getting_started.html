@@ -191,6 +191,8 @@
             
   <div class="section" id="getting-started">
 <h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
 <p>The Intel® LPOT library is released as part of the
 <a class="reference external" href="https://software.intel.com/content/www/us/en/develop/tools/oneapi/ai-analytics-toolkit.html">Intel® oneAPI AI Analytics Toolkit</a> (AI Kit).
 The AI Kit provides a consolidated package of Intel’s latest deep learning and
@@ -198,8 +200,6 @@ machine optimizations all in one place for ease of development. Along with
 LPOT, the AI Kit includes Intel-optimized versions of deep learning frameworks
 (such as TensorFlow and PyTorch) and high-performing Python libraries to
 streamline end-to-end data science and AI workflows on Intel architectures.</p>
-<div class="section" id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="linux-installation">
 <h3>Linux Installation<a class="headerlink" href="#linux-installation" title="Permalink to this headline">¶</a></h3>
 <p>You can install just the LPOT library from binary or source, or you can get
@@ -250,6 +250,19 @@ for post-installation instructions.</p>
 </div>
 <div class="section" id="windows-installation">
 <h3>Windows Installation<a class="headerlink" href="#windows-installation" title="Permalink to this headline">¶</a></h3>
+<p><strong>Prerequisites</strong></p>
+<p>The following prerequisites and requirements must be satisfied for a successful installation:</p>
+<ul>
+<li><p>Python version: 3.6 or 3.7 or 3.8</p></li>
+<li><p>Download and install <a class="reference external" href="https://anaconda.org/">anaconda</a>.</p></li>
+<li><p>Create a virtual environment named lpot in anaconda:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># Here we install python 3.7 for instance. You can also choose python 3.6 &amp; 3.8.</span>
+conda create -n lpot <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.7
+conda activate lpot
+</pre></div>
+</div>
+</li>
+</ul>
 <div class="section" id="id1">
 <h4>Install from binary<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-Shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># install from pip</span>
@@ -262,20 +275,6 @@ conda install lpot -c conda-forge -c intel
 </div>
 <div class="section" id="id2">
 <h4>Install from source<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
-<p><strong>Prerequisites</strong></p>
-<p>The following prerequisites and requirements must be satisfied in order to install successfully：</p>
-<ul>
-<li><p>Python version: 3.6 or 3.7 or 3.8</p></li>
-<li><p>Download and install <a class="reference external" href="https://anaconda.org/">anaconda</a>.</p></li>
-<li><p>Create a virtual environment named lpot in anaconda:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># Here we install python 3.7 for instance. You can also choose python 3.6 &amp; 3.8.</span>
-conda create -n lpot <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.7
-conda activate lpot
-</pre></div>
-</div>
-</li>
-</ul>
-<p><strong>Installation Procedure</strong></p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/intel/lpot.git
 <span class="nb">cd</span> lpot
 pip install -r requirements.txt

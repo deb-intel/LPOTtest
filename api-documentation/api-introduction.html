@@ -92,8 +92,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#user-facing-apis">User-facing APIs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#experimental-user-facing-apis">Experimental user-facing APIs</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#quantization-related-apis">quantization-related APIs</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#pruning-related-apis-poc">pruning-related APIs (POC)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quantization-related-apis">Quantization-related APIs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#benchmarking-related-apis">benchmarking-related APIs</a></li>
 </ul>
 </li>
@@ -186,21 +185,29 @@
 <div><p><strong>Note</strong></p>
 <p>LPOT is continuously improving user-facing APIs to create a better user experience.</p>
 </div></blockquote>
-<p>Two sets of user-facing APIs exist. One is the default one supported from LPOT v1.0 for backwards compatibility. The other set consists of new APIs in
+<blockquote>
+<div><p>Two sets of user-facing APIs exist. One is the default one supported from LPOT v1.0 for backwards compatibility. The other set consists of new APIs in
 the <code class="docutils literal notranslate"><span class="pre">lpot.experimental</span></code> package.</p>
-<p>We recommend that you use the APIs located in lpot.experimental. All examples have been updated to use the experimental APIs.</p>
-<p>The major differences between the default use-facing APIs and the experimental APIs are:</p>
-<ol class="simple">
+</div></blockquote>
+<blockquote>
+<div><p>We recommend that you use the APIs located in lpot.experimental. All examples have been updated to use the experimental APIs.</p>
+</div></blockquote>
+<blockquote>
+<div><p>The major differences between the default use-facing APIs and the experimental APIs are:</p>
+</div></blockquote>
+<blockquote>
+<div><ol class="simple">
 <li><p>The experimental APIs abstract the <code class="docutils literal notranslate"><span class="pre">lpot.experimental.common.Model</span></code> concept to cover those cases whose weight and graph files are stored separately.</p></li>
 <li><p>The experimental APIs unifiy the calling style of the <code class="docutils literal notranslate"><span class="pre">Quantization</span></code>, <code class="docutils literal notranslate"><span class="pre">Pruning</span></code>, and <code class="docutils literal notranslate"><span class="pre">Benchmark</span></code> classes by setting model, calibration dataloader, evaluation dataloader, and metric through class attributes rather than passing them as function inputs.</p></li>
 <li><p>The experimental APIs refine LPOT built-in transforms/datasets/metrics by unifying the APIs cross different framework backends.</p></li>
 </ol>
+</div></blockquote>
 </div>
 <div class="section" id="experimental-user-facing-apis">
 <h2>Experimental user-facing APIs<a class="headerlink" href="#experimental-user-facing-apis" title="Permalink to this headline">¶</a></h2>
 <p>Experimental user-facing APIs consist of the following components:</p>
 <div class="section" id="quantization-related-apis">
-<h3>quantization-related APIs<a class="headerlink" href="#quantization-related-apis" title="Permalink to this headline">¶</a></h3>
+<h3>Quantization-related APIs<a class="headerlink" href="#quantization-related-apis" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># lpot.experimental.Quantization</span>
 <span class="k">class</span> <span class="nc">Quantization</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">conf_fname</span><span class="p">):</span>
@@ -240,8 +247,12 @@ the <code class="docutils literal notranslate"><span class="pre">lpot.experiment
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">conf_fname</span></code> parameter used in the class initialization is the path to the user yaml configuration file. This yaml file is used to control the entire tuning behavior on the model.</p>
 <p><strong>LPOT User YAML Syntax</strong></p>
-<p>Intel® Low Precision Optimization Tool provides template yaml files for <a class="reference external" href="../lpot/template/ptq.yaml">Post-Training Quantization</a>, <a class="reference external" href="../lpot/template/qat.yaml">Quantization-Aware Training</a>, and <a class="reference external" href="../lpot/template/pruning.yaml">Pruning</a> scenarios. Refer to these template files to understand the meaning of each field.</p>
-<p>Note that most fields in the yaml templates are optional. View the <a class="reference external" href="../examples/helloworld/tf_example2/conf.yaml">HelloWorld Yaml</a> example for reference.</p>
+<blockquote>
+<div><p>Intel® Low Precision Optimization Tool provides template yaml files for <a class="reference external" href="../lpot/template/ptq.yaml">Post-Training Quantization</a>, <a class="reference external" href="../lpot/template/qat.yaml">Quantization-Aware Training</a>, and <a class="reference external" href="../lpot/template/pruning.yaml">Pruning</a> scenarios. Refer to these template files to understand the meaning of each field.</p>
+</div></blockquote>
+<blockquote>
+<div><p>Note that most fields in the yaml templates are optional. View the <a class="reference external" href="../examples/helloworld/tf_example2/conf.yaml">HelloWorld Yaml</a> example for reference.</p>
+</div></blockquote>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Typical Launcher code</span>
 <span class="kn">from</span> <span class="nn">lpot.experimental</span> <span class="kn">import</span> <span class="n">Quantization</span><span class="p">,</span> <span class="n">common</span>
 
@@ -292,9 +303,7 @@ the <code class="docutils literal notranslate"><span class="pre">lpot.experiment
 <p><code class="docutils literal notranslate"><span class="pre">postprocess</span></code> attribute in <code class="docutils literal notranslate"><span class="pre">Quantization</span></code> class is not necessary in most of the use cases. It is only needed when the user wants to use the LPOT built-in metric but the model output can not directly be handled by LPOT built-in metrics. In this case, the user can register a transform to convert the model output to the expected one required by the LPOT built-in metric.</p>
 <p><code class="docutils literal notranslate"><span class="pre">q_func</span></code> attribute in <code class="docutils literal notranslate"><span class="pre">Quantization</span></code> class is only for <code class="docutils literal notranslate"><span class="pre">Quantization</span> <span class="pre">Aware</span> <span class="pre">Training</span></code> case, in which the user needs to register a function that takes <code class="docutils literal notranslate"><span class="pre">model</span></code> as the input parameter and executes the entire training process with self-contained training hyper-parameters.</p>
 <p><code class="docutils literal notranslate"><span class="pre">eval_func</span></code> attribute in <code class="docutils literal notranslate"><span class="pre">Quantization</span></code> class is reserved for special cases. If the user had an evaluation function when train a model, the user must implement a <code class="docutils literal notranslate"><span class="pre">calib_dataloader</span></code> and leave <code class="docutils literal notranslate"><span class="pre">eval_dataloader</span></code> as None. Then, modify this evaluation function to take <code class="docutils literal notranslate"><span class="pre">model</span></code> as the input parameter and return a higher-is-better scaler. In some scenarios, it may reduce development effort.</p>
-</div>
-<div class="section" id="pruning-related-apis-poc">
-<h3>pruning-related APIs (POC)<a class="headerlink" href="#pruning-related-apis-poc" title="Permalink to this headline">¶</a></h3>
+<p>###Ppruning-related APIs (POC)</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Pruning</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">conf_fname</span><span class="p">):</span>
         <span class="o">...</span>
@@ -359,6 +368,7 @@ the <code class="docutils literal notranslate"><span class="pre">lpot.experiment
 <div class="section" id="default-user-facing-apis">
 <h2>Default user-facing APIs<a class="headerlink" href="#default-user-facing-apis" title="Permalink to this headline">¶</a></h2>
 <p>The default user-facing APIs exist for backwards compatiblity from the v1.0 release. Refer to <a class="reference external" href="https://github.com/intel/lpot/blob/v1.1/docs/introduction.md">v1.1 API</a> to understand how the default user-facing APIs work.</p>
+<p>View the <a class="reference external" href="https://github.com/intel/lpot/tree/master/examples/helloworld/tf_example6">HelloWorld example</a> that uses default user-facing APIs for user reference.</p>
 <p>Full examples using default user-facing APIs can be found <a class="reference external" href="https://github.com/intel/lpot/tree/v1.1/examples">here</a>.</p>
 </div>
 </div>

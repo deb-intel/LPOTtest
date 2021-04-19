@@ -1,6 +1,8 @@
 Getting Started
 ===============
 
+## Installation
+
 The Intel® LPOT library is released as part of the
 [Intel® oneAPI AI Analytics Toolkit](https://software.intel.com/content/www/us/en/develop/tools/oneapi/ai-analytics-toolkit.html) (AI Kit).
 The AI Kit provides a consolidated package of Intel's latest deep learning and
@@ -9,7 +11,6 @@ LPOT, the AI Kit includes Intel-optimized versions of deep learning frameworks
 (such as TensorFlow and PyTorch) and high-performing Python libraries to
 streamline end-to-end data science and AI workflows on Intel architectures.
 
-## Installation
 
 ### Linux Installation
 
@@ -47,9 +48,25 @@ the AI Kit distribution package that's best suited for you and follow the
 for post-installation instructions.
 
 |[Download AI Kit](https://software.intel.com/content/www/us/en/develop/tools/oneapi/ai-analytics-toolkit/) |[AI Kit Get Started Guide](https://software.intel.com/content/www/us/en/develop/documentation/get-started-with-ai-linux/top.html) |
-|-|-|
+|---|---|
 
 ### Windows Installation
+
+**Prerequisites**
+
+The following prerequisites and requirements must be satisfied for a successful installation:
+
+- Python version: 3.6 or 3.7 or 3.8
+
+- Download and install [anaconda](https://anaconda.org/).
+
+- Create a virtual environment named lpot in anaconda:
+
+    ```shell
+    # Here we install python 3.7 for instance. You can also choose python 3.6 & 3.8.
+    conda create -n lpot python=3.7
+    conda activate lpot
+    ```
 
 #### Install from binary
 
@@ -63,30 +80,12 @@ for post-installation instructions.
 
 #### Install from source
 
-**Prerequisites**
-
-The following prerequisites and requirements must be satisfied in order to install successfully：
-
-- Python version: 3.6 or 3.7 or 3.8
-
-- Download and install [anaconda](https://anaconda.org/).
-
-- Create a virtual environment named lpot in anaconda:
-    ```shell
-    # Here we install python 3.7 for instance. You can also choose python 3.6 & 3.8.
-    conda create -n lpot python=3.7
-    conda activate lpot
-    ```
-
-**Installation Procedure**
-
 ```shell
 git clone https://github.com/intel/lpot.git
 cd lpot
 pip install -r requirements.txt
 python setup.py install
 ```
-
 
 ## Tutorials and Examples
 

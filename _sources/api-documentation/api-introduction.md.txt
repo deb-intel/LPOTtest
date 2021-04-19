@@ -14,22 +14,23 @@ These APIs are intended to unify low-precision quantization interfaces cross mul
 >
 > LPOT is continuously improving user-facing APIs to create a better user experience. 
 
-Two sets of user-facing APIs exist. One is the default one supported from LPOT v1.0 for backwards compatibility. The other set consists of new APIs in 
+> Two sets of user-facing APIs exist. One is the default one supported from LPOT v1.0 for backwards compatibility. The other set consists of new APIs in 
 the `lpot.experimental` package.
 
-We recommend that you use the APIs located in lpot.experimental. All examples have been updated to use the experimental APIs.
+> We recommend that you use the APIs located in lpot.experimental. All examples have been updated to use the experimental APIs.
 
-The major differences between the default use-facing APIs and the experimental APIs are:
+> The major differences between the default use-facing APIs and the experimental APIs are:
 
-1. The experimental APIs abstract the `lpot.experimental.common.Model` concept to cover those cases whose weight and graph files are stored separately.
-2. The experimental APIs unifiy the calling style of the `Quantization`, `Pruning`, and `Benchmark` classes by setting model, calibration dataloader, evaluation dataloader, and metric through class attributes rather than passing them as function inputs.
-3. The experimental APIs refine LPOT built-in transforms/datasets/metrics by unifying the APIs cross different framework backends.
+> 1. The experimental APIs abstract the `lpot.experimental.common.Model` concept to cover those cases whose weight and graph files are stored separately.
+> 2. The experimental APIs unifiy the calling style of the `Quantization`, `Pruning`, and `Benchmark` classes by setting model, calibration dataloader, evaluation dataloader, and metric through class attributes rather than passing them as function inputs.
+> 3. The experimental APIs refine LPOT built-in transforms/datasets/metrics by unifying the APIs cross different framework backends.
 
 ## Experimental user-facing APIs
 
 Experimental user-facing APIs consist of the following components:
 
-### quantization-related APIs
+### Quantization-related APIs
+
 ```python
 # lpot.experimental.Quantization
 class Quantization(object):
@@ -72,9 +73,9 @@ The `conf_fname` parameter used in the class initialization is the path to the u
 
 **LPOT User YAML Syntax**
 
-Intel® Low Precision Optimization Tool provides template yaml files for [Post-Training Quantization](../lpot/template/ptq.yaml), [Quantization-Aware Training](../lpot/template/qat.yaml), and [Pruning](../lpot/template/pruning.yaml) scenarios. Refer to these template files to understand the meaning of each field.
+> Intel® Low Precision Optimization Tool provides template yaml files for [Post-Training Quantization](../lpot/template/ptq.yaml), [Quantization-Aware Training](../lpot/template/qat.yaml), and [Pruning](../lpot/template/pruning.yaml) scenarios. Refer to these template files to understand the meaning of each field.
 
-Note that most fields in the yaml templates are optional. View the [HelloWorld Yaml](../examples/helloworld/tf_example2/conf.yaml) example for reference.
+> Note that most fields in the yaml templates are optional. View the [HelloWorld Yaml](../examples/helloworld/tf_example2/conf.yaml) example for reference.
 
 ```python
 # Typical Launcher code
@@ -134,7 +135,8 @@ q_model.save('/path/to/output/dir')
 `eval_func` attribute in `Quantization` class is reserved for special cases. If the user had an evaluation function when train a model, the user must implement a `calib_dataloader` and leave `eval_dataloader` as None. Then, modify this evaluation function to take `model` as the input parameter and return a higher-is-better scaler. In some scenarios, it may reduce development effort.
 
 
-### pruning-related APIs (POC)
+###Ppruning-related APIs (POC)
+
 ```python
 class Pruning(object):
     def __init__(self, conf_fname):
@@ -202,5 +204,7 @@ To learn how to use this API, refer to the [benchmark document](../docs/benchmar
 ## Default user-facing APIs
 
 The default user-facing APIs exist for backwards compatiblity from the v1.0 release. Refer to [v1.1 API](https://github.com/intel/lpot/blob/v1.1/docs/introduction.md) to understand how the default user-facing APIs work.
+
+View the [HelloWorld example](https://github.com/intel/lpot/tree/master/examples/helloworld/tf_example6) that uses default user-facing APIs for user reference. 
 
 Full examples using default user-facing APIs can be found [here](https://github.com/intel/lpot/tree/v1.1/examples).

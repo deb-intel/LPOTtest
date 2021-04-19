@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>incompatible changes between v1.2 and v1.1 &mdash; Intel® Low Precision Optimization Tool  documentation</title>
+  <title>Incompatible changes between v1.2 and v1.1 &mdash; Intel® Low Precision Optimization Tool  documentation</title>
   
 
   
@@ -141,7 +141,7 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>incompatible changes between v1.2 and v1.1</li>
+      <li>Incompatible changes between v1.2 and v1.1</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -161,15 +161,15 @@
            <div itemprop="articleBody">
             
   <div class="section" id="incompatible-changes-between-v1-2-and-v1-1">
-<h1>incompatible changes between v1.2 and v1.1<a class="headerlink" href="#incompatible-changes-between-v1-2-and-v1-1" title="Permalink to this headline">¶</a></h1>
+<h1>Incompatible changes between v1.2 and v1.1<a class="headerlink" href="#incompatible-changes-between-v1-2-and-v1-1" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="user-facing-apis">
-<h2>user facing APIs<a class="headerlink" href="#user-facing-apis" title="Permalink to this headline">¶</a></h2>
-<p>The user facing APIs are changed between v1.2 and v1.1. The major changes are:</p>
+<h2>User-facing APIs<a class="headerlink" href="#user-facing-apis" title="Permalink to this headline">¶</a></h2>
+<p>The user-facing APIs are changed between v1.2 and v1.1. The major changes are:</p>
 <ol class="simple">
-<li><p>v1.2 abstracts <code class="docutils literal notranslate"><span class="pre">lpot.common.Model</span></code> concept to cover those cases whose weight and graph files are stored seperately.</p></li>
-<li><p>v1.2 unifies the calling style by setting model, calibration dataloader, evaluation dataloader, metric through <code class="docutils literal notranslate"><span class="pre">quantizer</span></code> attributes rather than passing as function inputs.</p></li>
+<li><p>v1.2 abstracts <code class="docutils literal notranslate"><span class="pre">lpot.common.Model</span></code> concept to cover those cases whose weight and graph files are stored separately.</p></li>
+<li><p>v1.2 unifies the calling style by setting model, calibration dataloader, evaluation dataloader, and metric through <code class="docutils literal notranslate"><span class="pre">quantizer</span></code> attributes rather than passing as function inputs.</p></li>
 </ol>
-<p>Please refer to below examples to know the details.</p>
+<p>Refer to below examples to for details.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># user facing API example in v1.1</span>
 <span class="n">quantizer</span> <span class="o">=</span> <span class="n">Quantization</span><span class="p">(</span><span class="s1">&#39;/path/to/user.yaml&#39;</span><span class="p">)</span>
 <span class="n">ds</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">(</span><span class="s1">&#39;/path/to/dataset&#39;</span><span class="p">)</span>
@@ -192,9 +192,9 @@
 </div>
 </div>
 <div class="section" id="built-in-transform-dataset-metric-apis">
-<h2>built-in transform/dataset/metric APIs<a class="headerlink" href="#built-in-transform-dataset-metric-apis" title="Permalink to this headline">¶</a></h2>
+<h2>Built-in transform/dataset/metric APIs<a class="headerlink" href="#built-in-transform-dataset-metric-apis" title="Permalink to this headline">¶</a></h2>
 <p>v1.2 refines LPOT built-in transform/dataset/metric to unify APIs cross different framework backends.</p>
-<p>Please refer to <a class="reference internal" href="dataset.html"><span class="doc">dataset</span></a>, <a class="reference internal" href="transform.html"><span class="doc">transform</span></a> and <a class="reference internal" href="metric.html"><span class="doc">metric</span></a> to know how to use them in yaml or code.</p>
+<p>Refer to <a class="reference internal" href="dataset.html"><span class="doc">dataset</span></a>, <a class="reference internal" href="transform.html"><span class="doc">transform</span></a> and <a class="reference internal" href="metric.html"><span class="doc">metric</span></a> to learn how to use them in yaml or code.</p>
 </div>
 </div>
 
