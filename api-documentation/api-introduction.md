@@ -135,7 +135,7 @@ q_model.save('/path/to/output/dir')
 `eval_func` attribute in `Quantization` class is reserved for special cases. If the user had an evaluation function when train a model, the user must implement a `calib_dataloader` and leave `eval_dataloader` as None. Then, modify this evaluation function to take `model` as the input parameter and return a higher-is-better scaler. In some scenarios, it may reduce development effort.
 
 
-###Ppruning-related APIs (POC)
+### Pruning-related APIs (POC)
 
 ```python
 class Pruning(object):
@@ -171,7 +171,7 @@ This API is used to do sparsity pruning. Currently, it is a Proof of Concept; LP
 
 To learn how to use this API, refer to the [pruning document](../docs/pruning.md).
 
-### benchmarking-related APIs
+### Benchmarking-related APIs
 ```python
 class Benchmark(object):
     def __init__(self, conf_fname):
@@ -199,7 +199,7 @@ class Benchmark(object):
 
 This API is used to measure model performance and accuracy.
 
-To learn how to use this API, refer to the [benchmark document](../docs/benchmark.md)
+To learn how to use this API, refer to the [benchmark document](../docs/benchmark.md).
 
 ## Default user-facing APIs
 
