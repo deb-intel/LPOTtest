@@ -19,6 +19,8 @@ html:
 	$(SPHINXBUILD) -b html "$(SOURCEDIR)" "$(BUILDDIR)/html" $(SPHINXOPTS) $(O)
 	cp _static/index.html $(BUILDDIR)/html/index.html
 	mkdir "$(BUILDDIR)/html/docs/imgs"
+	cp docs/imgs/infrastructure.png "$(BUILDDIR)/html/docs/imgs/infrastructure.png"
+	cp docs/imgs/workflow.png "$(BUILDDIR)/html/docs/imgs/workflow.png"	
 
 
 # Catch-all target: route all unknown targets to Sphinx using the new

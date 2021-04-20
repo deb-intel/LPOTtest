@@ -1,7 +1,7 @@
 Transform
 =========
 
-LPOT supports built-in preprocessing methods on different framework backends. Refer to [this example](https://github.com/intel/lpot/tree/master/examples/helloworld/tf_example1) on how to configure a transform in a dataloader.
+LPOT supports built-in preprocessing methods on different framework backends. Refer to [this HelloWorld example](https://github.com/intel/lpot/tree/master/examples/helloworld/tf_example1) on how to configure a transform in a dataloader.
 
 ## Transform support list
 

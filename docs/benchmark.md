@@ -1,11 +1,11 @@
 Benchmarking
 ============
 
-The benchmarking feature of LPOT is used to measure the model performance with the objective settings; the user can get the performance of the models between the float32 model and the quantized low precision model in the same scenarios that they configured in yaml. Benchmarking is always used after a quantization process.
+The benchmarking feature of LPOT is used to measure the model performance with the objective settings; the user can get the performance of the models between the float32 model and the quantized low precision model in the same scenarios that they configured in Yaml. Benchmarking is always used after a quantization process.
 
 The following examples show how to use benchmarking.
 
-## Config evaluation filed in yaml file
+## Config evaluation filed in a yaml file
 
 ```yaml
 evaluation:                                          # optional. required if user doesn't provide eval_func in lpot.Quantization.
@@ -65,5 +65,5 @@ results = evaluator()
 
 ### Examples
 
-[Benchmark example](../examples/tensorflow/image_recognition/run_benchmark.sh).
+Refer to the [Benchmark example](../examples/tensorflow/image_recognition/run_benchmark.sh).
 

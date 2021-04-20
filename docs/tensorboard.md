@@ -3,7 +3,7 @@ TensorBoard
 
 ## Introduction
 
-TensorBoard is a suite of web applications that provide measurements and visualizations used to inspect and understand your machine learning workflow for [TensorFlow TensorBoard](https://github.com/tensorflow/tensorboard) and [PyTorch TensorBoard](https://github.com/pytorch/pytorch/tree/master/torch/utils/tensorboard)). Intel® Low Precision Optimization Tool performs accuracy-driven quantization; the tuning process quantizes the tensor and performs graph transformation and optimization to achieve optimal performance under accuracy requirement. If you want to observe the behaviors of the optimizations, or if you want to discover why an accuracy target cannot be met, TensorBoard can provide you with some valuable information. You can inspect the graph and tensor after each tuning run. If a model cannot meet accuracy requirements, you can analyze the comparison of FP32 and the INT8 tensor histogram.    
+TensorBoard is a suite of web applications that provide measurements and visualizations used to inspect and understand your machine learning workflow for [TensorFlow TensorBoard](https://github.com/tensorflow/tensorboard) and [PyTorch TensorBoard](https://github.com/pytorch/pytorch/tree/master/torch/utils/tensorboard). Intel® Low Precision Optimization Tool performs accuracy-driven quantization; the tuning process quantizes the tensor and performs graph transformation and optimization to achieve optimal performance under accuracy requirement. If you want to observe the behaviors of the optimizations, or if you want to discover why an accuracy target cannot be met, TensorBoard can provide you with some valuable information. You can inspect the graph and tensor after each tuning run. If a model cannot meet accuracy requirements, you can analyze the comparison of FP32 and the INT8 tensor histogram.    
 
 We collect the TensorBoard event summary during evaluation. The first time is on the baseline FP32 model and later on at the end of each tuning runs are based on the quantized model. The TensorBoard log directory is named baseline_acc_<accuracy> and tune_<runs>_acc_<accuracy>, to indicate the stage and accuracy of the data that is generated. Users can select their data of interest to observe with TensorBoard. 
 
@@ -158,7 +158,7 @@ See the [tensorflow.py](https://github.com/intel/lpot/tree/master/lpot/adaptor/t
 
 ### Examples
 
-1. Add "tensorboard: true" into examples/tensorflow/image_recognition/inceptionv3.yaml. In order to demonstrate the usage of TensorBoard, remove the following lines which is added to skip the quantization of 'v0/cg/conv0/conv2d/Conv2D' to avoid a known limitation.
+1. Add "tensorboard: true" into examples/tensorflow/image_recognition/inceptionv3.yaml. In order to demonstrate the usage of TensorBoard, remove the following lines which are added to skip the quantization of 'v0/cg/conv0/conv2d/Conv2D' to avoid a known limitation.
 
    ```yaml
       op_wise: {

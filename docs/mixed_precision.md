@@ -31,7 +31,7 @@ Intel® Low Precision Optimization Tool can support op-wise BF16 precision for T
 
 ## Using BF16 Convert
 
-> BF16 support has enabled in `intel-tensorflow` [`2.3.0`](https://pypi.org/project/intel-tensorflow/2.3.0/)/[`2.4.0`](https://pypi.org/project/intel-tensorflow/2.4.0/)/[`1.15.0up1`](https://github.com/Intel-tensorflow/tensorflow/tree/v1.15.0up1)/[`1.15.0up2`](https://github.com/Intel-tensorflow/tensorflow/tree/v1.15.0up2) and `intel-tensorflow-avx512` [`2.3.0`](https://pypi.org/project/intel-tensorflow-avx512/2.3.0/)/[`2.4.0`](https://pypi.org/project/intel-tensorflow-avx512/2.4.0/). On hardware side, it need the CPU support `avx512_bf16` instruction set. We also support force enable it for debug usage by using set the environment variable `FORCE_BF16=1`. But without above 2 sides support, the poor performance or other problems may expect.
+BF16 support has enabled in `intel-tensorflow` [`2.3.0`](https://pypi.org/project/intel-tensorflow/2.3.0/)/[`2.4.0`](https://pypi.org/project/intel-tensorflow/2.4.0/)/[`1.15.0up1`](https://github.com/Intel-tensorflow/tensorflow/tree/v1.15.0up1)/[`1.15.0up2`](https://github.com/Intel-tensorflow/tensorflow/tree/v1.15.0up2) and `intel-tensorflow-avx512` [`2.3.0`](https://pypi.org/project/intel-tensorflow-avx512/2.3.0/)/[`2.4.0`](https://pypi.org/project/intel-tensorflow-avx512/2.4.0/). On hardware side, it need the CPU support `avx512_bf16` instruction set. We also support force enable it for debug usage by using set the environment variable `FORCE_BF16=1`. But without above 2 sides support, the poor performance or other problems may expect.
 
 For now this feature will be auto enabled in the env with `intel-tensorflow` `>=2.3.0` and `avx512_bf16` instruction set support plantform. To get better ferformance with `BF16` datatype, the `intel-tensorflow-avx512` is recommended, or build intel tensorflow (take [tag `v1.15.0up2`](https://github.com/Intel-tensorflow/tensorflow/tree/v1.15.0up2) as example) from source code by using below command,  
 
@@ -44,4 +44,4 @@ bazel build --cxxopt=-D_GLIBCXX_USE_CXX11_ABI=0 --copt=-O3 --copt=-Wformat --cop
 ./bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/
 ```
 
-By default, `BF16` has been added into activation and weight supported datatype if the tensorflow version and CPU meet the requirements. We can disable it in `yaml` config file by specifying the datatype for activation and weight. For now, only the `Basic` strategy `BF16` support has been tested. 
+By default, `BF16` has been added into activation and weight supported datatype if the tensorflow version and CPU meet the requirements. We can disable it in the yaml config file by specifying the datatype for activation and weight. For now, only the `Basic` strategy `BF16` support has been tested. 

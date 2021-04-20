@@ -11,7 +11,7 @@ Apache License Version 2.0:
 MIT License:
 * [bayesian-optimization](https://github.com/fmfn/BayesianOptimization)
 
-See the accompanying [license](license) file for full license text and copyright notices.
+See the accompanying [license](https://github.com/intel/lpot/tree/master/LICENSE) file for full license text and copyright notices.
 
 
 ## Citation
