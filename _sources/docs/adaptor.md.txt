@@ -3,18 +3,19 @@ Adaptor
 
 ## Introduction
 
-Intel® Low Precision Optimization Tool built the low-precision inference
+Intel® Low Precision Optimization Tool (LPOT) built the low-precision inference
 solution on popular Deep Learning frameworks such as TensorFlow, PyTorch,
 MXNet, and ONNX Runtime. The adaptor layer is the bridge between the LPOT
-tuning strategy and framework vanilla quantization APIs.
+tuning strategy and vanilla framework quantization APIs.
 
 ## Adaptor Design
 
-Intel® Low Precision Optimization Tool supports new adaptor extension by
+LPOT supports a new adaptor extension by
 implementing a subclass `Adaptor` class in the lpot.adaptor package
 and registering this strategy by the `adaptor_registry` decorator.
 
 For example, a user can implement an `Abc` adaptor like below:
+
 ```python
 @adaptor_registry
 class AbcAdaptor(Adaptor):
@@ -35,25 +36,28 @@ class AbcAdaptor(Adaptor):
         ...
 ```
 
-`quantize` function is used to do calibration and quantization in post-training quantization.
-`evaluate` function is used to run evaluation on a validation dataset.
-`query_fw_capability` function is used to run query framework quantization capability and intersects with the user yaml configuration setting to
-`query_fused_patterns` function is used to run query framework graph fusion capability and decide the fusion tuning space.
+* `quantize` function is used to perform calibration and quantization in post-training quantization.
+* `evaluate` function is used to run an evaluation on a validation dataset.
+* `query_fw_capability` function is used to run a query framework quantization capability and intersects with the user yaml configuration.
+* `query_fused_patterns` function is used to run a query framework graph fusion capability and decide the fusion tuning space.
 
 ### Query API
 
-#### **Background**
+#### Background
+
 Besides the adaptor API, we also introduced the Query API which describes the
-behavior of the specific framework. With this API, LPOT can easily query the
+behavior of a specific framework. With this API, LPOT can easily query the
 following information on the current runtime framework.
-*  The runtime version information;
-*  The Quantizable ops' type;
-*  The supported sequence of each quantizable op;
+
+*  The runtime version information.
+*  The Quantizable ops type.
+*  The supported sequence of each quantizable op.
 *  The instance of each sequence.
 
 In the past, the above information was generally defined and hidden in every corner of the code which made effective maintenance difficult. With the Query API, we only need to create one unified yaml file and call the corresponding API to get the information. For example, the [tensorflow.yaml](../lpot/adaptor/tensorflow.yaml) keeps the current Tensorflow framework ability. We recommend that the end user not make modifications if requirements are not clear.
 
-#### **Unify Config Introduction**
+#### Unify Config Introduction
+
 Below is a fragment of the Tensorflow configuration file.
 
 * **precisions** field defines the supported precision for LPOT.
@@ -187,29 +191,30 @@ Below is a fragment of the Tensorflow configuration file.
         'MatMul + BiasAdd',
   ]
 ```
-#### **Query API Introduction**
-The abstract class `QueryBackendCapability` is defined in [query.py](../lpot/adaptor/query.py#L21). Each framework should inherit it and implement the member function if needed. Refer to Tensorflow implementation [TensorflowQuery](../lpot/adaptor/tensorflow.py#L628)
+#### Query API Introduction
+
+The abstract class `QueryBackendCapability` is defined in [query.py](../lpot/adaptor/query.py#L21). Each framework should inherit it and implement the member function if needed. Refer to Tensorflow implementation [TensorflowQuery](../lpot/adaptor/tensorflow.py#L628).
 
 
 ## Customize a New Framework Backend
 
-Let us take onnxruntime as an example. ONNX Runtime is a backend proposed by Microsoft, and it's based on the MLAS kernel by default.
-Onnxruntime already has  [quantization tools](https://github.com/microsoft/onnxruntime/tree/master/onnxruntime/python/tools/quantization), so the question becomes how to integrate onnxruntime quantization tools into LPOT.
+Look at onnxruntime as an example. ONNX Runtime is a backend proposed by Microsoft, and is based on the MLAS kernel by default.
+Onnxruntime already has [quantization tools](https://github.com/microsoft/onnxruntime/tree/master/onnxruntime/python/tools/quantization), so the question becomes how to integrate onnxruntime quantization tools into LPOT.
 
 1. Capability
    
-   The user should explore quantization capability at first. According to [onnx_quantizer](https://github.com/microsoft/onnxruntime/blob/503b61d897074a494f5798069308ee67d8fb9ace/onnxruntime/python/tools/quantization/onnx_quantizer.py#L77), the quantization tools support the following attributes:
-   1.1 whether per_channel
-   1.2 whether reduce_range
-   1.3 QLinear mode or Integer mode (which is only seen in onnxruntime)
-   1.4 whether static (static quantization or dynamic quantization)
-   1.4 weight_qtype (choices are float32, int8 and uint8)
-   1.5 input_qtype (choices are float32, int8 and uint8)
-   1.6 quantization_params (None if dynamic quantization)
-   1.7 &1.8 nodes_to_quantize, nodes_to_exclude
-   1.9 op_types_to_quantize
+   The user should explore quantization capability first. According to [onnx_quantizer](https://github.com/microsoft/onnxruntime/blob/503b61d897074a494f5798069308ee67d8fb9ace/onnxruntime/python/tools/quantization/onnx_quantizer.py#L77), the quantization tools support the following attributes:
+   * whether per_channel
+   * whether reduce_range
+   * QLinear mode or Integer mode (which is only seen in onnxruntime)
+   * whether static (static quantization or dynamic quantization)
+   * weight_qtype (choices are float32, int8 and uint8)
+   * input_qtype (choices are float32, int8 and uint8)
+   * quantization_params (None if dynamic quantization)
+   * &1.8 nodes_to_quantize, nodes_to_exclude
+   * op_types_to_quantize
 
-   so we can pass a tune capability to LPOT such as:
+   We can pass a tune capability to LPOT such as:
 
    ```yaml
    {'optypewise': {'conv': 
@@ -238,7 +243,7 @@ Onnxruntime already has  [quantization tools](https://github.com/microsoft/onnxr
 
 2. Parse tune config
    
-   LPOT will generate a tune config from your tune capability such as the
+   LPOT can generate a tune config from your tune capability such as the
    following: 
 
    ```yaml
@@ -276,7 +281,7 @@ Onnxruntime already has  [quantization tools](https://github.com/microsoft/onnxr
 
 3. Pre-optimize
    If your backend supports FP32 graph optimization, you can apply it in **query_fw_capability** and quantize your optimized fp32 model instead of
-   the original model
+   the original model: 
    >model = self.pre_optimized_model if self.pre_optimized_model else model
 
 4. Do quantization

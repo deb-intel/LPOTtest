@@ -3,7 +3,7 @@ Pruning
 
 ## Introduction
 
-Sparsity is a a measure of how many percents of elements in a tensor are exact zeros[^1].  A tensor is considered sparse if "most" of its elements are zero. Appeartly only non-zero elements will be stored and computed so the inference process could be accelerated due to Tops and memory saved[^2].
+Sparsity is a measure of how many percents of elements in a tensor are exact zeros[^1]. A tensor is considered sparse if "most" of its elements are zero. Appeartly only non-zero elements will be stored and computed so the inference process could be accelerated due to Tops and memory saved[^2].
 [^1]: https://nervanasystems.github.io/distiller/pruning.html 
 [^2]: acceleration needs sparse compute kernels which are WIP
 
@@ -17,12 +17,17 @@ A common method for introducing sparsity in weights and activations is called <e
 
 
 ## Design
-Pruning process is sometimes similar with quantization-aware training(QAT). Intel® Low Precision Optimization Tool will do related model transformation during training and retrain the model to meet the accuracy goal.
- We implemented 2 kinds of object: Pruner and PrunePolicy. Firstly we define a sparsity goal(model-wise or op-wise, depending on whether there are ops not suitable for pruning) and the way to reach sparsity goal(Usually we increase the sparsity target linearly as the epoches). The pruner is in singleton mode, and will update sparsity goal and schedule all PrunePolicy on different phase of training.
- PrunePolicy carries different pruning algos. For example, MagnitudePrunePolicy set thresholds of absolute value so that elements whose absolute value lower than the threshold will be zeroed. The zeroing process happens on beginning and end of each minibatch iteration.
+
+The pruning process is similar to quantization-aware training (QAT). Intel® Low Precision Optimization Tool will do related model transformation during training and retrain the model to meet the accuracy goal.
+
+We implemented two kinds of object: Pruner and PrunePolicy. First, we define a sparsity goal (model-wise or op-wise, depending on whether there are ops not suitable for pruning) and the way to reach the sparsity goal (usually we increase the sparsity target linearly as the epoches). The pruner is in singleton mode, and will update the sparsity goal and schedule all PrunePolicy during different phases of training.
+
+PrunePolicy carries different pruning algos. For example, MagnitudePrunePolicy sets thresholds of absolute value so that elements whose absolute value lower than the threshold will be zeroed. The zeroing process happens at the beginning and end of each minibatch iteration.
 
 ## Usage
-Pruning configs need to be added into yaml as pruning field. Global parameters contain **start_epoch** (on which epoch pruning begins), **end_epoch** (on which epoch pruning ends), **init_sparsity** (initial sparsity goal default 0), **target_sparsity** (target sparsity goal) and **frequency** (of updating sparsity). At least one pruner instance need to be defined, under specific algos (currently only magnitude supported). you can override all global params in specific pruner using field names and specify which weight of model to be pruned. if no weight specified, all weights of model will be pruned.
+
+Pruning configs need to be added into yaml as a pruning field. Global parameters contain **start_epoch** (on which epoch pruning begins), **end_epoch** (on which epoch pruning ends), **init_sparsity** (initial sparsity goal default 0), **target_sparsity** (target sparsity goal) and **frequency** (of updating sparsity). At least one pruner instance needs to be defined under specific algos (currently only magnitude supported). You can override all global params in a specific pruner using field names and specify which weight of model to be pruned. If no weight is specified, all weights of the model will be pruned.
+
 ```yaml
 pruning:
   magnitude:
@@ -38,7 +43,9 @@ pruning:
 ```
 
 ## Examples
-Users must pass a modified training function to Intel® Low Precision Optimization Tool. Take a typical pytorch training function as example.
+
+Users must pass a modified training function to Intel® Low Precision Optimization Tool. Take a typical PyTorch training function as example:
+
 ```python
 def p_func(model):
     # from lpot.pruning import Pruner
@@ -57,7 +64,8 @@ def p_func(model):
         # pruner.on_epoch_end(epoch=epoch)
         evaluate(model)
 ```
-Note the commented lines are how pruner do model transformation. Then users can use LPOT like the following:
+Note the commented lines are how the pruner does model transformation. Then users can use LPOT like the following:
+
 ```python
 from lpot import Pruning, common
 prune = Pruning(args.config)

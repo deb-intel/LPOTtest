@@ -193,16 +193,12 @@ the <code class="docutils literal notranslate"><span class="pre">lpot.experiment
 <blockquote>
 <div><p>We recommend that you use the APIs located in lpot.experimental. All examples have been updated to use the experimental APIs.</p>
 </div></blockquote>
-<blockquote>
-<div><p>The major differences between the default use-facing APIs and the experimental APIs are:</p>
-</div></blockquote>
-<blockquote>
-<div><ol class="simple">
+<p>The major differences between the default use-facing APIs and the experimental APIs are:</p>
+<ol class="simple">
 <li><p>The experimental APIs abstract the <code class="docutils literal notranslate"><span class="pre">lpot.experimental.common.Model</span></code> concept to cover those cases whose weight and graph files are stored separately.</p></li>
 <li><p>The experimental APIs unifiy the calling style of the <code class="docutils literal notranslate"><span class="pre">Quantization</span></code>, <code class="docutils literal notranslate"><span class="pre">Pruning</span></code>, and <code class="docutils literal notranslate"><span class="pre">Benchmark</span></code> classes by setting model, calibration dataloader, evaluation dataloader, and metric through class attributes rather than passing them as function inputs.</p></li>
 <li><p>The experimental APIs refine LPOT built-in transforms/datasets/metrics by unifying the APIs cross different framework backends.</p></li>
 </ol>
-</div></blockquote>
 </div>
 <div class="section" id="experimental-user-facing-apis">
 <h2>Experimental user-facing APIs<a class="headerlink" href="#experimental-user-facing-apis" title="Permalink to this headline">¶</a></h2>

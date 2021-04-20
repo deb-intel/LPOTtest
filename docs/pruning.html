@@ -190,7 +190,7 @@
 <h1>Pruning<a class="headerlink" href="#pruning" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
-<p>Sparsity is a a measure of how many percents of elements in a tensor are exact zeros[^1].  A tensor is considered sparse if “most” of its elements are zero. Appeartly only non-zero elements will be stored and computed so the inference process could be accelerated due to Tops and memory saved[^2].
+<p>Sparsity is a measure of how many percents of elements in a tensor are exact zeros[^1]. A tensor is considered sparse if “most” of its elements are zero. Appeartly only non-zero elements will be stored and computed so the inference process could be accelerated due to Tops and memory saved[^2].
 [^1]: https://nervanasystems.github.io/distiller/pruning.html
 [^2]: acceleration needs sparse compute kernels which are WIP</p>
 <p>The <a href="https://en.wikipedia.org/wiki/Lp_space#When_p_=_0"><img src="http://latex.codecogs.com/svg.latex?\l_{1}&space;" title="http://latex.codecogs.com/svg.latex?\l_{1} " />-“norm” function</a> measures how many zero-elements are in a tensor <em>x</em>:
@@ -203,13 +203,13 @@ A common method for introducing sparsity in weights and activations is called <e
 </div>
 <div class="section" id="design">
 <h2>Design<a class="headerlink" href="#design" title="Permalink to this headline">¶</a></h2>
-<p>Pruning process is sometimes similar with quantization-aware training(QAT). Intel® Low Precision Optimization Tool will do related model transformation during training and retrain the model to meet the accuracy goal.
-We implemented 2 kinds of object: Pruner and PrunePolicy. Firstly we define a sparsity goal(model-wise or op-wise, depending on whether there are ops not suitable for pruning) and the way to reach sparsity goal(Usually we increase the sparsity target linearly as the epoches). The pruner is in singleton mode, and will update sparsity goal and schedule all PrunePolicy on different phase of training.
-PrunePolicy carries different pruning algos. For example, MagnitudePrunePolicy set thresholds of absolute value so that elements whose absolute value lower than the threshold will be zeroed. The zeroing process happens on beginning and end of each minibatch iteration.</p>
+<p>The pruning process is similar to quantization-aware training (QAT). Intel® Low Precision Optimization Tool will do related model transformation during training and retrain the model to meet the accuracy goal.</p>
+<p>We implemented two kinds of object: Pruner and PrunePolicy. First, we define a sparsity goal (model-wise or op-wise, depending on whether there are ops not suitable for pruning) and the way to reach the sparsity goal (usually we increase the sparsity target linearly as the epoches). The pruner is in singleton mode, and will update the sparsity goal and schedule all PrunePolicy during different phases of training.</p>
+<p>PrunePolicy carries different pruning algos. For example, MagnitudePrunePolicy sets thresholds of absolute value so that elements whose absolute value lower than the threshold will be zeroed. The zeroing process happens at the beginning and end of each minibatch iteration.</p>
 </div>
 <div class="section" id="usage">
 <h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
-<p>Pruning configs need to be added into yaml as pruning field. Global parameters contain <strong>start_epoch</strong> (on which epoch pruning begins), <strong>end_epoch</strong> (on which epoch pruning ends), <strong>init_sparsity</strong> (initial sparsity goal default 0), <strong>target_sparsity</strong> (target sparsity goal) and <strong>frequency</strong> (of updating sparsity). At least one pruner instance need to be defined, under specific algos (currently only magnitude supported). you can override all global params in specific pruner using field names and specify which weight of model to be pruned. if no weight specified, all weights of model will be pruned.</p>
+<p>Pruning configs need to be added into yaml as a pruning field. Global parameters contain <strong>start_epoch</strong> (on which epoch pruning begins), <strong>end_epoch</strong> (on which epoch pruning ends), <strong>init_sparsity</strong> (initial sparsity goal default 0), <strong>target_sparsity</strong> (target sparsity goal) and <strong>frequency</strong> (of updating sparsity). At least one pruner instance needs to be defined under specific algos (currently only magnitude supported). You can override all global params in a specific pruner using field names and specify which weight of model to be pruned. If no weight is specified, all weights of the model will be pruned.</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">pruning</span><span class="p">:</span>
   <span class="nt">magnitude</span><span class="p">:</span>
       <span class="nt">prune1</span><span class="p">:</span>
@@ -226,7 +226,7 @@ PrunePolicy carries different pruning algos. For example, MagnitudePrunePolicy s
 </div>
 <div class="section" id="examples">
 <h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<p>Users must pass a modified training function to Intel® Low Precision Optimization Tool. Take a typical pytorch training function as example.</p>
+<p>Users must pass a modified training function to Intel® Low Precision Optimization Tool. Take a typical PyTorch training function as example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">p_func</span><span class="p">(</span><span class="n">model</span><span class="p">):</span>
     <span class="c1"># from lpot.pruning import Pruner</span>
     <span class="c1"># prune = Pruner(*args, **kwargs)</span>
@@ -245,7 +245,7 @@ PrunePolicy carries different pruning algos. For example, MagnitudePrunePolicy s
         <span class="n">evaluate</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Note the commented lines are how pruner do model transformation. Then users can use LPOT like the following:</p>
+<p>Note the commented lines are how the pruner does model transformation. Then users can use LPOT like the following:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lpot</span> <span class="kn">import</span> <span class="n">Pruning</span><span class="p">,</span> <span class="n">common</span>
 <span class="n">prune</span> <span class="o">=</span> <span class="n">Pruning</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">config</span><span class="p">)</span>
 <span class="n">prune</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">common</span><span class="o">.</span><span class="n">Model</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>

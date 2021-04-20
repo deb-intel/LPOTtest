@@ -68,7 +68,7 @@ Follow the comments in the generated code template to fill in required methods w
 
 ## Tuning
 
-Having a Model Configuration created, you can do the following:
+Now that you have created a Model Configuration, you can do the following:
 
 * See the generated config (by clicking the **Show config** link).
 * Start the tuning process:

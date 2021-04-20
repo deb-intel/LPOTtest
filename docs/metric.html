@@ -186,12 +186,12 @@
             
   <div class="section" id="metrics">
 <h1>Metrics<a class="headerlink" href="#metrics" title="Permalink to this headline">¶</a></h1>
-<p>As to evaluate the performance of a specific model, we should have general metrics to measure the performance of different model. Different framework always have their own Metric module but with different features and API, as lpot is cross framework tool, it is hard to use them in the same way, another request is that this tool support code-free configuration through yaml file, with built-in metrics, lpot can get the performance and accuracy without code change from user. In special case, user can also register its own metric class through lpot method.</p>
+<p>In terms of evaluating the performance of a specific model, we should have general metrics to measure the performance of different models. Different frameworks always have their own Metric module but with different features and APIs. LPOT Metrics supports code-free configuration through a yaml file, with built-in metrics, so that LPOT can achieve performance and accuracy without code changes from the user. In special cases, users can also register their own metric classes through the LPOT method.</p>
 <div class="section" id="how-to-use-metrics">
 <h2>How to use Metrics<a class="headerlink" href="#how-to-use-metrics" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="config-built-in-metric-in-yaml-file">
-<h3>Config built-in metric in yaml file<a class="headerlink" href="#config-built-in-metric-in-yaml-file" title="Permalink to this headline">¶</a></h3>
-<p>Users can specify an LPOT build-in metric such as shown below:</p>
+<div class="section" id="config-built-in-metric-in-a-yaml-file">
+<h3>Config built-in metric in a yaml file<a class="headerlink" href="#config-built-in-metric-in-a-yaml-file" title="Permalink to this headline">¶</a></h3>
+<p>Users can specify an LPOT built-in metric such as shown below:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">evaluation</span><span class="p">:</span>
   <span class="nt">accuracy</span><span class="p">:</span>
     <span class="nt">metric</span><span class="p">:</span>
@@ -233,7 +233,7 @@
 <div class="section" id="built-in-metric-support-list">
 <h2>Built-in metric support list<a class="headerlink" href="#built-in-metric-support-list" title="Permalink to this headline">¶</a></h2>
 <p>LPOT supports some built-in metrics that are popularly used in industry.</p>
-<p>Refer to <a class="reference external" href="https://github.com/intel/lpot/tree/master/examples/helloworld/tf_example1">this example</a> on how to config a built-in metric.</p>
+<p>Refer to <a class="reference external" href="https://github.com/intel/lpot/tree/master/examples/helloworld/tf_example1">this HelloWorld example</a> on how to config a built-in metric.</p>
 <div class="section" id="tensorflow">
 <h3>TensorFlow<a class="headerlink" href="#tensorflow" title="Permalink to this headline">¶</a></h3>
 <table border="1" class="docutils">

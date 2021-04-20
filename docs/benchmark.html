@@ -99,7 +99,7 @@
 <li class="toctree-l3"><a class="reference internal" href="dynamic_quantization.html">Dynamic Quantization</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pruning.html">Pruning</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Benchmarking</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#config-evaluation-filed-in-yaml-file">Config evaluation filed in yaml file</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#config-evaluation-filed-in-a-yaml-file">Config evaluation filed in a yaml file</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#use-a-user-specific-dataloader-to-run-benchmark">Use a user-specific dataloader to run benchmark</a></li>
 </ul>
 </li>
@@ -186,10 +186,10 @@
             
   <div class="section" id="benchmarking">
 <h1>Benchmarking<a class="headerlink" href="#benchmarking" title="Permalink to this headline">¶</a></h1>
-<p>The benchmarking feature of LPOT is used to measure the model performance with the objective settings; the user can get the performance of the models between the float32 model and the quantized low precision model in the same scenarios that they configured in yaml. Benchmarking is always used after a quantization process.</p>
+<p>The benchmarking feature of LPOT is used to measure the model performance with the objective settings; the user can get the performance of the models between the float32 model and the quantized low precision model in the same scenarios that they configured in Yaml. Benchmarking is always used after a quantization process.</p>
 <p>The following examples show how to use benchmarking.</p>
-<div class="section" id="config-evaluation-filed-in-yaml-file">
-<h2>Config evaluation filed in yaml file<a class="headerlink" href="#config-evaluation-filed-in-yaml-file" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="config-evaluation-filed-in-a-yaml-file">
+<h2>Config evaluation filed in a yaml file<a class="headerlink" href="#config-evaluation-filed-in-a-yaml-file" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">evaluation</span><span class="p">:</span>                                          <span class="c1"># optional. required if user doesn&#39;t provide eval_func in lpot.Quantization.</span>
   <span class="nt">accuracy</span><span class="p">:</span>                                          <span class="c1"># optional. required if user doesn&#39;t provide eval_func in lpot.Quantization.</span>
     <span class="nt">metric</span><span class="p">:</span>
@@ -244,7 +244,7 @@
 </div>
 <div class="section" id="examples">
 <h3>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h3>
-<p><a class="reference external" href="../examples/tensorflow/image_recognition/run_benchmark.sh">Benchmark example</a>.</p>
+<p>Refer to the <a class="reference external" href="../examples/tensorflow/image_recognition/run_benchmark.sh">Benchmark example</a>.</p>
 </div>
 </div>
 </div>

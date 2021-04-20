@@ -182,14 +182,14 @@
 <h1>Adaptor<a class="headerlink" href="#adaptor" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
-<p>Intel® Low Precision Optimization Tool built the low-precision inference
+<p>Intel® Low Precision Optimization Tool (LPOT) built the low-precision inference
 solution on popular Deep Learning frameworks such as TensorFlow, PyTorch,
 MXNet, and ONNX Runtime. The adaptor layer is the bridge between the LPOT
-tuning strategy and framework vanilla quantization APIs.</p>
+tuning strategy and vanilla framework quantization APIs.</p>
 </div>
 <div class="section" id="adaptor-design">
 <h2>Adaptor Design<a class="headerlink" href="#adaptor-design" title="Permalink to this headline">¶</a></h2>
-<p>Intel® Low Precision Optimization Tool supports new adaptor extension by
+<p>LPOT supports a new adaptor extension by
 implementing a subclass <code class="docutils literal notranslate"><span class="pre">Adaptor</span></code> class in the lpot.adaptor package
 and registering this strategy by the <code class="docutils literal notranslate"><span class="pre">adaptor_registry</span></code> decorator.</p>
 <p>For example, a user can implement an <code class="docutils literal notranslate"><span class="pre">Abc</span></code> adaptor like below:</p>
@@ -212,27 +212,29 @@ and registering this strategy by the <code class="docutils literal notranslate">
         <span class="o">...</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">quantize</span></code> function is used to do calibration and quantization in post-training quantization.
-<code class="docutils literal notranslate"><span class="pre">evaluate</span></code> function is used to run evaluation on a validation dataset.
-<code class="docutils literal notranslate"><span class="pre">query_fw_capability</span></code> function is used to run query framework quantization capability and intersects with the user yaml configuration setting to
-<code class="docutils literal notranslate"><span class="pre">query_fused_patterns</span></code> function is used to run query framework graph fusion capability and decide the fusion tuning space.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">quantize</span></code> function is used to perform calibration and quantization in post-training quantization.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">evaluate</span></code> function is used to run an evaluation on a validation dataset.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">query_fw_capability</span></code> function is used to run a query framework quantization capability and intersects with the user yaml configuration.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">query_fused_patterns</span></code> function is used to run a query framework graph fusion capability and decide the fusion tuning space.</p></li>
+</ul>
 <div class="section" id="query-api">
 <h3>Query API<a class="headerlink" href="#query-api" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="background">
-<h4><strong>Background</strong><a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h4>
+<h4>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h4>
 <p>Besides the adaptor API, we also introduced the Query API which describes the
-behavior of the specific framework. With this API, LPOT can easily query the
+behavior of a specific framework. With this API, LPOT can easily query the
 following information on the current runtime framework.</p>
 <ul class="simple">
-<li><p>The runtime version information;</p></li>
-<li><p>The Quantizable ops’ type;</p></li>
-<li><p>The supported sequence of each quantizable op;</p></li>
+<li><p>The runtime version information.</p></li>
+<li><p>The Quantizable ops type.</p></li>
+<li><p>The supported sequence of each quantizable op.</p></li>
 <li><p>The instance of each sequence.</p></li>
 </ul>
 <p>In the past, the above information was generally defined and hidden in every corner of the code which made effective maintenance difficult. With the Query API, we only need to create one unified yaml file and call the corresponding API to get the information. For example, the <a class="reference external" href="../lpot/adaptor/tensorflow.yaml">tensorflow.yaml</a> keeps the current Tensorflow framework ability. We recommend that the end user not make modifications if requirements are not clear.</p>
 </div>
 <div class="section" id="unify-config-introduction">
-<h4><strong>Unify Config Introduction</strong><a class="headerlink" href="#unify-config-introduction" title="Permalink to this headline">¶</a></h4>
+<h4>Unify Config Introduction<a class="headerlink" href="#unify-config-introduction" title="Permalink to this headline">¶</a></h4>
 <p>Below is a fragment of the Tensorflow configuration file.</p>
 <ul class="simple">
 <li><p><strong>precisions</strong> field defines the supported precision for LPOT.</p>
@@ -371,28 +373,30 @@ following information on the current runtime framework.</p>
 </div>
 </div>
 <div class="section" id="query-api-introduction">
-<h4><strong>Query API Introduction</strong><a class="headerlink" href="#query-api-introduction" title="Permalink to this headline">¶</a></h4>
-<p>The abstract class <code class="docutils literal notranslate"><span class="pre">QueryBackendCapability</span></code> is defined in <a class="reference external" href="../lpot/adaptor/query.py#L21">query.py</a>. Each framework should inherit it and implement the member function if needed. Refer to Tensorflow implementation <a class="reference external" href="../lpot/adaptor/tensorflow.py#L628">TensorflowQuery</a></p>
+<h4>Query API Introduction<a class="headerlink" href="#query-api-introduction" title="Permalink to this headline">¶</a></h4>
+<p>The abstract class <code class="docutils literal notranslate"><span class="pre">QueryBackendCapability</span></code> is defined in <a class="reference external" href="../lpot/adaptor/query.py#L21">query.py</a>. Each framework should inherit it and implement the member function if needed. Refer to Tensorflow implementation <a class="reference external" href="../lpot/adaptor/tensorflow.py#L628">TensorflowQuery</a>.</p>
 </div>
 </div>
 </div>
 <div class="section" id="customize-a-new-framework-backend">
 <h2>Customize a New Framework Backend<a class="headerlink" href="#customize-a-new-framework-backend" title="Permalink to this headline">¶</a></h2>
-<p>Let us take onnxruntime as an example. ONNX Runtime is a backend proposed by Microsoft, and it’s based on the MLAS kernel by default.
-Onnxruntime already has  <a class="reference external" href="https://github.com/microsoft/onnxruntime/tree/master/onnxruntime/python/tools/quantization">quantization tools</a>, so the question becomes how to integrate onnxruntime quantization tools into LPOT.</p>
+<p>Look at onnxruntime as an example. ONNX Runtime is a backend proposed by Microsoft, and is based on the MLAS kernel by default.
+Onnxruntime already has <a class="reference external" href="https://github.com/microsoft/onnxruntime/tree/master/onnxruntime/python/tools/quantization">quantization tools</a>, so the question becomes how to integrate onnxruntime quantization tools into LPOT.</p>
 <ol>
 <li><p>Capability</p>
-<p>The user should explore quantization capability at first. According to <a class="reference external" href="https://github.com/microsoft/onnxruntime/blob/503b61d897074a494f5798069308ee67d8fb9ace/onnxruntime/python/tools/quantization/onnx_quantizer.py#L77">onnx_quantizer</a>, the quantization tools support the following attributes:
-1.1 whether per_channel
-1.2 whether reduce_range
-1.3 QLinear mode or Integer mode (which is only seen in onnxruntime)
-1.4 whether static (static quantization or dynamic quantization)
-1.4 weight_qtype (choices are float32, int8 and uint8)
-1.5 input_qtype (choices are float32, int8 and uint8)
-1.6 quantization_params (None if dynamic quantization)
-1.7 &amp;1.8 nodes_to_quantize, nodes_to_exclude
-1.9 op_types_to_quantize</p>
-<p>so we can pass a tune capability to LPOT such as:</p>
+<p>The user should explore quantization capability first. According to <a class="reference external" href="https://github.com/microsoft/onnxruntime/blob/503b61d897074a494f5798069308ee67d8fb9ace/onnxruntime/python/tools/quantization/onnx_quantizer.py#L77">onnx_quantizer</a>, the quantization tools support the following attributes:</p>
+<ul class="simple">
+<li><p>whether per_channel</p></li>
+<li><p>whether reduce_range</p></li>
+<li><p>QLinear mode or Integer mode (which is only seen in onnxruntime)</p></li>
+<li><p>whether static (static quantization or dynamic quantization)</p></li>
+<li><p>weight_qtype (choices are float32, int8 and uint8)</p></li>
+<li><p>input_qtype (choices are float32, int8 and uint8)</p></li>
+<li><p>quantization_params (None if dynamic quantization)</p></li>
+<li><p>&amp;1.8 nodes_to_quantize, nodes_to_exclude</p></li>
+<li><p>op_types_to_quantize</p></li>
+</ul>
+<p>We can pass a tune capability to LPOT such as:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">{</span><span class="nt">&#39;optypewise&#39;</span><span class="p">:</span> <span class="p p-Indicator">{</span><span class="nt">&#39;conv&#39;</span><span class="p">:</span> 
                 <span class="p p-Indicator">{</span>
 <span class="nt">                 &#39;activation&#39;</span><span class="p">:</span> <span class="p p-Indicator">{</span><span class="nt"> &#39;dtype&#39;</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;uint8&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;fp32&#39;</span><span class="p p-Indicator">]},</span>
@@ -419,7 +423,7 @@ Onnxruntime already has  <a class="reference external" href="https://github.com/
 </div>
 </li>
 <li><p>Parse tune config</p>
-<p>LPOT will generate a tune config from your tune capability such as the
+<p>LPOT can generate a tune config from your tune capability such as the
 following:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span> {
      &#39;fuse&#39;: {&#39;int8&#39;: [[&#39;CONV2D&#39;, &#39;RELU&#39;, &#39;BN&#39;], [&#39;CONV2D&#39;, &#39;RELU&#39;]],
@@ -456,7 +460,7 @@ Verify whether your quantization API supports model wise or op wise quantization
 </li>
 <li><p>Pre-optimize
 If your backend supports FP32 graph optimization, you can apply it in <strong>query_fw_capability</strong> and quantize your optimized fp32 model instead of
-the original model</p>
+the original model:</p>
 <blockquote>
 <div><p>model = self.pre_optimized_model if self.pre_optimized_model else model</p>
 </div></blockquote>
