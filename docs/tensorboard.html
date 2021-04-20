@@ -341,30 +341,27 @@ baseline_acc_0.776  tune_1_acc_0.095
 </div>
 <div class="section" id="id3">
 <h3>Examples<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
-<ol class="simple">
-<li><p>Add “tensorboard: true” into examples/tensorflow/image_recognition/inceptionv3.yaml. In order to demonstrate the usage of TensorBoard, remove the following lines which is added to skip the quantization of ‘v0/cg/conv0/conv2d/Conv2D’ to avoid a known limitation.</p></li>
-</ol>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span>    <span class="nt">op_wise</span><span class="p">:</span> <span class="p p-Indicator">{</span>
-<span class="nt">             &#39;v0/cg/conv0/conv2d/Conv2D&#39;</span><span class="p">:</span> <span class="p p-Indicator">{</span>
-<span class="nt">               &#39;activation&#39;</span><span class="p">:</span>  <span class="p p-Indicator">{</span><span class="nt">&#39;dtype&#39;</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;fp32&#39;</span><span class="p p-Indicator">]},</span>
-             <span class="p p-Indicator">}</span>
-           <span class="p p-Indicator">}</span>
+<ol>
+<li><p>Add “tensorboard: true” into examples/tensorflow/image_recognition/inceptionv3.yaml. In order to demonstrate the usage of TensorBoard, remove the following lines which is added to skip the quantization of ‘v0/cg/conv0/conv2d/Conv2D’ to avoid a known limitation.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span>   <span class="nt">op_wise</span><span class="p">:</span> <span class="p p-Indicator">{</span>
+<span class="nt">            &#39;v0/cg/conv0/conv2d/Conv2D&#39;</span><span class="p">:</span> <span class="p p-Indicator">{</span>
+<span class="nt">              &#39;activation&#39;</span><span class="p">:</span>  <span class="p p-Indicator">{</span><span class="nt">&#39;dtype&#39;</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;fp32&#39;</span><span class="p p-Indicator">]},</span>
+            <span class="p p-Indicator">}</span>
+          <span class="p p-Indicator">}</span>
 </pre></div>
 </div>
-<ol class="simple">
-<li><p>Run tuning:</p></li>
-</ol>
+</li>
+<li><p>Run tuning:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>bash run_tuning.sh --topology<span class="o">=</span>inception_v3 --dataset_location<span class="o">=</span>&lt;imagenet&gt; <span class="se">\</span>
-          --input_model<span class="o">=</span>./inceptionv3_fp32_pretrained_model.pb --output_model<span class="o">=</span>./lpot_inceptionv3.pb --config<span class="o">=</span>./inceptionv3_dump_tensor.yaml 
+         --input_model<span class="o">=</span>./inceptionv3_fp32_pretrained_model.pb --output_model<span class="o">=</span>./lpot_inceptionv3.pb  --config<span class="o">=</span>./inceptionv3_dump_tensor.yaml 
 </pre></div>
 </div>
-<ol class="simple">
-<li><p>Start TensorBoard</p></li>
-</ol>
+</li>
+<li><p>Start TensorBoard</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>tensorboard --bind_all --logdir_spec baseline:./runs_v3/eval/baseline_acc_0.776/,tune_1:./runs_v3/eval/tune_1_acc_0.095/
 </pre></div>
 </div>
-<ol class="simple">
+</li>
 <li><p>In order to find the reason why tune_1 got such poor accuracy, we can observe the TensorBoard.</p></li>
 </ol>
 <ul class="simple">
