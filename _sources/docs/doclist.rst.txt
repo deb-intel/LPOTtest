@@ -34,7 +34,7 @@ Getting Started
 Deep Dive
 =========
 
-* `Quantization <Quantization.md>`__ are processes that enable inference and training by performing computations at low-precision data types, such as fixed-point integers. LPOT supports Post-Training Quantization (`PTQ <PTQ.md>`__) and Quantization-Aware Training (`QAT <Qat.md>`__). Note that `Dynamic Quantization <dynamic_quantization.md>`__ currently has limited support.
+* `Quantization <Quantization.md>`__ are processes that enable inference and training by performing computations at low-precision data types, such as fixed-point integers. LPOT supports Post-Training Quantization (`PTQ <PTQ.md>`__) and Quantization-Aware Training (`QAT <QAT.md>`__). Note that `Dynamic Quantization <dynamic_quantization.md>`__ currently has limited support.
 * `Pruning <pruning.md>`__ provides a common method for introducing sparsity in weights and activations.
 * `Benchmarking <benchmark.md>`__ introduces how to utilize the benchmark interface of LPOT.
 * `Mixed precision <mixed_precision.md>`__ introduces how to enable mixed precision, including BFP16 and int8 and FP32, on Intel platforms during tuning.
