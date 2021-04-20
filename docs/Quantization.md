@@ -11,5 +11,5 @@ Quantization methods include the following three classes:
 
 > **Note** 
 >
-> Dynamic Quantization currently is only supported with onnxruntime backend.
+> Dynamic Quantization currently only supports the onnxruntime backend.
 
