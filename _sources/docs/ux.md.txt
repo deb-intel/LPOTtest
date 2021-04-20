@@ -62,18 +62,16 @@ When both models and configurations are downloaded, you can point to the Dataset
 
 ## Custom dataset or metric
 
-If you choose "custom" in Dataset or Metric section, appropriate code template will be generated for you to fill in with your code.
+If you choose **custom** in the Dataset or Metric section, the appropriate code templates will be generated for you to fill in with your code. The path to the template will be available by clicking the **Copy code template path** button located in the right-most column in the **My models** list.
 
-Path to the template will be available by clicking "Copy code template path" button in right-most column in My models list.
-
-Follow the comments in generated code template to fill in required methods with your own code.
+Follow the comments in the generated code template to fill in required methods with your own code.
 
 ## Tuning
 
 Having a Model Configuration created, you can do the following:
 
-* See the generated config (by clicking the "Show config" link).
-* Start the tuning:
+* See the generated config (by clicking the **Show config** link).
+* Start the tuning process:
   * Click the blue arrow ![Start Tuning button](imgs/ux/tuning_start.png "Start tuning") to start the tuning.
   * Click **Show output** to see logs that are generated during tuning.
   * Your model will be tuned according to configuration.
