@@ -20,7 +20,7 @@ sys.path.insert(0, os.path.abspath('.'))
 # -- Project information -----------------------------------------------------
 
 project = 'Intel® Low Precision Optimization Tool'
-copyright = '2021, Intel® LPOT'
+copyright = '2021, Intel® Low Precision Optimization Tool'
 author = 'Intel® LPOT developers'
 
 # The short X.Y version
