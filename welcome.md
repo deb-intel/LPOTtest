@@ -18,3 +18,5 @@ Supported Intel-optimized DL frameworks are:
 * [ONNX\* Runtime](https://github.com/microsoft/onnxruntime), including [1.6.0](https://github.com/microsoft/onnxruntime/tree/v1.6.0)
 
 [Get started](getting_started.md) with installation, tutorials, examples, and more!
+
+View the Intel® LPOT repo at: <https://github.com/intel/lpot>
