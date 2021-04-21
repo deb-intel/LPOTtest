@@ -1,11 +1,15 @@
-Releases
-========
-
-THIS PAGE IS INCOMPLETE.
+Release
+=======
 
 ## Current Release
 
-Release info goes here. Where can it be downloaded.
+The latest LPOT release is v1.3 (April 2021).
+
+View new feature information and release downloads for the latest and previous releases on GitHub. Validated configurations and distribution sites are located here as well:
+
+> <https://github.com/intel/lpot/releases>
+
+Contact <lpot.maintainers@intel.com> if you need additional assistance.
 
 ## Known Issues
 
