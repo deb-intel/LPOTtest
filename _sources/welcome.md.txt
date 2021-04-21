@@ -19,4 +19,4 @@ Supported Intel-optimized DL frameworks are:
 
 [Get started](getting_started.md) with installation, tutorials, examples, and more!
 
-View the Intel® LPOT repo at: <https://github.com/intel/lpot>
+View the Intel® LPOT repo at: <https://github.com/intel/lpot>.
