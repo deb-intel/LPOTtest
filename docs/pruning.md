@@ -3,17 +3,15 @@ Pruning
 
 ## Introduction
 
-Sparsity is a measure of how many percents of elements in a tensor are exact zeros[^1]. A tensor is considered sparse if "most" of its elements are zero. Appeartly only non-zero elements will be stored and computed so the inference process could be accelerated due to Tops and memory saved[^2].
-[^1]: https://nervanasystems.github.io/distiller/pruning.html 
-[^2]: acceleration needs sparse compute kernels which are WIP
+Sparsity is a measure of how many percents of elements in a tensor are [exact zeros][^1]. A tensor is considered sparse if most of its elements are zero. Only non-zero elements will be stored and computed so the inference process could be accelerated due to TOPS (teraoperations/second) and memory saved (acceleration needs sparse compute kernels which are a work in process).
 
 The <a href="https://en.wikipedia.org/wiki/Lp_space#When_p_=_0"><img src="http://latex.codecogs.com/svg.latex?\l_{1}&space;" title="http://latex.codecogs.com/svg.latex?\l_{1} " />-"norm" function</a> measures how many zero-elements are in a tensor <em>x</em>:
 <img src="http://latex.codecogs.com/svg.latex?\left|\left|&space;x\right|&space;\right|_{0}\doteq&space;\left|x_{1}&space;\right|^{0}&plus;&space;\left|x_{2}&space;\right|^{0}&plus;...&plus;\left|x_{n}&space;\right|^{0}&space;" title="http://latex.codecogs.com/svg.latex?\left|\left| x\right| \right|_{0}\doteq \left|x_{1} \right|^{0}+ \left|x_{2} \right|^{0}+...+\left|x_{n} \right|^{0} " />
-In other words, an element contributes either a value of 1 or 0 to \(l_0\).  Anything but an exact zero contributes a value of 1 - that's pretty cool. Sometimes it helps to think about density, the number of non-zero elements (NNZ) and sparsity's complement:
+In other words, an element contributes either a value of 1 or 0 to \(l_0\).  Anything but an exact zero contributes a value of 1 - which is good. Sometimes it helps to think about density, the number of non-zero elements (NNZ) and sparsity's complement:
 \[
 density = 1 - sparsity
 \]
-A common method for introducing sparsity in weights and activations is called <em>pruning</em>.  Pruning is the application of a binary criteria to decide which weights to prune: weights which match the pruning criteria are assigned a value of zero.  Pruned elements are "trimmed" from the model: we replace their values with zero and also make sure they don't take part in the back-propagation process.</p>
+A common method for introducing sparsity in weights and activations is called **pruning**. Pruning is the application of a binary criteria to decide which weights to prune: weights which match the pruning criteria are assigned a value of zero. Pruned elements are "trimmed" from the model: we replace their values with zero and also make sure they don't take part in the back-propagation process.</p>
 
 
 ## Design
@@ -74,3 +72,5 @@ prune.eval_dataloader = val_loader
 prune.q_func = p_func
 q_model = prune()
 ```
+
+[^1]: https://nervanasystems.github.io/distiller/pruning.html 
