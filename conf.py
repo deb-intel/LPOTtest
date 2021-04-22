@@ -15,7 +15,7 @@
 import os
 import sys
 sys.path.insert(0, os.path.abspath('.'))
-
+import lpot.version
 
 # -- Project information -----------------------------------------------------
 
@@ -24,7 +24,7 @@ copyright = '2021, Intel® Low Precision Optimization Tool'
 author = 'Intel® LPOT developers'
 
 # The short X.Y version
-version = ''
+version = lpot.version.__version__
 # The full version, including alpha/beta/rc tags
 release = ''
 
