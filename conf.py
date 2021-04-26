@@ -171,7 +171,7 @@ from os import getenv
 sphinx_md_useGitHubURL = True
 baseBranch = "master"
 commitSHA = getenv('GITHUB_SHA')
-githubBaseURL = 'https://github.com/intel/lpot/'
+githubBaseURL = 'https://github.com/' + (getenv('GITHUB_REPOSITORY') or 'intel/lpot') + '/'
 githubFileURL = githubBaseURL + "blob/"
 githubDirURL = githubBaseURL + "tree/"
 if commitSHA:
