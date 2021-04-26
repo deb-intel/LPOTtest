@@ -15,7 +15,13 @@
 import os
 import sys
 sys.path.insert(0, os.path.abspath('.'))
-import lpot.version
+import importlib.util
+moduleName = 'version'
+modulePath = os.getcwd() + '/lpot/version.py'
+spec = importlib.util.spec_from_file_location(moduleName,modulePath)
+LPOTversion = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(LPOTversion)
+
 
 # -- Project information -----------------------------------------------------
 
@@ -24,7 +30,7 @@ copyright = '2021, Intel® Low Precision Optimization Tool'
 author = 'Intel® LPOT developers'
 
 # The short X.Y version
-version = lpot.version.__version__
+version = LPOTversion.__version__
 # The full version, including alpha/beta/rc tags
 release = ''
 
@@ -159,3 +165,20 @@ texinfo_documents = [
 
 def setup(app):
    app.add_stylesheet("custom.css")
+
+from os import getenv
+
+sphinx_md_useGitHubURL = True
+baseBranch = "master"
+commitSHA = getenv('GITHUB_SHA')
+githubBaseURL = 'https://github.com/intel/lpot/'
+githubFileURL = githubBaseURL + "blob/"
+githubDirURL = githubBaseURL + "tree/"
+if commitSHA:
+    githubFileURL = githubFileURL + commitSHA + "/"
+    githubDirURL = githubDirURL + commitSHA + "/"
+else:
+    githubFileURL = githubFileURL + baseBranch + "/"
+    githubDirURL = githubDirURL + baseBranch + "/"
+sphinx_md_githubFileURL = githubFileURL
+sphinx_md_githubDirURL = githubDirURL

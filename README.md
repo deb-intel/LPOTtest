@@ -450,14 +450,14 @@ Intel® Low Precision Optimization Tool provides numerous examples to show promi
 * [Dataset](docs/dataset.md) introduces how to utilize LPOT's built-in dataset and how to develop a custom dataset.
 * [Metric](docs/metric.md) introduces how to utilize LPOT's built-in metrics and how to develop a custom metric.
 * [Tutorial](docs/tutorial.md) provides comprehensive instructions on how to utilize LPOT's features with examples. 
-* [Examples](examples) are provided to demonstrate the usage of LPOT in different frameworks: TensorFlow, PyTorch, MXNet, and ONNX Runtime.
+* [Examples](/examples) are provided to demonstrate the usage of LPOT in different frameworks: TensorFlow, PyTorch, MXNet, and ONNX Runtime.
 * [UX](docs/ux.md) is a web-based system used to simplify LPOT usage.
 * [Intel oneAPI AI Analytics Toolkit Get Started Guide](https://software.intel.com/content/www/us/en/develop/documentation/get-started-with-ai-linux/top.html) explains the AI Kit components, installation and configuration guides, and instructions for building and running sample apps.
 * [AI and Analytics Samples](https://github.com/oneapi-src/oneAPI-samples/tree/master/AI-and-Analytics) includes code samples for Intel oneAPI libraries.
 
 **Deep Dive**
 
-* [Quantization](docs/Quantization.md) are processes that enable inference and training by performing computations at low-precision data types, such as fixed-point integers. LPOT supports Post-Training Quantization ([PTQ](PTQ.md)) and Quantization-Aware Training ([QAT](QAT.md)). Note that [Dynamic Quantization](dynamic_quantization.md)) currently has limited support.
+* [Quantization](docs/Quantization.md) are processes that enable inference and training by performing computations at low-precision data types, such as fixed-point integers. LPOT supports Post-Training Quantization ([PTQ](docs/PTQ.md)) and Quantization-Aware Training ([QAT](docs/QAT.md)). Note that ([Dynamic Quantization](docs/dynamic_quantization.md)) currently has limited support.
 * [Pruning](docs/pruning.md) provides a common method for introducing sparsity in weights and activations.
 * [Benchmarking](docs/benchmark.md) introduces how to utilize the benchmark interface of LPOT.
 * [Mixed precision](docs/mixed_precision.md) introduces how to enable mixed precision, including BFP16 and int8 and FP32, on Intel platforms during tuning.

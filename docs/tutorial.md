@@ -142,8 +142,8 @@ tuning:
 
 ## Helloworld Examples
 
-1.  Built-in dataloader and metric example: see [tf_example1](https://github.com/intel/lpot/tree/master/examples/helloworld/tf_example1/README.md) for more details.
-2.  TensorFlow checkpoint: see [tf_example4](https://github.com/intel/lpot/tree/master/examples/helloworld/tf_example4) for more details.
-3.  Enable benchmark for performance and accuracy measurement: see [tf_example5](https://github.com/intel/lpot/tree/master/examples/helloworld/tf_example5) for more details.
-4.  TensorFlow slim model: see [tf_example3](https://github.com/intel/lpot/tree/master/examples/helloworld/tf_example3/README.md) for more details.
+1.  Built-in dataloader and metric example: see [tf_example1](/examples/helloworld/tf_example1) for more details.
+2.  TensorFlow checkpoint: see [tf_example4](/examples/helloworld/tf_example4) for more details.
+3.  Enable benchmark for performance and accuracy measurement: see [tf_example5](/examples/helloworld/tf_example5) for more details.
+4.  TensorFlow slim model: see [tf_example3](/examples/helloworld/tf_example3) for more details.
 

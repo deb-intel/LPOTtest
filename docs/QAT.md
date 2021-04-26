@@ -100,6 +100,6 @@ Intel® Low Precision Optimization Tool can support QAT calibration for
 PyTorch models. Refer to the [QAT model](https://github.com/intel/lpot/tree/master/examples/pytorch/image_recognition/imagenet/cpu/qat/README.md) for step-by-step tuning.
 
 ### Example
-View a [QAT example of PyTorch resnet50](https://github.com/intel/lpot/tree/master/examples/pytorch/image_recognition/imagenet/cpu/qat/README.md).
+View a [QAT example of PyTorch resnet50](/examples/pytorch/image_recognition/imagenet/cpu/qat).
 
 

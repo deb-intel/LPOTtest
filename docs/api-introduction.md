@@ -205,6 +205,6 @@ To learn how to use this API, refer to the [benchmarking document](../docs/bench
 
 The default user-facing APIs exist for backwards compatiblity from the v1.0 release. Refer to [v1.1 API](https://github.com/intel/lpot/blob/v1.1/docs/introduction.md) to understand how the default user-facing APIs work.
 
-View the [HelloWorld example](https://github.com/intel/lpot/tree/master/examples/helloworld/tf_example6) that uses default user-facing APIs for user reference. 
+View the [HelloWorld example](/examples/helloworld/tf_example6) that uses default user-facing APIs for user reference. 
 
 Full examples using default user-facing APIs can be found [here](https://github.com/intel/lpot/tree/v1.1/examples).
