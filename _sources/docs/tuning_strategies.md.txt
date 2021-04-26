@@ -32,7 +32,7 @@ tuning phase stops when the `accuracy` criteria is met.
 
 ## Configurations
 
-Detailed configuration templates can be found in [`here`](../lpot/template).
+Detailed configuration templates can be found [here](../lpot/template).
 
 ### Model-specific configurations
 
@@ -329,4 +329,4 @@ The `next_tune_cfg` function is used to yield the next tune configuration accord
  all the tuning space till a quantization configuration meets pre-defined accuracy criterion.
 
 If the traverse behavior of `TuneStrategy` base class does not meet new strategy requirement, it could re-implement `traverse` function with self own logic.
-An example like this is under [TPE Strategy](../lpot/strategy/tpe.py).
+An example like this is under [TPE Strategy](../lpot/strategy/strategy.py).
