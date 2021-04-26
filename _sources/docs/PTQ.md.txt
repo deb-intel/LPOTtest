@@ -356,7 +356,7 @@ QConfig(activation=functools.partial(<class 'torch.quantization.observer.Histogr
 Changing just this quantization configuration method resulted in an increase of the accuracy to over 76%!
 
 ### Example
-View a [PTQ example of PyTorch resnet50](https://github.com/intel/lpot/tree/master/examples/pytorch/image_recognition/imagenet/cpu/ptq/README.md).
+View a [PTQ example of PyTorch resnet50](/examples/pytorch/image_recognition/imagenet/cpu/ptq).
 
 
 

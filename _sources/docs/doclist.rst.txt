@@ -3,15 +3,12 @@ Developer Documentation
 
 Read the following material as you learn how to use LPOT.
 
-Getting Started
-===============
+Get Started
+===========
 
-* `APIs <../api-documentation/api-introduction.md>`__ explains Intel® Low Precision Optimization Tool's API.
 * `Transform <transform.md>`__ introduces how to utilize LPOT's built-in data processing and how to develop a custom data processing method. 
 * `Dataset <dataset.md>`__ introduces how to utilize LPOT's built-in dataset and how to develop a custom dataset.
 * `Metrics <metric.md>`__ introduces how to utilize LPOT's built-in metrics and how to develop a custom metric.
-* `Tutorial <tutorial.md>`__ provides comprehensive instructions on how to utilize LPOT's features with examples. 
-* `Examples <../examples_readme.md>`__ are provided to demonstrate the usage of LPOT in different frameworks: TensorFlow, PyTorch, MXNet, and ONNX Runtime.
 * `UX <ux.md>`__ is a web-based system used to simplify LPOT usage.
 * `Intel oneAPI AI Analytics Toolkit Get Started Guide <https://software.intel.com/content/www/us/en/develop/documentation/get-started-with-ai-linux/top.html>`__ explains the AI Kit components, installation and configuration guides, and instructions for building and running sample apps.
 * `AI and Analytics Samples <https://github.com/oneapi-src/oneAPI-samples/tree/master/AI-and-Analytics>`__ includes code samples for Intel oneAPI libraries.
@@ -20,12 +17,9 @@ Getting Started
     :maxdepth: 1
     :hidden:
 
-    /api-documentation/api-introduction.md
     transform.md
     dataset.md
     metric.md
-    tutorial.md
-    /examples_readme.md
     ux.md
     Intel oneAPI AI Analytics Toolkit Get Started Guide <https://software.intel.com/content/www/us/en/develop/documentation/get-started-with-ai-linux/top.html>
     AI and Analytics Samples <https://github.com/oneapi-src/oneAPI-samples/tree/master/AI-and-Analytics>

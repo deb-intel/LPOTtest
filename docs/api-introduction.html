@@ -39,8 +39,8 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Examples" href="../examples_readme.html" />
-    <link rel="prev" title="Getting Started" href="../getting_started.html" /> 
+    <link rel="next" title="Developer Documentation" href="doclist.html" />
+    <link rel="prev" title="Examples" href="../examples_readme.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -62,6 +62,10 @@
 
           
             
+            
+              <div class="version">
+                1.3
+              </div>
             
           
 
@@ -86,8 +90,9 @@
             
             
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../welcome.html">Introduction to Intel LPOT</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Introduction to Intel® LPOT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples_readme.html">Examples</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">API Documentation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#user-facing-apis">User-facing APIs</a></li>
@@ -100,12 +105,12 @@
 <li class="toctree-l2"><a class="reference internal" href="#default-user-facing-apis">Default user-facing APIs</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../examples_readme.html">Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../docs/doclist.html">Developer Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doclist.html">Developer Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../releases_info.html">Release</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contributions.html">Contribution Guidelines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../legal_information.html">Legal Information</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../security_policy.html">Security Policy</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/intel/lpot">Intel® LPOT repository</a></li>
 </ul>
 
             
@@ -160,7 +165,7 @@
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="../_sources/api-documentation/api-introduction.md.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/docs/api-introduction.md.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -245,10 +250,10 @@ the <code class="docutils literal notranslate"><span class="pre">lpot.experiment
 <p>The <code class="docutils literal notranslate"><span class="pre">conf_fname</span></code> parameter used in the class initialization is the path to the user yaml configuration file. This yaml file is used to control the entire tuning behavior on the model.</p>
 <p><strong>LPOT User YAML Syntax</strong></p>
 <blockquote>
-<div><p>Intel® Low Precision Optimization Tool provides template yaml files for <a class="reference external" href="../lpot/template/ptq.yaml">Post-Training Quantization</a>, <a class="reference external" href="../lpot/template/qat.yaml">Quantization-Aware Training</a>, and <a class="reference external" href="../lpot/template/pruning.yaml">Pruning</a> scenarios. Refer to these template files to understand the meaning of each field.</p>
+<div><p>Intel® Low Precision Optimization Tool provides template yaml files for <a class="reference external" href="https://github.com/intel/lpot/blob/af93dbe0d1811e9394bc488d81de519a14083110/docs/../lpot/template/ptq.yaml">Post-Training Quantization</a>, <a class="reference external" href="https://github.com/intel/lpot/blob/af93dbe0d1811e9394bc488d81de519a14083110/docs/../lpot/template/qat.yaml">Quantization-Aware Training</a>, and <a class="reference external" href="https://github.com/intel/lpot/blob/af93dbe0d1811e9394bc488d81de519a14083110/docs/../lpot/template/pruning.yaml">Pruning</a> scenarios. Refer to these template files to understand the meaning of each field.</p>
 </div></blockquote>
 <blockquote>
-<div><p>Note that most fields in the yaml templates are optional. View the <a class="reference external" href="../examples/helloworld/tf_example2/conf.yaml">HelloWorld Yaml</a> example for reference.</p>
+<div><p>Note that most fields in the yaml templates are optional. View the <a class="reference external" href="https://github.com/intel/lpot/blob/af93dbe0d1811e9394bc488d81de519a14083110/docs/../examples/helloworld/tf_example2/conf.yaml">HelloWorld Yaml</a> example for reference.</p>
 </div></blockquote>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Typical Launcher code</span>
 <span class="kn">from</span> <span class="nn">lpot.experimental</span> <span class="kn">import</span> <span class="n">Quantization</span><span class="p">,</span> <span class="n">common</span>
@@ -332,7 +337,7 @@ the <code class="docutils literal notranslate"><span class="pre">lpot.experiment
 </pre></div>
 </div>
 <p>This API is used to do sparsity pruning. Currently, it is a Proof of Concept; LPOT only supports <code class="docutils literal notranslate"><span class="pre">magnitude</span> <span class="pre">pruning</span></code> on PyTorch.</p>
-<p>To learn how to use this API, refer to the <a class="reference internal" href="../docs/pruning.html"><span class="doc">pruning document</span></a>.</p>
+<p>To learn how to use this API, refer to the <a class="reference internal" href="pruning.html"><span class="doc">pruning document</span></a>.</p>
 </div>
 <div class="section" id="benchmarking-related-apis">
 <h3>Benchmarking-related APIs<a class="headerlink" href="#benchmarking-related-apis" title="Permalink to this headline">¶</a></h3>
@@ -361,13 +366,13 @@ the <code class="docutils literal notranslate"><span class="pre">lpot.experiment
 </pre></div>
 </div>
 <p>This API is used to measure model performance and accuracy.</p>
-<p>To learn how to use this API, refer to the <a class="reference internal" href="../docs/benchmark.html"><span class="doc">benchmarking document</span></a>.</p>
+<p>To learn how to use this API, refer to the <a class="reference internal" href="benchmark.html"><span class="doc">benchmarking document</span></a>.</p>
 </div>
 </div>
 <div class="section" id="default-user-facing-apis">
 <h2>Default user-facing APIs<a class="headerlink" href="#default-user-facing-apis" title="Permalink to this headline">¶</a></h2>
 <p>The default user-facing APIs exist for backwards compatiblity from the v1.0 release. Refer to <a class="reference external" href="https://github.com/intel/lpot/blob/v1.1/docs/introduction.md">v1.1 API</a> to understand how the default user-facing APIs work.</p>
-<p>View the <a class="reference external" href="https://github.com/intel/lpot/tree/master/examples/helloworld/tf_example6">HelloWorld example</a> that uses default user-facing APIs for user reference.</p>
+<p>View the <a class="reference external" href="https://github.com/intel/lpot/tree/af93dbe0d1811e9394bc488d81de519a14083110/examples/helloworld/tf_example6">HelloWorld example</a> that uses default user-facing APIs for user reference.</p>
 <p>Full examples using default user-facing APIs can be found <a class="reference external" href="https://github.com/intel/lpot/tree/v1.1/examples">here</a>.</p>
 </div>
 </div>
@@ -378,8 +383,8 @@ the <code class="docutils literal notranslate"><span class="pre">lpot.experiment
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="../examples_readme.html" class="btn btn-neutral float-right" title="Examples" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="../getting_started.html" class="btn btn-neutral float-left" title="Getting Started" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="doclist.html" class="btn btn-neutral float-right" title="Developer Documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../examples_readme.html" class="btn btn-neutral float-left" title="Examples" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

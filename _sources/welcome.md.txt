@@ -7,9 +7,9 @@ The Intel® Low Precision Optimization Tool (Intel® LPOT) is an open-source Pyt
 >
 > GPU support is under development.
 
-Infrastructure | Workflow
-- | -
-![LPOT Infrastructure](./docs/imgs/infrastructure.png "Infrastructure") | ![LPOT Workflow](./docs/imgs/workflow.png "Workflow")
+| Infrastructure | Workflow |
+| - | - |
+| ![LPOT Infrastructure](./docs/imgs/infrastructure.png "Infrastructure") | ![LPOT Workflow](./docs/imgs/workflow.png "Workflow") |
 
 Supported Intel-optimized DL frameworks are:
 * [TensorFlow\*](https://github.com/Intel-tensorflow/tensorflow), including [1.15.0 UP2](https://github.com/Intel-tensorflow/tensorflow/tree/v1.15.0up2), [1.15.0 UP1](https://github.com/Intel-tensorflow/tensorflow/tree/v1.15.0up1), [2.1.0](https://github.com/Intel-tensorflow/tensorflow/tree/v2.1.0), [2.2.0](https://github.com/Intel-tensorflow/tensorflow/tree/v2.2.0), [2.3.0](https://github.com/Intel-tensorflow/tensorflow/tree/v2.3.0), [2.4.0](https://github.com/Intel-tensorflow/tensorflow/tree/v2.4.0)

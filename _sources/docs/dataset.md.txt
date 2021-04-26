@@ -5,7 +5,7 @@ Users can use LPOT built-in dataset objects as well as register their own datase
 
 ## Built-in dataset support list
 
-LPOT supports built-in dataloaders on popular industry datasets. Refer to this [HelloWorld example](https://github.com/intel/lpot/tree/master/examples/helloworld/tf_example6) to learn how to configure a built-in dataloader.
+LPOT supports built-in dataloaders on popular industry datasets. Refer to this [HelloWorld example](/examples/helloworld/tf_example6) to learn how to configure a built-in dataloader.
 
 #### TensorFlow
 

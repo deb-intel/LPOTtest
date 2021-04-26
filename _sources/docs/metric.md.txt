@@ -57,7 +57,7 @@ q_model = quantizer()
 
 LPOT supports some built-in metrics that are popularly used in industry. 
 
-Refer to [this HelloWorld example](https://github.com/intel/lpot/tree/master/examples/helloworld/tf_example1) on how to config a built-in metric.
+Refer to [this HelloWorld example](/examples/helloworld/tf_example1) on how to config a built-in metric.
 
 #### TensorFlow
 
