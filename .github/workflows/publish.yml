@@ -3,7 +3,7 @@ name: Publish
 on:
   push:
     branches:
-      - docs-header-updates
+      - master
 
 jobs:
   build:
