@@ -105,12 +105,12 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#documentation">Documentation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#system-requirements">System Requirements</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#validated-hardware-software-environment">Validated Hardware/Software Environment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#validated-models">Validated Models</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#documentation">Documentation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#additional-content">Additional Content</a></li>
 </ul>
 </li>
@@ -217,6 +217,7 @@
 <li><p><a class="reference external" href="https://mxnet.apache.org">Apache* MXNet</a>, including <a class="reference external" href="https://github.com/apache/incubator-mxnet/tree/1.6.0">1.6.0</a>, <a class="reference external" href="https://github.com/apache/incubator-mxnet/tree/1.7.0">1.7.0</a></p></li>
 <li><p><a class="reference external" href="https://github.com/microsoft/onnxruntime">ONNX* Runtime</a>, including <a class="reference external" href="https://github.com/microsoft/onnxruntime/tree/v1.6.0">1.6.0</a></p></li>
 </ul>
+<p><strong>Visit the Intel® LPOT website at: <a class="reference external" href="https://intel.github.io/lpot">https://intel.github.io/lpot</a>.</strong></p>
 <div class="section" id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
 <p>The Intel® LPOT library is released as part of the
@@ -309,6 +310,35 @@ python setup.py install
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="documentation">
+<h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>
+<p><strong>Get Started</strong></p>
+<ul class="simple">
+<li><p><a class="reference internal" href="docs/api-introduction.html"><span class="doc">APIs</span></a> explains Intel® Low Precision Optimization Tool’s API.</p></li>
+<li><p><a class="reference internal" href="docs/transform.html"><span class="doc">Transform</span></a> introduces how to utilize LPOT’s built-in data processing and how to develop a custom data processing method.</p></li>
+<li><p><a class="reference internal" href="docs/dataset.html"><span class="doc">Dataset</span></a> introduces how to utilize LPOT’s built-in dataset and how to develop a custom dataset.</p></li>
+<li><p><a class="reference internal" href="docs/metric.html"><span class="doc">Metric</span></a> introduces how to utilize LPOT’s built-in metrics and how to develop a custom metric.</p></li>
+<li><p><a class="reference internal" href="docs/tutorial.html"><span class="doc">Tutorial</span></a> provides comprehensive instructions on how to utilize LPOT’s features with examples.</p></li>
+<li><p><a class="reference external" href="https://github.com/deb-intel/LPOTtest/tree/42dcdd974c2216e7b10b4f69f29aade12f2f66e7/examples">Examples</a> are provided to demonstrate the usage of LPOT in different frameworks: TensorFlow, PyTorch, MXNet, and ONNX Runtime.</p></li>
+<li><p><a class="reference internal" href="docs/ux.html"><span class="doc">UX</span></a> is a web-based system used to simplify LPOT usage.</p></li>
+<li><p><a class="reference external" href="https://software.intel.com/content/www/us/en/develop/documentation/get-started-with-ai-linux/top.html">Intel oneAPI AI Analytics Toolkit Get Started Guide</a> explains the AI Kit components, installation and configuration guides, and instructions for building and running sample apps.</p></li>
+<li><p><a class="reference external" href="https://github.com/oneapi-src/oneAPI-samples/tree/master/AI-and-Analytics">AI and Analytics Samples</a> includes code samples for Intel oneAPI libraries.</p></li>
+</ul>
+<p><strong>Deep Dive</strong></p>
+<ul class="simple">
+<li><p><a class="reference internal" href="docs/Quantization.html"><span class="doc">Quantization</span></a> are processes that enable inference and training by performing computations at low-precision data types, such as fixed-point integers. LPOT supports Post-Training Quantization (<a class="reference internal" href="docs/PTQ.html"><span class="doc">PTQ</span></a>) and Quantization-Aware Training (<a class="reference internal" href="docs/QAT.html"><span class="doc">QAT</span></a>). Note that (<a class="reference internal" href="docs/dynamic_quantization.html"><span class="doc">Dynamic Quantization</span></a>) currently has limited support.</p></li>
+<li><p><a class="reference internal" href="docs/pruning.html"><span class="doc">Pruning</span></a> provides a common method for introducing sparsity in weights and activations.</p></li>
+<li><p><a class="reference internal" href="docs/benchmark.html"><span class="doc">Benchmarking</span></a> introduces how to utilize the benchmark interface of LPOT.</p></li>
+<li><p><a class="reference internal" href="docs/mixed_precision.html"><span class="doc">Mixed precision</span></a> introduces how to enable mixed precision, including BFP16 and int8 and FP32, on Intel platforms during tuning.</p></li>
+<li><p><a class="reference internal" href="docs/graph_optimization.html"><span class="doc">Graph Optimization</span></a> introduces how to enable graph optimization for FP3232 and auto-mixed precision.</p></li>
+<li><p><a class="reference internal" href="docs/tensorboard.html"><span class="doc">TensorBoard</span></a> provides tensor histograms and execution graphs for tuning debugging purposes.</p></li>
+</ul>
+<p><strong>Advanced Topics</strong></p>
+<ul class="simple">
+<li><p><a class="reference internal" href="docs/adaptor.html"><span class="doc">Adaptor</span></a> is the interface between LPOT and framework. The method to develop adaptor extension is introduced with ONNX Runtime as example.</p></li>
+<li><p><a class="reference internal" href="docs/tuning_strategies.html"><span class="doc">Strategy</span></a> can automatically optimized low-precision recipes for deep learning models to achieve optimal product objectives like inference performance and memory usage with expected accuracy criteria. The method to develop a new strategy is introduced.</p></li>
+</ul>
 </div>
 <div class="section" id="system-requirements">
 <h2>System Requirements<a class="headerlink" href="#system-requirements" title="Permalink to this headline">¶</a></h2>
@@ -641,35 +671,6 @@ python setup.py install
   </tr>
 </tbody>
 </table></div>
-</div>
-<div class="section" id="documentation">
-<h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>
-<p><strong>Get Started</strong></p>
-<ul class="simple">
-<li><p><a class="reference internal" href="docs/api-introduction.html"><span class="doc">APIs</span></a> explains Intel® Low Precision Optimization Tool’s API.</p></li>
-<li><p><a class="reference internal" href="docs/transform.html"><span class="doc">Transform</span></a> introduces how to utilize LPOT’s built-in data processing and how to develop a custom data processing method.</p></li>
-<li><p><a class="reference internal" href="docs/dataset.html"><span class="doc">Dataset</span></a> introduces how to utilize LPOT’s built-in dataset and how to develop a custom dataset.</p></li>
-<li><p><a class="reference internal" href="docs/metric.html"><span class="doc">Metric</span></a> introduces how to utilize LPOT’s built-in metrics and how to develop a custom metric.</p></li>
-<li><p><a class="reference internal" href="docs/tutorial.html"><span class="doc">Tutorial</span></a> provides comprehensive instructions on how to utilize LPOT’s features with examples.</p></li>
-<li><p><a class="reference external" href="https://github.com/deb-intel/LPOTtest/tree/913febd13efa440c87212c610be4ddb5eaf70e1b/examples">Examples</a> are provided to demonstrate the usage of LPOT in different frameworks: TensorFlow, PyTorch, MXNet, and ONNX Runtime.</p></li>
-<li><p><a class="reference internal" href="docs/ux.html"><span class="doc">UX</span></a> is a web-based system used to simplify LPOT usage.</p></li>
-<li><p><a class="reference external" href="https://software.intel.com/content/www/us/en/develop/documentation/get-started-with-ai-linux/top.html">Intel oneAPI AI Analytics Toolkit Get Started Guide</a> explains the AI Kit components, installation and configuration guides, and instructions for building and running sample apps.</p></li>
-<li><p><a class="reference external" href="https://github.com/oneapi-src/oneAPI-samples/tree/master/AI-and-Analytics">AI and Analytics Samples</a> includes code samples for Intel oneAPI libraries.</p></li>
-</ul>
-<p><strong>Deep Dive</strong></p>
-<ul class="simple">
-<li><p><a class="reference internal" href="docs/Quantization.html"><span class="doc">Quantization</span></a> are processes that enable inference and training by performing computations at low-precision data types, such as fixed-point integers. LPOT supports Post-Training Quantization (<a class="reference internal" href="docs/PTQ.html"><span class="doc">PTQ</span></a>) and Quantization-Aware Training (<a class="reference internal" href="docs/QAT.html"><span class="doc">QAT</span></a>). Note that (<a class="reference internal" href="docs/dynamic_quantization.html"><span class="doc">Dynamic Quantization</span></a>) currently has limited support.</p></li>
-<li><p><a class="reference internal" href="docs/pruning.html"><span class="doc">Pruning</span></a> provides a common method for introducing sparsity in weights and activations.</p></li>
-<li><p><a class="reference internal" href="docs/benchmark.html"><span class="doc">Benchmarking</span></a> introduces how to utilize the benchmark interface of LPOT.</p></li>
-<li><p><a class="reference internal" href="docs/mixed_precision.html"><span class="doc">Mixed precision</span></a> introduces how to enable mixed precision, including BFP16 and int8 and FP32, on Intel platforms during tuning.</p></li>
-<li><p><a class="reference internal" href="docs/graph_optimization.html"><span class="doc">Graph Optimization</span></a> introduces how to enable graph optimization for FP3232 and auto-mixed precision.</p></li>
-<li><p><a class="reference internal" href="docs/tensorboard.html"><span class="doc">TensorBoard</span></a> provides tensor histograms and execution graphs for tuning debugging purposes.</p></li>
-</ul>
-<p><strong>Advanced Topics</strong></p>
-<ul class="simple">
-<li><p><a class="reference internal" href="docs/adaptor.html"><span class="doc">Adaptor</span></a> is the interface between LPOT and framework. The method to develop adaptor extension is introduced with ONNX Runtime as example.</p></li>
-<li><p><a class="reference internal" href="docs/tuning_strategies.html"><span class="doc">Strategy</span></a> can automatically optimized low-precision recipes for deep learning models to achieve optimal product objectives like inference performance and memory usage with expected accuracy criteria. The method to develop a new strategy is introduced.</p></li>
-</ul>
 </div>
 <div class="section" id="additional-content">
 <h2>Additional Content<a class="headerlink" href="#additional-content" title="Permalink to this headline">¶</a></h2>

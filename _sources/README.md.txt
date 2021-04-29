@@ -17,6 +17,8 @@ Supported Intel-optimized DL frameworks are:
 * [Apache\* MXNet](https://mxnet.apache.org), including [1.6.0](https://github.com/apache/incubator-mxnet/tree/1.6.0), [1.7.0](https://github.com/apache/incubator-mxnet/tree/1.7.0)
 * [ONNX\* Runtime](https://github.com/microsoft/onnxruntime), including [1.6.0](https://github.com/microsoft/onnxruntime/tree/v1.6.0)
 
+**Visit the Intel® LPOT website at: <https://intel.github.io/lpot>.**
+
 ## Installation
 
 The Intel® LPOT library is released as part of the
@@ -102,6 +104,34 @@ cd lpot
 pip install -r requirements.txt
 python setup.py install
 ```
+
+## Documentation
+
+**Get Started**
+
+* [APIs](docs/api-introduction.md) explains Intel® Low Precision Optimization Tool's API.
+* [Transform](docs/transform.md) introduces how to utilize LPOT's built-in data processing and how to develop a custom data processing method. 
+* [Dataset](docs/dataset.md) introduces how to utilize LPOT's built-in dataset and how to develop a custom dataset.
+* [Metric](docs/metric.md) introduces how to utilize LPOT's built-in metrics and how to develop a custom metric.
+* [Tutorial](docs/tutorial.md) provides comprehensive instructions on how to utilize LPOT's features with examples. 
+* [Examples](/examples) are provided to demonstrate the usage of LPOT in different frameworks: TensorFlow, PyTorch, MXNet, and ONNX Runtime.
+* [UX](docs/ux.md) is a web-based system used to simplify LPOT usage.
+* [Intel oneAPI AI Analytics Toolkit Get Started Guide](https://software.intel.com/content/www/us/en/develop/documentation/get-started-with-ai-linux/top.html) explains the AI Kit components, installation and configuration guides, and instructions for building and running sample apps.
+* [AI and Analytics Samples](https://github.com/oneapi-src/oneAPI-samples/tree/master/AI-and-Analytics) includes code samples for Intel oneAPI libraries.
+
+**Deep Dive**
+
+* [Quantization](docs/Quantization.md) are processes that enable inference and training by performing computations at low-precision data types, such as fixed-point integers. LPOT supports Post-Training Quantization ([PTQ](docs/PTQ.md)) and Quantization-Aware Training ([QAT](docs/QAT.md)). Note that ([Dynamic Quantization](docs/dynamic_quantization.md)) currently has limited support.
+* [Pruning](docs/pruning.md) provides a common method for introducing sparsity in weights and activations.
+* [Benchmarking](docs/benchmark.md) introduces how to utilize the benchmark interface of LPOT.
+* [Mixed precision](docs/mixed_precision.md) introduces how to enable mixed precision, including BFP16 and int8 and FP32, on Intel platforms during tuning.
+* [Graph Optimization](docs/graph_optimization.md) introduces how to enable graph optimization for FP3232 and auto-mixed precision.
+* [TensorBoard](docs/tensorboard.md) provides tensor histograms and execution graphs for tuning debugging purposes. 
+
+**Advanced Topics**
+
+* [Adaptor](docs/adaptor.md) is the interface between LPOT and framework. The method to develop adaptor extension is introduced with ONNX Runtime as example. 
+* [Strategy](docs/tuning_strategies.md) can automatically optimized low-precision recipes for deep learning models to achieve optimal product objectives like inference performance and memory usage with expected accuracy criteria. The method to develop a new strategy is introduced.
 
 ## System Requirements
 
@@ -440,34 +470,6 @@ Intel® Low Precision Optimization Tool provides numerous examples to show promi
   </tr>
 </tbody>
 </table>
-
-## Documentation
-
-**Get Started**
-
-* [APIs](docs/api-introduction.md) explains Intel® Low Precision Optimization Tool's API.
-* [Transform](docs/transform.md) introduces how to utilize LPOT's built-in data processing and how to develop a custom data processing method. 
-* [Dataset](docs/dataset.md) introduces how to utilize LPOT's built-in dataset and how to develop a custom dataset.
-* [Metric](docs/metric.md) introduces how to utilize LPOT's built-in metrics and how to develop a custom metric.
-* [Tutorial](docs/tutorial.md) provides comprehensive instructions on how to utilize LPOT's features with examples. 
-* [Examples](/examples) are provided to demonstrate the usage of LPOT in different frameworks: TensorFlow, PyTorch, MXNet, and ONNX Runtime.
-* [UX](docs/ux.md) is a web-based system used to simplify LPOT usage.
-* [Intel oneAPI AI Analytics Toolkit Get Started Guide](https://software.intel.com/content/www/us/en/develop/documentation/get-started-with-ai-linux/top.html) explains the AI Kit components, installation and configuration guides, and instructions for building and running sample apps.
-* [AI and Analytics Samples](https://github.com/oneapi-src/oneAPI-samples/tree/master/AI-and-Analytics) includes code samples for Intel oneAPI libraries.
-
-**Deep Dive**
-
-* [Quantization](docs/Quantization.md) are processes that enable inference and training by performing computations at low-precision data types, such as fixed-point integers. LPOT supports Post-Training Quantization ([PTQ](docs/PTQ.md)) and Quantization-Aware Training ([QAT](docs/QAT.md)). Note that ([Dynamic Quantization](docs/dynamic_quantization.md)) currently has limited support.
-* [Pruning](docs/pruning.md) provides a common method for introducing sparsity in weights and activations.
-* [Benchmarking](docs/benchmark.md) introduces how to utilize the benchmark interface of LPOT.
-* [Mixed precision](docs/mixed_precision.md) introduces how to enable mixed precision, including BFP16 and int8 and FP32, on Intel platforms during tuning.
-* [Graph Optimization](docs/graph_optimization.md) introduces how to enable graph optimization for FP3232 and auto-mixed precision.
-* [TensorBoard](docs/tensorboard.md) provides tensor histograms and execution graphs for tuning debugging purposes. 
-
-**Advanced Topics**
-
-* [Adaptor](docs/adaptor.md) is the interface between LPOT and framework. The method to develop adaptor extension is introduced with ONNX Runtime as example. 
-* [Strategy](docs/tuning_strategies.md) can automatically optimized low-precision recipes for deep learning models to achieve optimal product objectives like inference performance and memory usage with expected accuracy criteria. The method to develop a new strategy is introduced.
 
 ## Additional Content
 
