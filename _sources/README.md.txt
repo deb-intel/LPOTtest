@@ -9,37 +9,24 @@ The Intel® Low Precision Optimization Tool (Intel® LPOT) is an open-source Pyt
 
 ## Architecture
 
-Intel® LPOT features an infrastructure and workflow that aids in increasing performance and faster deployments across architectures. Click on the respective image to enlarge it.
+Intel® LPOT features an infrastructure and workflow that aids in increasing performance and faster deployments across architectures. 
 
-<br>
 
 #### Infrastructure
-
-<style>
-img {
-  border: 1px solid #555;
-}
-</style>
 
 <a target="_blank" href="docs/imgs/infrastructure.png">
   <img src="docs/imgs/infrastructure.png" alt="Infrastructure" width=800 height=360>
 </a>
 
-<br><br>
+Click on the image to enlarge it.
 
 #### Workflow
-
-<style>
-img {
-  border: 1px solid #555;
-}
-</style>
 
 <a target="_blank" href="docs/imgs/workflow.png">
   <img src="docs/imgs/workflow.png" alt="Workflow" width=800 height=360>
 </a>
 
-<br><br>
+Click on the image to enlarge it.
 
 #### Supported Frameworks
 
@@ -51,7 +38,6 @@ Supported Intel-optimized DL frameworks are:
 
 **Visit the Intel® LPOT website at: <https://intel.github.io/lpot>.**
 
-<br>
 
 ## Installation
 
