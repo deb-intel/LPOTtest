@@ -18,7 +18,7 @@ Intel® LPOT features an infrastructure and workflow that aids in increasing per
   <img src="docs/imgs/infrastructure.png" alt="Infrastructure" width=800 height=360>
 </a>
 
-Click on the image to enlarge it.
+Click the image to enlarge it.
 
 #### Workflow
 
@@ -26,7 +26,7 @@ Click on the image to enlarge it.
   <img src="docs/imgs/workflow.png" alt="Workflow" width=800 height=360>
 </a>
 
-Click on the image to enlarge it.
+Click the image to enlarge it.
 
 #### Supported Frameworks
 
