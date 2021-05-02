@@ -188,7 +188,7 @@
 <p>LPOT constructs the whole quantization/pruning process using these four components.</p>
 <p>LPOT has added built-in support for popular dataloaders/datasets and metrics to ease the preparation. Refer to <a class="reference internal" href="dataset.html"><span class="doc">dataset</span></a> and <a class="reference internal" href="metric.html"><span class="doc">metric</span></a> to learn how to use them in yaml.</p>
 <p>LPOT also supports registering custom datasets and custom metrics by code.</p>
-<p>As for model, LPOT abstract a common API, named <a class="reference external" href="https://github.com/deb-intel/LPOTtest/blob/42dcdd974c2216e7b10b4f69f29aade12f2f66e7/docs/../lpot/experimental/common/model.py">lpot.experimental.common.Model</a>, to cover the case in which model, weight, and other necessary info are separately stored. Refer to <a class="reference internal" href="model.html"><span class="doc">model</span></a> to learn how to use it.</p>
+<p>As for model, LPOT abstract a common API, named <a class="reference external" href="https://github.com/deb-intel/LPOTtest/blob/c15e717180385ecaa3c929b8d3b04423377d4f34/docs/../lpot/experimental/common/model.py">lpot.experimental.common.Model</a>, to cover the case in which model, weight, and other necessary info are separately stored. Refer to <a class="reference internal" href="model.html"><span class="doc">model</span></a> to learn how to use it.</p>
 <p>Postprocess is treated as a specical transform by LPOT which is only needed when a model output is mismatching with the expected input of LPOT built-in metrics. If a user is using a custom metric, the postprocess is not needed as the custom metric implementation needed ensures it can handle the model output correctly. On the other hand, the postprocess logic becomes part of the custom metric implementation.</p>
 <p>The example below shows how to enable LPOT on TensorFlow mobilenet_v1 with a built-in dataloader, dataset, and metric.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># main.py</span>
@@ -300,10 +300,10 @@
 <div class="section" id="helloworld-examples">
 <h2>Helloworld Examples<a class="headerlink" href="#helloworld-examples" title="Permalink to this headline">¶</a></h2>
 <ol class="simple">
-<li><p>Built-in dataloader and metric example: see <a class="reference external" href="https://github.com/deb-intel/LPOTtest/tree/42dcdd974c2216e7b10b4f69f29aade12f2f66e7/examples/helloworld/tf_example1">tf_example1</a> for more details.</p></li>
-<li><p>TensorFlow checkpoint: see <a class="reference external" href="https://github.com/deb-intel/LPOTtest/tree/42dcdd974c2216e7b10b4f69f29aade12f2f66e7/examples/helloworld/tf_example4">tf_example4</a> for more details.</p></li>
-<li><p>Enable benchmark for performance and accuracy measurement: see <a class="reference external" href="https://github.com/deb-intel/LPOTtest/tree/42dcdd974c2216e7b10b4f69f29aade12f2f66e7/examples/helloworld/tf_example5">tf_example5</a> for more details.</p></li>
-<li><p>TensorFlow slim model: see <a class="reference external" href="https://github.com/deb-intel/LPOTtest/tree/42dcdd974c2216e7b10b4f69f29aade12f2f66e7/examples/helloworld/tf_example3">tf_example3</a> for more details.</p></li>
+<li><p>Built-in dataloader and metric example: see <a class="reference external" href="https://github.com/deb-intel/LPOTtest/tree/c15e717180385ecaa3c929b8d3b04423377d4f34/examples/helloworld/tf_example1">tf_example1</a> for more details.</p></li>
+<li><p>TensorFlow checkpoint: see <a class="reference external" href="https://github.com/deb-intel/LPOTtest/tree/c15e717180385ecaa3c929b8d3b04423377d4f34/examples/helloworld/tf_example4">tf_example4</a> for more details.</p></li>
+<li><p>Enable benchmark for performance and accuracy measurement: see <a class="reference external" href="https://github.com/deb-intel/LPOTtest/tree/c15e717180385ecaa3c929b8d3b04423377d4f34/examples/helloworld/tf_example5">tf_example5</a> for more details.</p></li>
+<li><p>TensorFlow slim model: see <a class="reference external" href="https://github.com/deb-intel/LPOTtest/tree/c15e717180385ecaa3c929b8d3b04423377d4f34/examples/helloworld/tf_example3">tf_example3</a> for more details.</p></li>
 </ol>
 </div>
 </div>
