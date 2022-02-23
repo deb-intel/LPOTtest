@@ -1,6 +1,8 @@
 APIs
 ####
 
+test
+
 .. automodule:: lpot.benchmark
    :members:
 
