@@ -1,75 +1,38 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
   <title>QAT &mdash; Intel® Low Precision Optimization Tool  documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Dynamic Quantization" href="dynamic_quantization.html" />
     <link rel="prev" title="PTQ" href="PTQ.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="../index.html" class="icon icon-home"> Intel® Low Precision Optimization Tool
-          
-
-          
           </a>
-
-          
-            
-            
               <div class="version">
                 1.3
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -77,18 +40,7 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../README.html">Introduction to Intel® LPOT</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
@@ -122,96 +74,54 @@
 <li class="toctree-l1"><a class="reference external" href="https://github.com/intel/lpot">Intel® LPOT repository</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Intel® Low Precision Optimization Tool</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-        
           <li><a href="doclist.html">Developer Documentation</a> &raquo;</li>
-        
       <li>QAT</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="../_sources/docs/QAT.md.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="qat">
-<h1>QAT<a class="headerlink" href="#qat" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="design">
-<h2>Design<a class="headerlink" href="#design" title="Permalink to this headline">¶</a></h2>
+             
+  <section id="qat">
+<h1>QAT<a class="headerlink" href="#qat" title="Permalink to this headline"></a></h1>
+<section id="design">
+<h2>Design<a class="headerlink" href="#design" title="Permalink to this headline"></a></h2>
 <p>At its core, QAT simulates low-precision inference-time computation in the forward pass of the training process. With QAT, all weights and activations are “fake quantized” during both the forward and backward passes of training: that is, float values are rounded to mimic int8 values, but all computations are still done with floating point numbers. Thus, all the weight adjustments during training are made while “aware” of the fact that the model will ultimately be quantized; after quantizing, therefore, this method will usually yield higher accuracy than either dynamic quantization or post-training static quantization.</p>
 <p>The overall workflow for actually performing QAT is very similar to Post-training static quantization (PTQ):</p>
 <ul class="simple">
 <li><p>We can use the same model as PTQ; no additional preparation is needed for quantization-aware training.</p></li>
 <li><p>We need to use a qconfig specifying what kind of fake-quantization is to be inserted after weights and activations, instead of specifying observers.</p></li>
 </ul>
-</div>
-<div class="section" id="usage">
-<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="mobilenetv2-model-architecture">
-<h3>MobileNetV2 Model Architecture<a class="headerlink" href="#mobilenetv2-model-architecture" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline"></a></h2>
+<section id="mobilenetv2-model-architecture">
+<h3>MobileNetV2 Model Architecture<a class="headerlink" href="#mobilenetv2-model-architecture" title="Permalink to this headline"></a></h3>
 <p>Refer to the <a class="reference external" href="PTQ.html#mobilenetv2-model-architecture">PTQ Model Usage</a>.</p>
-</div>
-<div class="section" id="helper-functions">
-<h3>Helper Functions<a class="headerlink" href="#helper-functions" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="helper-functions">
+<h3>Helper Functions<a class="headerlink" href="#helper-functions" title="Permalink to this headline"></a></h3>
 <p>Refer to <a class="reference external" href="PTQ.html#helper-functions">PTQ Helper Functions</a>.</p>
-</div>
-<div class="section" id="id1">
-<h3>QAT<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="id1">
+<h3>QAT<a class="headerlink" href="#id1" title="Permalink to this headline"></a></h3>
 <p>First, define a training function:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">train_one_epoch</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">criterion</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">,</span> <span class="n">data_loader</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="n">ntrain_batches</span><span class="p">):</span>
     <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
@@ -287,60 +197,43 @@
 </ul>
 <p>Intel® Low Precision Optimization Tool can support QAT calibration for
 PyTorch models. Refer to the <a class="reference external" href="https://github.com/intel/lpot/tree/master/examples/pytorch/image_recognition/imagenet/cpu/qat/README.md">QAT model</a> for step-by-step tuning.</p>
-</div>
-<div class="section" id="example">
-<h3>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
-<p>View a <a class="reference external" href="https://github.com/deb-intel/LPOTtest/tree/f7b7524c733e581668d15192b69f9d9a7ca5222d/examples/pytorch/image_recognition/imagenet/cpu/qat">QAT example of PyTorch resnet50</a>.</p>
-</div>
-</div>
-</div>
+</section>
+<section id="example">
+<h3>Example<a class="headerlink" href="#example" title="Permalink to this headline"></a></h3>
+<p>View a <a class="reference external" href="https://github.com/deb-intel/LPOTtest/tree/a683079bb935534f92af2ae8daeb58bdc824f734/examples/pytorch/image_recognition/imagenet/cpu/qat">QAT example of PyTorch resnet50</a>.</p>
+</section>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="dynamic_quantization.html" class="btn btn-neutral float-right" title="Dynamic Quantization" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="PTQ.html" class="btn btn-neutral float-left" title="PTQ" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="dynamic_quantization.html" class="btn btn-neutral float-right" title="Dynamic Quantization" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2021, Intel® Low Precision Optimization Tool.
-
-    </p>
+    <p>&#169; Copyright 2021, Intel® Low Precision Optimization Tool.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

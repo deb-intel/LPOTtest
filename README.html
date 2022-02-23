@@ -1,75 +1,38 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
   <title>Introduction to Intel® LPOT &mdash; Intel® Low Precision Optimization Tool  documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
-    
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-
-    
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Tutorial" href="docs/tutorial.html" />
     <link rel="prev" title="Intel® Low Precision Optimization Tool Documentation" href="index.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="index.html" class="icon icon-home"> Intel® Low Precision Optimization Tool
-          
-
-          
           </a>
-
-          
-            
-            
               <div class="version">
                 1.3
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -77,18 +40,7 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction to Intel® LPOT</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#architecture">Architecture</a><ul>
@@ -131,95 +83,54 @@
 <li class="toctree-l1"><a class="reference external" href="https://github.com/intel/lpot">Intel® LPOT repository</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">Intel® Low Precision Optimization Tool</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-        
       <li>Introduction to Intel® LPOT</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="_sources/README.md.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="introduction-to-intel-lpot">
-<h1>Introduction to Intel® LPOT<a class="headerlink" href="#introduction-to-intel-lpot" title="Permalink to this headline">¶</a></h1>
+             
+  <section id="introduction-to-intel-lpot">
+<h1>Introduction to Intel® LPOT<a class="headerlink" href="#introduction-to-intel-lpot" title="Permalink to this headline"></a></h1>
 <p>The Intel® Low Precision Optimization Tool (Intel® LPOT) is an open-source Python library that delivers a unified low-precision inference interface across multiple Intel-optimized Deep Learning (DL) frameworks on both CPUs and GPUs. It supports automatic accuracy-driven tuning strategies, along with additional objectives such as optimizing for performance, model size, and memory footprint. It also provides easy extension capability for new backends, tuning strategies, metrics, and objectives.</p>
 <blockquote>
 <div><p><strong>Note</strong></p>
 <p>GPU support is under development.</p>
 </div></blockquote>
-<div class="section" id="architecture">
-<h2>Architecture<a class="headerlink" href="#architecture" title="Permalink to this headline">¶</a></h2>
+<section id="architecture">
+<h2>Architecture<a class="headerlink" href="#architecture" title="Permalink to this headline"></a></h2>
 <p>Intel® LPOT features an infrastructure and workflow that aids in increasing performance and faster deployments across architectures.</p>
-<div class="section" id="infrastructure">
-<h3>Infrastructure<a class="headerlink" href="#infrastructure" title="Permalink to this headline">¶</a></h3>
+<section id="infrastructure">
+<h3>Infrastructure<a class="headerlink" href="#infrastructure" title="Permalink to this headline"></a></h3>
 <a target="_blank" href="docs/imgs/infrastructure.png">
   <img src="docs/imgs/infrastructure.png" alt="Infrastructure" width=800 height=360>
 </a><p>Click the image to enlarge it.</p>
-</div>
-<div class="section" id="workflow">
-<h3>Workflow<a class="headerlink" href="#workflow" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="workflow">
+<h3>Workflow<a class="headerlink" href="#workflow" title="Permalink to this headline"></a></h3>
 <a target="_blank" href="docs/imgs/workflow.png">
   <img src="docs/imgs/workflow.png" alt="Workflow" width=800 height=360>
 </a><p>Click the image to enlarge it.</p>
-</div>
-<div class="section" id="supported-frameworks">
-<h3>Supported Frameworks<a class="headerlink" href="#supported-frameworks" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="supported-frameworks">
+<h3>Supported Frameworks<a class="headerlink" href="#supported-frameworks" title="Permalink to this headline"></a></h3>
 <p>Supported Intel-optimized DL frameworks are:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/Intel-tensorflow/tensorflow">TensorFlow*</a>, including <a class="reference external" href="https://github.com/Intel-tensorflow/tensorflow/tree/v1.15.0up2">1.15.0 UP2</a>, <a class="reference external" href="https://github.com/Intel-tensorflow/tensorflow/tree/v1.15.0up1">1.15.0 UP1</a>, <a class="reference external" href="https://github.com/Intel-tensorflow/tensorflow/tree/v2.1.0">2.1.0</a>, <a class="reference external" href="https://github.com/Intel-tensorflow/tensorflow/tree/v2.2.0">2.2.0</a>, <a class="reference external" href="https://github.com/Intel-tensorflow/tensorflow/tree/v2.3.0">2.3.0</a>, <a class="reference external" href="https://github.com/Intel-tensorflow/tensorflow/tree/v2.4.0">2.4.0</a></p></li>
@@ -228,18 +139,18 @@
 <li><p><a class="reference external" href="https://github.com/microsoft/onnxruntime">ONNX* Runtime</a>, including <a class="reference external" href="https://github.com/microsoft/onnxruntime/tree/v1.6.0">1.6.0</a></p></li>
 </ul>
 <p><strong>Visit the Intel® LPOT website at: <a class="reference external" href="https://intel.github.io/lpot">https://intel.github.io/lpot</a>.</strong></p>
-</div>
-</div>
-<div class="section" id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline"></a></h2>
 <p>Select the installation based on your operating system.</p>
-<div class="section" id="linux-installation">
-<h3>Linux Installation<a class="headerlink" href="#linux-installation" title="Permalink to this headline">¶</a></h3>
+<section id="linux-installation">
+<h3>Linux Installation<a class="headerlink" href="#linux-installation" title="Permalink to this headline"></a></h3>
 <p>You can install LPOT using one of three options: Install just the LPOT library
 from binary or source, or get the Intel-optimized framework together with the
 LPOT library by installing the <a class="reference external" href="https://software.intel.com/content/www/us/en/develop/tools/oneapi/ai-analytics-toolkit.html">Intel® oneAPI AI Analytics Toolkit</a>.</p>
-<div class="section" id="option-1-install-from-binary">
-<h4>Option 1 Install from binary<a class="headerlink" href="#option-1-install-from-binary" title="Permalink to this headline">¶</a></h4>
+<section id="option-1-install-from-binary">
+<h4>Option 1 Install from binary<a class="headerlink" href="#option-1-install-from-binary" title="Permalink to this headline"></a></h4>
 <div class="highlight-Shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># install from pip</span>
 pip install lpot
 
@@ -247,18 +158,18 @@ pip install lpot
 conda install lpot -c conda-forge -c intel 
 </pre></div>
 </div>
-</div>
-<div class="section" id="option-2-install-from-source">
-<h4>Option 2 Install from source<a class="headerlink" href="#option-2-install-from-source" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="option-2-install-from-source">
+<h4>Option 2 Install from source<a class="headerlink" href="#option-2-install-from-source" title="Permalink to this headline"></a></h4>
 <div class="highlight-Shell notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/intel/lpot.git
 <span class="nb">cd</span> lpot
 pip install -r requirements.txt
 python setup.py install
 </pre></div>
 </div>
-</div>
-<div class="section" id="option-3-install-from-ai-kit">
-<h4>Option 3 Install from AI Kit<a class="headerlink" href="#option-3-install-from-ai-kit" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="option-3-install-from-ai-kit">
+<h4>Option 3 Install from AI Kit<a class="headerlink" href="#option-3-install-from-ai-kit" title="Permalink to this headline"></a></h4>
 <p>The Intel® LPOT library is released as part of the
 <a class="reference external" href="https://software.intel.com/content/www/us/en/develop/tools/oneapi/ai-analytics-toolkit.html">Intel® oneAPI AI Analytics Toolkit</a> (AI Kit).
 The AI Kit provides a consolidated package of Intel’s latest deep learning and
@@ -285,10 +196,10 @@ for post-installation instructions.</p>
 <td></td>
 </tr>
 </tbody>
-</table></div>
-</div>
-<div class="section" id="windows-installation">
-<h3>Windows Installation<a class="headerlink" href="#windows-installation" title="Permalink to this headline">¶</a></h3>
+</table></section>
+</section>
+<section id="windows-installation">
+<h3>Windows Installation<a class="headerlink" href="#windows-installation" title="Permalink to this headline"></a></h3>
 <p><strong>Prerequisites</strong></p>
 <p>The following prerequisites and requirements must be satisfied for a successful installation:</p>
 <ul>
@@ -303,8 +214,8 @@ conda activate lpot
 </li>
 </ul>
 <p><strong>Installation options</strong></p>
-<div class="section" id="id1">
-<h4>Option 1 Install from binary<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<section id="id1">
+<h4>Option 1 Install from binary<a class="headerlink" href="#id1" title="Permalink to this headline"></a></h4>
 <div class="highlight-Shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># install from pip</span>
 pip install lpot
 
@@ -312,20 +223,20 @@ pip install lpot
 conda install lpot -c conda-forge -c intel 
 </pre></div>
 </div>
-</div>
-<div class="section" id="id2">
-<h4>Option 2 Install from source<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="id2">
+<h4>Option 2 Install from source<a class="headerlink" href="#id2" title="Permalink to this headline"></a></h4>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/intel/lpot.git
 <span class="nb">cd</span> lpot
 pip install -r requirements.txt
 python setup.py install
 </pre></div>
 </div>
-</div>
-</div>
-</div>
-<div class="section" id="documentation">
-<h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+</section>
+<section id="documentation">
+<h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline"></a></h2>
 <p><strong>Get Started</strong></p>
 <ul class="simple">
 <li><p><a class="reference internal" href="docs/api-introduction.html"><span class="doc">APIs</span></a> explains Intel® Low Precision Optimization Tool’s API.</p></li>
@@ -333,7 +244,7 @@ python setup.py install
 <li><p><a class="reference internal" href="docs/dataset.html"><span class="doc">Dataset</span></a> introduces how to utilize LPOT’s built-in dataset and how to develop a custom dataset.</p></li>
 <li><p><a class="reference internal" href="docs/metric.html"><span class="doc">Metric</span></a> introduces how to utilize LPOT’s built-in metrics and how to develop a custom metric.</p></li>
 <li><p><a class="reference internal" href="docs/tutorial.html"><span class="doc">Tutorial</span></a> provides comprehensive instructions on how to utilize LPOT’s features with examples.</p></li>
-<li><p><a class="reference external" href="https://github.com/deb-intel/LPOTtest/tree/f7b7524c733e581668d15192b69f9d9a7ca5222d/examples">Examples</a> are provided to demonstrate the usage of LPOT in different frameworks: TensorFlow, PyTorch, MXNet, and ONNX Runtime.</p></li>
+<li><p><a class="reference external" href="https://github.com/deb-intel/LPOTtest/tree/a683079bb935534f92af2ae8daeb58bdc824f734/examples">Examples</a> are provided to demonstrate the usage of LPOT in different frameworks: TensorFlow, PyTorch, MXNet, and ONNX Runtime.</p></li>
 <li><p><a class="reference internal" href="docs/ux.html"><span class="doc">UX</span></a> is a web-based system used to simplify LPOT usage.</p></li>
 <li><p><a class="reference external" href="https://software.intel.com/content/www/us/en/develop/documentation/get-started-with-ai-linux/top.html">Intel oneAPI AI Analytics Toolkit Get Started Guide</a> explains the AI Kit components, installation and configuration guides, and instructions for building and running sample apps.</p></li>
 <li><p><a class="reference external" href="https://github.com/oneapi-src/oneAPI-samples/tree/master/AI-and-Analytics">AI and Analytics Samples</a> includes code samples for Intel oneAPI libraries.</p></li>
@@ -352,17 +263,17 @@ python setup.py install
 <li><p><a class="reference internal" href="docs/adaptor.html"><span class="doc">Adaptor</span></a> is the interface between LPOT and framework. The method to develop adaptor extension is introduced with ONNX Runtime as example.</p></li>
 <li><p><a class="reference internal" href="docs/tuning_strategies.html"><span class="doc">Strategy</span></a> can automatically optimized low-precision recipes for deep learning models to achieve optimal product objectives like inference performance and memory usage with expected accuracy criteria. The method to develop a new strategy is introduced.</p></li>
 </ul>
-</div>
-<div class="section" id="system-requirements">
-<h2>System Requirements<a class="headerlink" href="#system-requirements" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="system-requirements">
+<h2>System Requirements<a class="headerlink" href="#system-requirements" title="Permalink to this headline"></a></h2>
 <p>Intel® Low Precision Optimization Tool supports systems based on <a class="reference external" href="https://en.wikipedia.org/wiki/X86-64">Intel 64 architecture or compatible processors</a>, specially optimized for the following CPUs:</p>
 <ul class="simple">
 <li><p>Intel Xeon Scalable processor (formerly Skylake, Cascade Lake, and Cooper Lake)</p></li>
 <li><p>future Intel Xeon Scalable processor (code name Sapphire Rapids)</p></li>
 </ul>
 <p>Intel® Low Precision Optimization Tool requires installing the pertinent Intel-optimized framework version for TensorFlow, PyTorch, and MXNet.</p>
-<div class="section" id="validated-hardware-software-environment">
-<h3>Validated Hardware/Software Environment<a class="headerlink" href="#validated-hardware-software-environment" title="Permalink to this headline">¶</a></h3>
+<section id="validated-hardware-software-environment">
+<h3>Validated Hardware/Software Environment<a class="headerlink" href="#validated-hardware-software-environment" title="Permalink to this headline"></a></h3>
 <table class="docutils">
 <thead>
   <tr>
@@ -421,9 +332,9 @@ python setup.py install
     <td class="tg-7zrl">1.6.0</td>
   </tr>
 </tbody>
-</table></div>
-<div class="section" id="validated-models">
-<h3>Validated Models<a class="headerlink" href="#validated-models" title="Permalink to this headline">¶</a></h3>
+</table></section>
+<section id="validated-models">
+<h3>Validated Models<a class="headerlink" href="#validated-models" title="Permalink to this headline"></a></h3>
 <p>Intel® Low Precision Optimization Tool provides numerous examples to show promising accuracy loss with the best performance gain. A full quantized model list on various frameworks is available in the <a class="reference internal" href="docs/full_model_list.html"><span class="doc">Model List</span></a>.</p>
 <table class="docutils">
 <thead>
@@ -683,10 +594,10 @@ python setup.py install
     <td>2.69x</td>
   </tr>
 </tbody>
-</table></div>
-</div>
-<div class="section" id="additional-content">
-<h2>Additional Content<a class="headerlink" href="#additional-content" title="Permalink to this headline">¶</a></h2>
+</table></section>
+</section>
+<section id="additional-content">
+<h2>Additional Content<a class="headerlink" href="#additional-content" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="releases_info.html"><span class="doc">Release Information</span></a></p></li>
 <li><p><a class="reference internal" href="contributions.html"><span class="doc">Contribution Guidelines</span></a></p></li>
@@ -694,55 +605,38 @@ python setup.py install
 <li><p><a class="reference internal" href="security_policy.html"><span class="doc">Security Policy</span></a></p></li>
 <li><p><a class="reference external" href="https://intel.github.io/lpot">Intel® LPOT Website</a></p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="docs/tutorial.html" class="btn btn-neutral float-right" title="Tutorial" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="index.html" class="btn btn-neutral float-left" title="Intel® Low Precision Optimization Tool Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="docs/tutorial.html" class="btn btn-neutral float-right" title="Tutorial" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2021, Intel® Low Precision Optimization Tool.
-
-    </p>
+    <p>&#169; Copyright 2021, Intel® Low Precision Optimization Tool.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

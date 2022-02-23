@@ -1,75 +1,38 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
   <title>Pruning &mdash; Intel® Low Precision Optimization Tool  documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Benchmarking" href="benchmark.html" />
     <link rel="prev" title="Dynamic Quantization" href="dynamic_quantization.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="../index.html" class="icon icon-home"> Intel® Low Precision Optimization Tool
-          
-
-          
           </a>
-
-          
-            
-            
               <div class="version">
                 1.3
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -77,18 +40,7 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../README.html">Introduction to Intel® LPOT</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
@@ -124,94 +76,52 @@
 <li class="toctree-l1"><a class="reference external" href="https://github.com/intel/lpot">Intel® LPOT repository</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Intel® Low Precision Optimization Tool</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-        
           <li><a href="doclist.html">Developer Documentation</a> &raquo;</li>
-        
       <li>Pruning</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="../_sources/docs/pruning.md.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="pruning">
-<h1>Pruning<a class="headerlink" href="#pruning" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+             
+  <section id="pruning">
+<h1>Pruning<a class="headerlink" href="#pruning" title="Permalink to this headline"></a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline"></a></h2>
 <p>Sparsity is a measure of how many percents of elements in a tensor are <a class="reference external" href="https://nervanasystems.github.io/distiller/pruning.html">exact zeros</a>. A tensor is considered sparse if most of its elements are zero. Only non-zero elements will be stored and computed so the inference process could be accelerated due to TOPS (teraoperations/second) and memory saved (acceleration needs sparse compute kernels which are a work in process).</p>
-<p>The <a href="https://en.wikipedia.org/wiki/Lp_space#When_p_=_0"><img src="http://latex.codecogs.com/svg.latex?\l_{1}&space;" title="http://latex.codecogs.com/svg.latex?\l_{1} " />-“norm” function</a> measures how many zero-elements are in a tensor <em>x</em>:
+<p>The <a href="https://en.wikipedia.org/wiki/Lp_space#When_p_=_0"><img src="http://latex.codecogs.com/svg.latex?\l_{1}&space;" title="http://latex.codecogs.com/svg.latex?\l_{1} " />-”norm” function</a> measures how many zero-elements are in a tensor <em>x</em>:
 <img src="http://latex.codecogs.com/svg.latex?\left|\left|&space;x\right|&space;\right|_{0}\doteq&space;\left|x_{1}&space;\right|^{0}&plus;&space;\left|x_{2}&space;\right|^{0}&plus;...&plus;\left|x_{n}&space;\right|^{0}&space;" title="http://latex.codecogs.com/svg.latex?\left|\left| x\right| \right|_{0}\doteq \left|x_{1} \right|^{0}+ \left|x_{2} \right|^{0}+...+\left|x_{n} \right|^{0} " />
 In other words, an element contributes either a value of 1 or 0 to (l_0).  Anything but an exact zero contributes a value of 1 - which is good. Sometimes it helps to think about density, the number of non-zero elements (NNZ) and sparsity’s complement:
 [
 density = 1 - sparsity
 ]
 A common method for introducing sparsity in weights and activations is called <strong>pruning</strong>. Pruning is the application of a binary criteria to decide which weights to prune: weights which match the pruning criteria are assigned a value of zero. Pruned elements are “trimmed” from the model: we replace their values with zero and also make sure they don’t take part in the back-propagation process.</p></p>
-</div>
-<div class="section" id="design">
-<h2>Design<a class="headerlink" href="#design" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="design">
+<h2>Design<a class="headerlink" href="#design" title="Permalink to this headline"></a></h2>
 <p>The pruning process is similar to quantization-aware training (QAT). Intel® Low Precision Optimization Tool will do related model transformation during training and retrain the model to meet the accuracy goal.</p>
 <p>We implemented two kinds of object: Pruner and PrunePolicy. First, we define a sparsity goal (model-wise or op-wise, depending on whether there are ops not suitable for pruning) and the way to reach the sparsity goal (usually we increase the sparsity target linearly as the epoches). The pruner is in singleton mode, and will update the sparsity goal and schedule all PrunePolicy during different phases of training.</p>
 <p>PrunePolicy carries different pruning algos. For example, MagnitudePrunePolicy sets thresholds of absolute value so that elements whose absolute value lower than the threshold will be zeroed. The zeroing process happens at the beginning and end of each minibatch iteration.</p>
-</div>
-<div class="section" id="usage">
-<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline"></a></h2>
 <p>Pruning configs need to be added into yaml as a pruning field. Global parameters contain <strong>start_epoch</strong> (on which epoch pruning begins), <strong>end_epoch</strong> (on which epoch pruning ends), <strong>init_sparsity</strong> (initial sparsity goal default 0), <strong>target_sparsity</strong> (target sparsity goal) and <strong>frequency</strong> (of updating sparsity). At least one pruner instance needs to be defined under specific algos (currently only magnitude supported). You can override all global params in a specific pruner using field names and specify which weight of model to be pruned. If no weight is specified, all weights of the model will be pruned.</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">pruning</span><span class="p">:</span>
   <span class="nt">magnitude</span><span class="p">:</span>
@@ -226,9 +136,9 @@ A common method for introducing sparsity in weights and activations is called <s
   <span class="nt">target_sparsity</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0.25</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="examples">
-<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline"></a></h2>
 <p>Users must pass a modified training function to Intel® Low Precision Optimization Tool. Take a typical PyTorch training function as example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">p_func</span><span class="p">(</span><span class="n">model</span><span class="p">):</span>
     <span class="c1"># from lpot.pruning import Pruner</span>
@@ -257,55 +167,38 @@ A common method for introducing sparsity in weights and activations is called <s
 <span class="n">q_model</span> <span class="o">=</span> <span class="n">prune</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="benchmark.html" class="btn btn-neutral float-right" title="Benchmarking" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="dynamic_quantization.html" class="btn btn-neutral float-left" title="Dynamic Quantization" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="benchmark.html" class="btn btn-neutral float-right" title="Benchmarking" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2021, Intel® Low Precision Optimization Tool.
-
-    </p>
+    <p>&#169; Copyright 2021, Intel® Low Precision Optimization Tool.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

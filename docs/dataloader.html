@@ -1,73 +1,36 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
   <title>DataLoader &mdash; Intel® Low Precision Optimization Tool  documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="../index.html" class="icon icon-home"> Intel® Low Precision Optimization Tool
-          
-
-          
           </a>
-
-          
-            
-            
               <div class="version">
                 1.3
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -75,18 +38,7 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../README.html">Introduction to Intel® LPOT</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
@@ -100,73 +52,32 @@
 <li class="toctree-l1"><a class="reference external" href="https://github.com/intel/lpot">Intel® LPOT repository</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Intel® Low Precision Optimization Tool</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-        
       <li>DataLoader</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="../_sources/docs/dataloader.md.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="dataloader">
-<h1>DataLoader<a class="headerlink" href="#dataloader" title="Permalink to this headline">¶</a></h1>
+             
+  <section id="dataloader">
+<h1>DataLoader<a class="headerlink" href="#dataloader" title="Permalink to this headline"></a></h1>
 <p>Deep Learning often encounters large datasets that are memory-consuming. Previously, working with large datasets required loading them into memory all at once. The constant lack of memory resulted in the need for an efficient data generation scheme. This is not only about handling the lack of memory in large datasets, but also about making the process of loading data faster using a multi-processing thread. We call the data generation object a DataLoader.</p>
 <p>With the importance of a dataloader, different frameworks can have their own DataLoadermodule. As for LPOT, it needs to calibrate the inputs/outputs of each layer of the model; the framework-specific dataloader has different features and APIs that will make it hard to use them same way in the tool. Another request is that the tool also treat batch size as a tuning parameter  which means the tool can dynamically change the batch size to get the accuracy target. The third reason is for ease of use; a unified DataLoader API can make it easy to config dataloader in a yaml file without any code modification. Considering about all these advantages, the tool has implemented an internal dataloader.</p>
 <p>The dataloader takes a dataset as the input parameter and loads data from the dataset when needed.</p>
@@ -179,11 +90,11 @@
 </ul>
 <p>A general transform can be used in both preprocessing and postprocessing; one can also implement a specific transform by inheriting from the Transform class by implementing the <code class="docutils literal notranslate"><span class="pre">__call__</span></code> method. Usually, a dataloader will use the transform for preprocessing and the postprocessing transform is used to give the right processed data to the metric to update. Transforms also compose together to be one and serially implement the transforms.</p>
 <p>Transform for preprocessing will be launched in the dataset <code class="docutils literal notranslate"><span class="pre">__getitem__</span></code> or <code class="docutils literal notranslate"><span class="pre">__next__</span></code> method; that means the transform is used after the dataloader has loaded batched data and before the data is given to the model for inference. That helps reduce the memory compared with load and process all data at once. Transform for postprocessing is used in evaluation function of the internal LPOT to process the inferenced data and the processed data is used by metric.</p>
-</div>
-<div class="section" id="how-to-use-it">
-<h1>How to use it<a class="headerlink" href="#how-to-use-it" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="config-dataloader-in-a-yaml-file">
-<h2>Config dataloader in a yaml file<a class="headerlink" href="#config-dataloader-in-a-yaml-file" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="how-to-use-it">
+<h1>How to use it<a class="headerlink" href="#how-to-use-it" title="Permalink to this headline"></a></h1>
+<section id="config-dataloader-in-a-yaml-file">
+<h2>Config dataloader in a yaml file<a class="headerlink" href="#config-dataloader-in-a-yaml-file" title="Permalink to this headline"></a></h2>
 <p>In this case, the dataloader is created after the Quantization object is initialized. As calibrations and evaluations may have different transforms and datasets, you can config different dataloaders in a yaml file.</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">quantization</span><span class="p">:</span>                                        <span class="c1"># optional. tuning constraints on model-wise for advance user to reduce tuning space.</span>
   <span class="nt">calibration</span><span class="p">:</span>
@@ -239,9 +150,9 @@
           <span class="nt">std</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">0.229</span><span class="p p-Indicator">,</span> <span class="nv">0.224</span><span class="p p-Indicator">,</span> <span class="nv">0.225</span><span class="p p-Indicator">]</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="create-a-user-specific-dataloader">
-<h2>Create a user-specific dataloader<a class="headerlink" href="#create-a-user-specific-dataloader" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="create-a-user-specific-dataloader">
+<h2>Create a user-specific dataloader<a class="headerlink" href="#create-a-user-specific-dataloader" title="Permalink to this headline"></a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">calib_data</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">ImageRecordIter</span><span class="p">(</span><span class="n">path_imgrec</span><span class="o">=</span><span class="n">dataset</span><span class="p">,</span>
                                    <span class="n">label_width</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
                                    <span class="n">preprocess_threads</span><span class="o">=</span><span class="n">data_nthreads</span><span class="p">,</span>
@@ -265,51 +176,35 @@
 <span class="n">q_model</span> <span class="o">=</span> <span class="n">quantizer</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
           <footer>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2021, Intel® Low Precision Optimization Tool.
-
-    </p>
+    <p>&#169; Copyright 2021, Intel® Low Precision Optimization Tool.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>
