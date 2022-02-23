@@ -125,7 +125,7 @@ tuning phase stops when the <code class="docutils literal notranslate"><span cla
 </section>
 <section id="configurations">
 <h2>Configurations<a class="headerlink" href="#configurations" title="Permalink to this headline"></a></h2>
-<p>Detailed configuration templates can be found <a class="reference external" href="https://github.com/deb-intel/LPOTtest/tree/a683079bb935534f92af2ae8daeb58bdc824f734/docs/../lpot/template">here</a>.</p>
+<p>Detailed configuration templates can be found <a class="reference external" href="https://github.com/deb-intel/LPOTtest/tree/c521decf54ca89a64755db657d23cf160555f706/docs/../lpot/template">here</a>.</p>
 <section id="model-specific-configurations">
 <h3>Model-specific configurations<a class="headerlink" href="#model-specific-configurations" title="Permalink to this headline"></a></h3>
 <p>For model-specific configurations, users can set the quantization approach.
@@ -414,7 +414,7 @@ and registering this strategy by <code class="docutils literal notranslate"><spa
 <p>The <code class="docutils literal notranslate"><span class="pre">next_tune_cfg</span></code> function is used to yield the next tune configuration according to some algorithm or strategy. <code class="docutils literal notranslate"><span class="pre">TuneStrategy</span></code> base class will traverse
 all the tuning space till a quantization configuration meets pre-defined accuracy criterion.</p>
 <p>If the traverse behavior of <code class="docutils literal notranslate"><span class="pre">TuneStrategy</span></code> base class does not meet new strategy requirement, it could re-implement <code class="docutils literal notranslate"><span class="pre">traverse</span></code> function with self own logic.
-An example like this is under <a class="reference external" href="https://github.com/deb-intel/LPOTtest/blob/a683079bb935534f92af2ae8daeb58bdc824f734/docs/../lpot/strategy/strategy.py">TPE Strategy</a>.</p>
+An example like this is under <a class="reference external" href="https://github.com/deb-intel/LPOTtest/blob/c521decf54ca89a64755db657d23cf160555f706/docs/../lpot/strategy/strategy.py">TPE Strategy</a>.</p>
 </section>
 </section>
 
