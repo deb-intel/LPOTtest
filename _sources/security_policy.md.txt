@@ -5,8 +5,6 @@ Security Policy
 
 Report security issues or vulnerabilities to the [Intel® Security Center].
 
-Test
-
 For more information on how Intel® works to resolve security issues, see
 [Vulnerability Handling Guidelines].
 

@@ -161,10 +161,10 @@ the <code class="docutils literal notranslate"><span class="pre">lpot.experiment
 <p>The <code class="docutils literal notranslate"><span class="pre">conf_fname</span></code> parameter used in the class initialization is the path to the user yaml configuration file. This yaml file is used to control the entire tuning behavior on the model.</p>
 <p><strong>LPOT User YAML Syntax</strong></p>
 <blockquote>
-<div><p>Intel® Low Precision Optimization Tool provides template yaml files for <a class="reference external" href="https://github.com/deb-intel/LPOTtest/blob/c521decf54ca89a64755db657d23cf160555f706/docs/../lpot/template/ptq.yaml">Post-Training Quantization</a>, <a class="reference external" href="https://github.com/deb-intel/LPOTtest/blob/c521decf54ca89a64755db657d23cf160555f706/docs/../lpot/template/qat.yaml">Quantization-Aware Training</a>, and <a class="reference external" href="https://github.com/deb-intel/LPOTtest/blob/c521decf54ca89a64755db657d23cf160555f706/docs/../lpot/template/pruning.yaml">Pruning</a> scenarios. Refer to these template files to understand the meaning of each field.</p>
+<div><p>Intel® Low Precision Optimization Tool provides template yaml files for <a class="reference external" href="https://github.com/deb-intel/LPOTtest/blob/1a51eb9b33f72feca687e2d7b5f2819a3131d29c/docs/../lpot/template/ptq.yaml">Post-Training Quantization</a>, <a class="reference external" href="https://github.com/deb-intel/LPOTtest/blob/1a51eb9b33f72feca687e2d7b5f2819a3131d29c/docs/../lpot/template/qat.yaml">Quantization-Aware Training</a>, and <a class="reference external" href="https://github.com/deb-intel/LPOTtest/blob/1a51eb9b33f72feca687e2d7b5f2819a3131d29c/docs/../lpot/template/pruning.yaml">Pruning</a> scenarios. Refer to these template files to understand the meaning of each field.</p>
 </div></blockquote>
 <blockquote>
-<div><p>Note that most fields in the yaml templates are optional. View the <a class="reference external" href="https://github.com/deb-intel/LPOTtest/blob/c521decf54ca89a64755db657d23cf160555f706/docs/../examples/helloworld/tf_example2/conf.yaml">HelloWorld Yaml</a> example for reference.</p>
+<div><p>Note that most fields in the yaml templates are optional. View the <a class="reference external" href="https://github.com/deb-intel/LPOTtest/blob/1a51eb9b33f72feca687e2d7b5f2819a3131d29c/docs/../examples/helloworld/tf_example2/conf.yaml">HelloWorld Yaml</a> example for reference.</p>
 </div></blockquote>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Typical Launcher code</span>
 <span class="kn">from</span> <span class="nn">lpot.experimental</span> <span class="kn">import</span> <span class="n">Quantization</span><span class="p">,</span> <span class="n">common</span>
@@ -283,7 +283,7 @@ the <code class="docutils literal notranslate"><span class="pre">lpot.experiment
 <section id="default-user-facing-apis">
 <h2>Default user-facing APIs<a class="headerlink" href="#default-user-facing-apis" title="Permalink to this headline"></a></h2>
 <p>The default user-facing APIs exist for backwards compatiblity from the v1.0 release. Refer to <a class="reference external" href="https://github.com/intel/lpot/blob/v1.1/docs/introduction.md">v1.1 API</a> to understand how the default user-facing APIs work.</p>
-<p>View the <a class="reference external" href="https://github.com/deb-intel/LPOTtest/tree/c521decf54ca89a64755db657d23cf160555f706/examples/helloworld/tf_example6">HelloWorld example</a> that uses default user-facing APIs for user reference.</p>
+<p>View the <a class="reference external" href="https://github.com/deb-intel/LPOTtest/tree/1a51eb9b33f72feca687e2d7b5f2819a3131d29c/examples/helloworld/tf_example6">HelloWorld example</a> that uses default user-facing APIs for user reference.</p>
 <p>Full examples using default user-facing APIs can be found <a class="reference external" href="https://github.com/intel/lpot/tree/v1.1/examples">here</a>.</p>
 </section>
 </section>
